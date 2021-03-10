@@ -16,10 +16,12 @@ git clone https://github.com/Joao-Parente/LEI.git
 
 ## RUN
 
-###First time:```sh
+### First time:
+```sh
 src/odoo/odoo-bin -d odoov2  --db-filter=odoov2$ --stop-after-init --save -c ./config.cfg --addons-path=src/odoo/odoo/addons,src/odoo/addons,local --data-dir filestore
 ```
-###After:```sh
+### After:
+```sh
 src/odoo/odoo-bin -c config.cfg```
 Nota: Substituir odoov2 pela db desejada.
 ```

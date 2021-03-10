@@ -22,8 +22,10 @@ src/odoo/odoo-bin -d odoov2  --db-filter=odoov2$ --stop-after-init --save -c ./c
 ```
 ### After:
 ```sh
-src/odoo/odoo-bin -c config.cfg```
-Nota: Substituir odoov2 pela db desejada.
+src/odoo/odoo-bin -c config.cfg
 ```
+
+Nota: Substituir odoov2 pela db desejada.
+
 
 

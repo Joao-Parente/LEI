@@ -1,0 +1,6 @@
+#first run  
+
+src/odoo/odoo-bin -d odoov2  --db-filter=odoov2$ --stop-after-init --save -c ./config.cfg --addons-path=src/odoo/odoo/addons,src/odoo/addons,local --data-dir filestore
+
+# after
+src/odoo/odoo-bin -c config.cfg

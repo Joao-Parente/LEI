@@ -5,8 +5,8 @@
 ## Install
 
 ```sh
-mkdir $nome_projeto
-cd $nome_projeto
+mkdir nome_projeto
+cd nome_projeto
 mkdir src local  filestore logs
 git clone -b 14.0 --single-branch --depth 1 https://github.com/odoo/odoo.git src/odoo
 env/bin/pip3 install -r src/odoo/requirements.txt
@@ -25,7 +25,7 @@ src/odoo/odoo-bin -d odoov2  --db-filter=odoov2$ --stop-after-init --save -c ./c
 src/odoo/odoo-bin -c config.cfg
 ```
 
-Nota: Substituir odoov2 pela db desejada.
+Nota: Substituir odoov2 pela db desejada e nome_projeto também.
 
 
 

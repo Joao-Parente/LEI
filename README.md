@@ -14,7 +14,7 @@ git clone https://github.com/Joao-Parente/LEI.git
 
 ```
 
-## RUN
+## Run
 
 ### First time:
 ```sh

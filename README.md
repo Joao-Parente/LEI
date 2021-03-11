@@ -7,11 +7,12 @@
 ```sh
 mkdir nome_projeto
 cd nome_projeto
+git clone https://github.com/Joao-Parente/LEI.git 
 mkdir src local  filestore logs
 git clone -b 14.0 --single-branch --depth 1 https://github.com/odoo/odoo.git src/odoo
 python3 -m venv env
 env/bin/pip3 install -r src/odoo/requirements.txt
-git clone https://github.com/Joao-Parente/LEI.git 
+
 
 ```
 

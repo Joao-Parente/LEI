@@ -3,6 +3,7 @@
 #.gitignore
 # python compiled files
 *.py[co]
+config.cfg
 # emacs backup files
 *~
 # not tracked subdirectories

@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
 
-from . import models
+#from . import curso
+#from . import direcao_curso
 from . import library_book

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+	<!-- <record id="view_form_direcao_curso" model="ir.ui.view">
+		<field name="name">Direcao Curso Form</field>
+		<field name="model">transum.direcao_curso</field>
+		<field name="arch" type="xml">
+			<form>
+				<sheet>
+					<field name="codigo" />
+					<field name="curso_id" string="Curso" />				
+				</sheet>
+			</form>
+		</field>
+	</record>
+
+	<record id="view_tree_direcao_curso" model="ir.ui.view">
+		<field name="name">Lista de Direcoes Curso</field>
+		<field name="model">transum.direcao_curso</field>
+		<field name="arch" type="xml">
+			<tree>
+				<field name="codigo" />
+				<field name="curso_id" string="Curso" />
+			</tree>
+		</field>
+	</record> -->
+</odoo>    

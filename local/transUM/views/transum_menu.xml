@@ -2,16 +2,16 @@
 <odoo>
     <menuitem id="menu_transum" name="TransUM" />
 
+    <act_window id="action_aluno" name="Alunos" res_model="transum.aluno" view_mode="tree,form"/>
+	<menuitem id="menu_aluno" name="Alunos" parent="menu_transum" action="action_aluno"/>
+
     <act_window id="action_curso" name="Cursos" res_model="transum.curso" view_mode="tree,form"/>
 	<menuitem id="menu_curso" name="Cursos" parent="menu_transum" action="action_curso"/>
 
     <act_window id="action_direcoes_curso" name="DirecoesCurso" res_model="transum.direcao_curso" view_mode="tree,form" />
 	<menuitem id="menu_direcoes_curso" name="DirecoesCurso" parent="menu_transum" action="action_direcoes_curso"/>
 
+    <act_window id="action_docentes" name="Docentes" res_model="transum.docente" view_mode="tree,form" />
+	<menuitem id="menu_docentes" name="Docentes" parent="menu_transum" action="action_docentes"/>
 
-    <!-- <act_window id="action_curso" name="Cursos" res_model="transum.curso" view_mode="tree,form"/>
-	<menuitem id="menu_curso" name="Cursos" parent="menu_transum" action="action_curso"/> -->
-
-    <!-- <act_window id="action_direcoes_curso" name="DirecoesCurso" res_model="transum.curso" view_mode="tree,form" />
-	<menuitem id="menu_direcoes_curso" name="DirecoesCurso" parent="menu_transum" action="action_direcoes_curso"/> -->
 </odoo>

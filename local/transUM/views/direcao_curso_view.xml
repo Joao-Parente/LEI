@@ -15,6 +15,12 @@
 					<group name="group_top">
 						<field name="codigo" />
 						<field name="curso_id" string="Curso" />
+						<field name="docentes">
+                            <tree delete="true">
+                                <field name="name"/>
+                                <field name="nr_mecanografico"/>
+                            </tree>
+                        </field>
 						<field name="active" />
 					</group>
 				</sheet>

@@ -8,5 +8,5 @@ class Direcao_Curso(models.Model):
     active = fields.Boolean('Active?', default=True)
 
     codigo = fields.Char('Código')
-    #docentes = fields.Many2many('planum.docente', string='Docentes')
+    docentes = fields.Many2many('transum.docente', string='Docentes')
     curso_id = fields.Many2one('transum.curso', 'Curso ID')

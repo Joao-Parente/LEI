@@ -21,6 +21,7 @@
                     </group>
                     <group>
                         <field name="tipo"/>
+                        <field name="direcao_curso"/>
                     </group>
                 </group>
             </form>

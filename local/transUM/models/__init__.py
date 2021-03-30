@@ -2,4 +2,5 @@
 
 from . import curso
 from . import direcao_curso
-#from . import library_book
+from . import docente
+from . import aluno

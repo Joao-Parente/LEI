@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+	<record id="view_form_plano_curso" model="ir.ui.view">
+		<field name="name">Plano de Curso Form</field>
+		<field name="model">transum.plano_curso</field>
+		<field name="arch" type="xml">
+			<form>
+				<header>
+					<!-- Buttons will go here -->
+					<!--<button name="button_check_isbn" type="object"
+						string="Check ISBN" /> -->
+				</header>
+				<sheet>
+					<!-- Content goes here: -->
+					<group name="group_top">
+						<field name="codigo" />
+						<field name="curso_id" />
+						<field name="ucs" widget='many2many'/>
+					</group>
+				</sheet>
+			</form>
+		</field>
+	</record>
+	<record id="view_tree_plano_curso" model="ir.ui.view">
+		<field name="name">Lista de Planos de Curso</field>
+		<field name="model">transum.plano_curso</field>
+		<field name="arch" type="xml">
+			<tree>
+				<field name="codigo"/>
+				<field name="curso_id" />      
+			</tree>
+		</field>
+	</record>	
+	<record id="view_search_plano_curso" model="ir.ui.view">
+		<field name="name">Filtros do Plano Curso</field>
+		<field name="model">transum.plano_curso</field>
+		<field name="arch" type="xml">
+			<search>
+              <field name="codigo" string="Código"
+                  filter_domain="[('codigo','ilike',self)]"/>
+            </search>
+		</field>
+	</record>
+</odoo>

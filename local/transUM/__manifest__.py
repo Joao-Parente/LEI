@@ -9,6 +9,12 @@
             "views/direcao_curso_view.xml",   
             "views/docente_view.xml",  
             "views/aluno_view.xml",  
+            "views/uc_view.xml",  
+            "views/plano_curso_view.xml", 
+            "views/plano_estudos_uc_view.xml", 
+            "views/plano_estudos_view.xml", 
+            "views/plano_transicao_uc_view.xml", 
+            "views/plano_transicao_view.xml", 
             "views/transum_menu.xml",
                  
     ],

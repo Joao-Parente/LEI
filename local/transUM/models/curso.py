@@ -8,3 +8,4 @@ class Curso(models.Model):
     departamento = fields.Char('Departamento')
     tipo = fields.Selection([('1','Licenciatura'),('2','Mestrado Integrado'),('3','Mestrado')], default=1)
     direcao_curso = fields.One2many('transum.direcao_curso', 'curso_id', 'Direção de Curso')
+    plano_curso = fields.One2many('transum.plano_curso', 'curso_id', 'Plano de Curso')

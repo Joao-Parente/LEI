@@ -14,4 +14,16 @@
     <act_window id="action_docentes" name="Docentes" res_model="transum.docente" view_mode="tree,form" />
 	<menuitem id="menu_docentes" name="Docentes" parent="menu_transum" action="action_docentes"/>
 
+    <act_window id="action_ucs" name="UCs" res_model="transum.uc" view_mode="tree,form" />
+	<menuitem id="menu_ucs" name="UCs" parent="menu_transum" action="action_ucs"/>
+
+    <act_window id="action_plano_curso" name="Planos de Curso" res_model="transum.plano_curso" view_mode="tree,form" />
+	<menuitem id="menu_plano_curso" name="Planos de Curso" parent="menu_transum" action="action_plano_curso"/>
+
+    <act_window id="action_plano_estudos" name="Planos de Estudos" res_model="transum.plano_estudos" view_mode="tree,form" />
+	<menuitem id="menu_plano_estudos" name="Planos de Estudos" parent="menu_transum" action="action_plano_estudos"/>
+
+    <act_window id="action_plano_transicao" name="Planos de Transicao" res_model="transum.plano_transicao" view_mode="tree,form" />
+	<menuitem id="menu_plano_transicao" name="Plano de Transicao" parent="menu_transum" action="action_plano_transicao"/>
+
 </odoo>

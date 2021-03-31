@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+	<record id="view_form_plano_transicao" model="ir.ui.view">
+		<field name="name">Plano de Transicao Form</field>
+		<field name="model">transum.plano_transicao</field>
+		<field name="arch" type="xml">
+			<form>
+				<header>
+					<!-- Buttons will go here -->
+					<!--<button name="button_check_isbn" type="object"
+						string="Check ISBN" /> -->
+				</header>
+				<sheet>
+					<!-- Content goes here: -->
+					<group name="group_top">
+						<field name="designacao" />
+						<field name="transicao_ucs" />
+					</group>
+				</sheet>
+			</form>
+		</field>
+	</record>
+	<record id="view_tree_plano_transicao" model="ir.ui.view">
+		<field name="name">Lista de Plano de Transicao</field>
+		<field name="model">transum.plano_transicao</field>
+		<field name="arch" type="xml">
+			<tree>
+				<field name="designacao" />     
+			</tree>
+		</field>
+	</record>	
+</odoo>

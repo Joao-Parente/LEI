@@ -1,129 +1,39 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
-	<!-- Form Perfil -->
-	<record id="view_form_perfil" model="ir.ui.view">
-		<field name="name">Perfil Form</field>
-		<field name="model">transum.aluno</field>
-		<field name="arch" type="xml">
-			<form>
-				<sheet>
-					<!-- Content goes here: -->
-					<group name="group_top">
-						<notebook>
-							<page string="Perfil">
-								<group>
-									<field name="name" readonly="1"/>
-									<field name="nr_mecanografico" readonly="1"/>
-									<field name="email" readonly="1"/>
-									<!-- field name="media_acesso" readonly="1"/> -->
-									<field name="estatuto" widget="radio" readonly="1"/>
-									<field name="curso_id" string="Curso" readonly="1"/>
-									<field name="ano" widget="radio" readonly="1"/>
-								</group>
-							</page>
-							<!-- <page string="Plano de Estudos">
-								<group>
-									<field name="media_parcial" readonly="1"/>
-									<field name="media_licenciatura" readonly="1"/>
-								</group>
-								<field name="ucs_plano_estudos" string="">
-									<tree default_order="ano,semestre,designacao">
-										<field name="designacao" readonly="1"/>
-										<field name="nota" readonly="1"/>
-										<field name="ano_conclusao" readonly="1"/>
-										<field name="fator" readonly="1"/>
-										<field name="ano" readonly="1"/>
-										<field name="semestre" readonly="1"/>
-										<field name="ects" readonly="1"/>
-										<field name="obrigatoria" readonly="1"/>
-									</tree>
-								</field>
-							</page>
-							<page string="Última Inscrição">
-								<field name="ultima_inscricao" string="">
-									<tree default_order="ano,semestre,designacao">
-										<field name="designacao" readonly="1"/>
-										<field name="ano" readonly="1"/>
-										<field name="semestre" readonly="1"/>
-									</tree>
-								</field>
-							</page> -->
-						</notebook>
-					</group>
-				</sheet>
-			</form>
-		</field>
-	</record>
-	<!-- Form -->
+
 	<record id="view_form_aluno" model="ir.ui.view">
 		<field name="name">Aluno Form</field>
 		<field name="model">transum.aluno</field>
 		<field name="arch" type="xml">
 			<form>
-				<header>
-					<!-- <button name="desativar" type="object" string="Desativar" attrs="{'invisible':[('active','=',False)]}" groups="planum.planum_group_direcao_curso" class="oe_highlight" />
-					<button name="ativar" type="object" string="Ativar" attrs="{'invisible':[('active','=',True)]}" groups="planum.planum_group_direcao_curso" class="oe_highlight" /> -->
-				</header>
 				<sheet>
 					<!-- Content goes here: -->
-					<group name="group_top">
-						<group name="group_left">
-							<field name="name" />
-							<field name="nr_mecanografico" />
-							<field name="email" />
-							<!-- <field name="media_acesso" /> -->
-							<field name="estatuto" widget="radio" />
-							<field name="active"/>
-						</group>
-						<group name="group_right">
-							<field name="curso_id" string="Curso"/>
-							<field name="ano" widget="radio"/>
-						</group>
-					</group>
-				</sheet>
-			</form>
-		</field>
-	</record>
-	<!-- Perfil DC -->
-	<record id="view_form_aluno_dc" model="ir.ui.view">
-		<field name="name">Aluno Form DC</field>
-		<field name="model">transum.aluno</field>
-		<field name="arch" type="xml">
-			<form>
-				<header>
-					<!-- <button name="desativar" type="object" string="Desativar" attrs="{'invisible':[('active','=',False)]}" groups="planum.planum_group_direcao_curso" class="oe_highlight" />
-					<button name="ativar" type="object" string="Ativar" attrs="{'invisible':[('active','=',True)]}" groups="planum.planum_group_direcao_curso" class="oe_highlight" /> -->
-				</header>
-				<sheet>
 					<group name="group_top">
 						<notebook>
 							<page string="Perfil">
 								<group>
-									<field name="name" readonly="1"/>
+									<field name="name" />
 									<field name="nr_mecanografico" />
-									<field name="email" readonly="1"/>
-									<!-- <field name="media_acesso" /> -->
-									<field name="estatuto" widget="radio" />
-									<field name="curso_id" string="Curso"/>
-									<field name="ano" widget='radio' readonly="1"/>
-									<field name="active" />
+									<field name="email" />
+									<!-- field name="media_acesso" readonly="1"/> -->
+									<field name="estatuto" />
+									<field name="curso_id" string="Curso" />
+									<field name="ano" />
 								</group>
 							</page>
-							<!-- <page string="Última Inscrição">
-								<field name="ultima_inscricao" string="">
-									<tree default_order="ano,semestre,designacao">
-										<field name="designacao" readonly="1"/>
-										<field name="ano" readonly="1"/>
-										<field name="semestre" readonly="1"/>
-									</tree>
-								</field>
-							</page> -->
+							<page string="Plano de Estudos">
+								<group>
+									<field name="planos_atuais" />
+									<field name="plano_historico" readonly="1"/>
+								</group>
+							</page>
 						</notebook>
 					</group>
 				</sheet>
 			</form>
 		</field>
 	</record>
+
 	<!-- Tree -->
 	<record id="view_tree_aluno" model="ir.ui.view">
 		<field name="name">Lista de Alunos</field>

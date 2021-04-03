@@ -10,3 +10,4 @@ from . import plano_estudos_uc
 from . import plano_estudos
 from . import plano_transicao
 from . import plano_transicao_uc
+from . import administrador

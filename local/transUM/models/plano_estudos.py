@@ -11,3 +11,4 @@ class Plano_Estudos(models.Model):
     nota_uc = fields.One2many('transum.plano_estudos_uc','plano_estudos', string='Unidades Curriculares')
     aluno_associado = fields.Many2one('transum.aluno','Aluno Associado')
     historico_aluno_associado = fields.Many2one('transum.aluno','Histórico Aluno Associado')
+    dc_associada = fields.Many2one('transum.direcao_curso','Direção de Curso Associada')

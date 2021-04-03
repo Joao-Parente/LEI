@@ -8,14 +8,14 @@
     <act_window id="action_curso" name="Cursos" res_model="transum.curso" view_mode="tree,form"/>
 	<menuitem id="menu_curso" name="Cursos" parent="menu_transum" action="action_curso"/>
 
-    <act_window id="action_direcoes_curso" name="DirecoesCurso" res_model="transum.direcao_curso" view_mode="tree,form" />
-	<menuitem id="menu_direcoes_curso" name="DirecoesCurso" parent="menu_transum" action="action_direcoes_curso"/>
+    <act_window id="action_direcoes_curso" name="Direções de Curso" res_model="transum.direcao_curso" view_mode="tree,form" />
+	<menuitem id="menu_direcoes_curso" name="Direções de Curso" parent="menu_transum" action="action_direcoes_curso"/>
 
     <act_window id="action_docentes" name="Docentes" res_model="transum.docente" view_mode="tree,form" />
 	<menuitem id="menu_docentes" name="Docentes" parent="menu_transum" action="action_docentes"/>
 
-    <act_window id="action_ucs" name="UCs" res_model="transum.uc" view_mode="tree,form" />
-	<menuitem id="menu_ucs" name="UCs" parent="menu_transum" action="action_ucs"/>
+    <act_window id="action_ucs" name="Unidades Curriculares" res_model="transum.uc" view_mode="tree,form" />
+	<menuitem id="menu_ucs" name="Unidades Curriculares" parent="menu_transum" action="action_ucs"/>
 
     <act_window id="action_plano_curso" name="Planos de Curso" res_model="transum.plano_curso" view_mode="tree,form" />
 	<menuitem id="menu_plano_curso" name="Planos de Curso" parent="menu_transum" action="action_plano_curso"/>
@@ -25,5 +25,8 @@
 
     <act_window id="action_plano_transicao" name="Planos de Transicao" res_model="transum.plano_transicao" view_mode="tree,form" />
 	<menuitem id="menu_plano_transicao" name="Plano de Transicao" parent="menu_transum" action="action_plano_transicao"/>
+
+    <act_window id="action_administrador" name="Administradores" res_model="transum.administrador" view_mode="tree,form" />
+	<menuitem id="menu_administrador" name="Administradores" parent="menu_transum" action="action_administrador"/>
 
 </odoo>

@@ -16,6 +16,7 @@
 						<field name="codigo" />
 						<field name="nota_uc" />
 						<field name="aluno_associado" />
+						<field name="dc_associada" />
 					</group>
 				</sheet>
 			</form>

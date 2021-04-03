@@ -10,3 +10,4 @@ class Direcao_Curso(models.Model):
     codigo = fields.Char('Código')
     docentes = fields.Many2many('transum.docente', string='Docentes')
     curso_id = fields.Many2one('transum.curso', 'Curso ID')
+    planos_estudo = fields.One2many('transum.plano_estudos','dc_associada','Planos de Estudos do Curso')

@@ -16,6 +16,7 @@
             "views/plano_transicao_uc_view.xml", 
             "views/plano_transicao_view.xml", 
             "views/administrador_view.xml", 
+            "views/proposta_novo_plano_view.xml",
             "views/transum_menu.xml",
                  
     ],

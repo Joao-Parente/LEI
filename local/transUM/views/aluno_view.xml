@@ -19,6 +19,7 @@
 									<field name="estatuto" />
 									<field name="curso_id" string="Curso" />
 									<field name="ano" />
+									<field name="proposta_plano_aluno" />
 								</group>
 							</page>
 							<page string="Plano de Estudos">

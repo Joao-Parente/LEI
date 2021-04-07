@@ -5,9 +5,6 @@ class Plano_Transicao_UC(models.Model):
     _description = 'Plano de Transicao UC'
     active = fields.Boolean('Active?', default=True)
 
-    #Many2Many não funciona para ambas ao mesmo tempo, usou-se one2many aqui e many2one na uc
-    #Só que isso quer dizer que varias ucs só podem estar num plano de transição
-    #Se tivermos cursos que reutilizem ucs dá mal
     uc_antiga = fields.One2many('transum.uc','uc_antiga_transicao',string='Unidade Curricular Antiga')
     uc_nova = fields.One2many('transum.uc','uc_nova_transicao',string='Unidade Curricular Nova')
     

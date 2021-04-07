@@ -23,7 +23,7 @@
                         <field name="semestre" />
                         <field name="uc_opcao" attrs="{'invisible':[('obrigatoria','=',True)]}"/>
                         <field name="uc_principal" attrs="{'invisible':[('tem_opcao','=',False)]}"/>
-						<field name="plano_curso" widget='many2many'/>
+						<!-- <field name="plano_curso" widget='many2many'/> -->
 					</group>
 				</sheet>
 			</form>
@@ -35,10 +35,8 @@
 		<field name="arch" type="xml">
 			<tree>
 				<field name="codigo"/>
-				<field name="designacao" />
-                <field name="ano" />   
-                <field name="semestre" />    
-                <field name="ects" />        
+                <field name="designacao" />   
+                <field name="ects" />       
 			</tree>
 		</field>
 	</record>	

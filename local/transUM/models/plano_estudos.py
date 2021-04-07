@@ -12,3 +12,5 @@ class Plano_Estudos(models.Model):
     aluno_associado = fields.Many2one('transum.aluno','Aluno Associado')
     historico_aluno_associado = fields.Many2one('transum.aluno','Histórico Aluno Associado')
     dc_associada = fields.Many2one('transum.direcao_curso','Direção de Curso Associada')
+    proposta_antiga = fields.One2many('transum.proposta_novo_plano','plano_antigo','Plano de Estudos Antigo')
+    proposta_nova = fields.Many2one('transum.proposta_novo_plano','Propostas Novos Planos Novas')

@@ -11,3 +11,4 @@ from . import plano_estudos
 from . import plano_transicao
 from . import plano_transicao_uc
 from . import administrador
+from . import proposta_novo_plano

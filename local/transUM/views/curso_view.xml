@@ -20,6 +20,7 @@
                         <field name="departamento"/>
                     </group>
                     <group>
+                        <!-- ADICIONAR OS ALUNOS DE UM CURSO-->
                         <field name="tipo"/>
                         <field name="direcao_curso"/>
                     </group>

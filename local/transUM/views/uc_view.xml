@@ -1,55 +1,56 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
+	<!-- Form -->
 	<record id="view_form_uc" model="ir.ui.view">
 		<field name="name">UC Form</field>
 		<field name="model">transum.uc</field>
 		<field name="arch" type="xml">
 			<form>
 				<header>
-					<!-- Buttons will go here -->
-					<!--<button name="button_check_isbn" type="object"
-						string="Check ISBN" /> -->
 				</header>
 				<sheet>
-					<!-- Content goes here: -->
 					<group name="group_top">
+						<field name="active" />
 						<field name="codigo" />
 						<field name="designacao" />
 						<field name="ects" />
+						<field name="ano" />
+						<field name="semestre" />
 						<field name="obrigatoria" />
-                        <field name="tem_opcao" />
-						<field name="active" />
-                        <field name="ano" />
-                        <field name="semestre" />
-                        <field name="uc_opcao" attrs="{'invisible':[('obrigatoria','=',True)]}"/>
-                        <field name="uc_principal" attrs="{'invisible':[('tem_opcao','=',False)]}"/>
-						<!-- <field name="plano_curso" widget='many2many'/> -->
+						<field name="tem_opcao" />
+						<field name="uc_opcao" attrs="{'invisible':[('obrigatoria','=',True)]}"/>
+						<field name="uc_principal" attrs="{'invisible':[('tem_opcao','=',False)]}"/>						
 					</group>
 				</sheet>
 			</form>
 		</field>
 	</record>
+
+	<!-- Tree -->
 	<record id="view_tree_uc" model="ir.ui.view">
 		<field name="name">Lista de UCs</field>
 		<field name="model">transum.uc</field>
 		<field name="arch" type="xml">
 			<tree>
 				<field name="codigo"/>
-                <field name="designacao" />   
-                <field name="ects" />       
+				<field name="designacao" />
+				<field name="ano" />
+				<field name="semestre" />
 			</tree>
 		</field>
-	</record>	
+	</record>
+
+	<!-- Search -->
 	<record id="view_search_uc" model="ir.ui.view">
 		<field name="name">Filtros da UC</field>
 		<field name="model">transum.uc</field>
 		<field name="arch" type="xml">
 			<search>
-              <field name="codigo" string="Código"
-                  filter_domain="[('codigo','ilike',self)]"/>
-              <field name="designacao" string="Designação"
-                  filter_domain="[('designacao','ilike',self)]"/>
-            </search>
+				<field name="codigo" string="Código" filter_domain="[('codigo','ilike',self)]"/>
+				<field name="designacao" string="Designação" filter_domain="[('designacao','ilike',self)]"/>
+				<field name="ano" string="Ano" filter_domain="[('ano','ilike',self)]"/>
+				<field name="semestre" string="Semestre" filter_domain="[('semestre','ilike',self)]"/>
+			</search>
 		</field>
 	</record>
 </odoo>

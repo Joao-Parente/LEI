@@ -1,17 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
+	<!-- Form -->
 	<record id="view_form_plano_estudos_uc" model="ir.ui.view">
 		<field name="name">Plano de Estudos UC Form</field>
 		<field name="model">transum.plano_estudos_uc</field>
 		<field name="arch" type="xml">
 			<form>
 				<header>
-					<!-- Buttons will go here -->
-					<!--<button name="button_check_isbn" type="object"
-						string="Check ISBN" /> -->
 				</header>
 				<sheet>
-					<!-- Content goes here: -->
 					<group name="group_top">
 						<field name="uc" />
 						<field name="creditacao" />
@@ -21,6 +18,8 @@
 			</form>
 		</field>
 	</record>
+	
+	<!-- Tree -->
 	<record id="view_tree_uc" model="ir.ui.view">
 		<field name="name">Lista de Plano de Estudos UC</field>
 		<field name="model">transum.plano_estudos_uc</field>
@@ -28,8 +27,8 @@
 			<tree>
 				<field name="uc" />
 				<field name="creditacao" />
-				<field name="nota" />        
+				<field name="nota" />
 			</tree>
 		</field>
-	</record>	
+	</record>
 </odoo>

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
-
+	<!-- Form -->
 	<record id="view_form_aluno" model="ir.ui.view">
 		<field name="name">Aluno Form</field>
 		<field name="model">transum.aluno</field>
@@ -12,14 +12,14 @@
 						<notebook>
 							<page string="Perfil">
 								<group>
-									<field name="name" />
 									<field name="nr_mecanografico" />
+									<field name="nome" />
 									<field name="email" />
-									<!-- field name="media_acesso" readonly="1"/> -->
+									<field name="estado" readonly="1"/>
+									<field name="ano" />
 									<field name="estatuto" />
 									<field name="curso_id" string="Curso" />
-									<field name="ano" />
-									<field name="proposta_plano_aluno" />
+									<field name="proposta_plano_aluno" readonly="1"/>
 								</group>
 							</page>
 							<page string="Plano de Estudos">
@@ -41,10 +41,10 @@
 		<field name="model">transum.aluno</field>
 		<field name="arch" type="xml">
 			<tree default_order="nr_mecanografico">
-				<field name="name"/>
 				<field name="nr_mecanografico" />
-				<field name="curso_id" />
+				<field name="nome"/>
 				<field name="ano"/>
+				<field name="curso_id" />
 			</tree>
 		</field>
 	</record>
@@ -55,7 +55,7 @@
 		<field name="model">transum.aluno</field>
 		<field name="arch" type="xml">
 			<search>
-				<field name="name" string="Nome" filter_domain="[('name','ilike',self)]"/>
+				<field name="nome" string="Nome" filter_domain="[('nome','ilike',self)]"/>
 				<field name="nr_mecanografico" string="Nº Mecanográfico" filter_domain="[('nr_mecanografico','ilike',self)]"/>
 				<field name="curso_id" string="Curso" filter_domain="[('curso_id','ilike',self)]"/>
 				<field name="ano" string="Ano" filter_domain="[('ano','ilike',self)]"/>

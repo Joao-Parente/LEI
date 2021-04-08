@@ -1,58 +1,46 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
+	<!-- Form -->
 	<record id="view_form_docente" model="ir.ui.view">
 		<field name="name">Docente Form</field>
 		<field name="model">transum.docente</field>
 		<field name="arch" type="xml">
 			<form>
 				<header>
-					<!-- Buttons will go here -->
-					<!--<button name="button_check_isbn" type="object"
-						string="Check ISBN" /> -->
-                     <!-- <button name="desativar"
-                        type="object"
-                        string="Desativar"
-                        attrs="{'invisible':[('active','=',False)]}"
-                        groups="planum.planum_group_admin"
-                        class="oe_highlight" />
-                    <button name="ativar"
-                        type="object"
-                        string="Ativar"
-                        attrs="{'invisible':[('active','=',True)]}"
-                        groups="planum.planum_group_admin"
-                        class="oe_highlight" /> -->
 				</header>
 				<sheet>
-					<!-- Content goes here: -->
 					<group name="group_top">
-						<field name="name" />
+						<field name="active"/>
 						<field name="nr_mecanografico" />
                         <field name="email" />
-						<!-- <field name="ucs" widget="many2many_tags" string="Unidades Curriculares" /> -->
-						<field name="active"/>
+						<field name="nome" />
 					</group>
 				</sheet>
 			</form>
 		</field>
 	</record>
+
+	<!-- Tree -->
 	<record id="view_tree_docente" model="ir.ui.view">
 		<field name="name">Lista de Docentes</field>
 		<field name="model">transum.docente</field>
 		<field name="arch" type="xml">
 			<tree>
-				<field name="name"/>
 				<field name="nr_mecanografico" />
                 <field name="email" />
+				<field name="nome"/>
 			</tree>
 		</field>
 	</record>	
+
+	<!-- Search -->
 	<record id="view_search_docente" model="ir.ui.view">
 		<field name="name">Filtros do Docente</field>
 		<field name="model">transum.docente</field>
 		<field name="arch" type="xml">
 			<search>
-              <field name="name" string="Nome"
-                  filter_domain="[('name','ilike',self)]"/>
+              <field name="nome" string="Nome"
+                  filter_domain="[('nome','ilike',self)]"/>
               <field name="nr_mecanografico" string="Nº Mecanográfico"
                   filter_domain="[('nr_mecanografico','ilike',self)]"/>
             </search>

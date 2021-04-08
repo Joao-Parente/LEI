@@ -1,33 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
+	<!-- Form -->
 	<record id="view_form_direcao_curso" model="ir.ui.view">
 		<field name="name">Direcao Curso Form</field>
 		<field name="model">transum.direcao_curso</field>
 		<field name="arch" type="xml">
 			<form>
 				<header>
-					<!-- Buttons will go here -->
-					<!--<button name="button_check_isbn" type="object"
-						string="Check ISBN" /> -->
 				</header>
 				<sheet>
-					<!-- Content goes here: -->
 					<group name="group_top">
+						<field name="active" />
 						<field name="codigo" />
 						<field name="curso_id" string="Curso" />
 						<field name="docentes">
                             <tree delete="true">
-                                <field name="name"/>
+                                <field name="nome"/>
                                 <field name="nr_mecanografico"/>
                             </tree>
                         </field>
-						<field name="active" />
 						<field name="planos_estudo" widget="Many2many" />
 					</group>
 				</sheet>
 			</form>
 		</field>
 	</record>
+
+	<!-- Tree -->
 	<record id="view_tree_direcao_curso" model="ir.ui.view">
 		<field name="name">Lista de Direcoes Curso</field>
 		<field name="model">transum.direcao_curso</field>
@@ -37,7 +36,9 @@
 				<field name="curso_id" string="Curso" />
 			</tree>
 		</field>
-	</record>	
+	</record>
+
+	<!-- Search -->
 	<record id="view_search_direcao_curso" model="ir.ui.view">
 		<field name="name">Filtros da Direcao Curso</field>
 		<field name="model">transum.direcao_curso</field>

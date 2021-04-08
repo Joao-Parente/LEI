@@ -1,61 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
+	<!-- Form -->
 	<record id="view_form_proposta_novo_plano" model="ir.ui.view">
 		<field name="name">Proposta Novo Plano Form</field>
 		<field name="model">transum.proposta_novo_plano</field>
 		<field name="arch" type="xml">
 			<form>
 				<header>
-					<!-- Buttons will go here -->
-					<!--<button name="button_check_isbn" type="object"
-						string="Check ISBN" /> -->
-                     <!-- <button name="desativar"
-                        type="object"
-                        string="Desativar"
-                        attrs="{'invisible':[('active','=',False)]}"
-                        groups="planum.planum_group_admin"
-                        class="oe_highlight" />
-                    <button name="ativar"
-                        type="object"
-                        string="Ativar"
-                        attrs="{'invisible':[('active','=',True)]}"
-                        groups="planum.planum_group_admin"
-                        class="oe_highlight" /> -->
 				</header>
 				<sheet>
-					<!-- Content goes here: -->
 					<group name="group_top">
-						<field name="plano_transicao" />
 						<field name="plano_antigo" />
                         <field name="planos_novos" />
-						<!-- <field name="ucs" widget="many2many_tags" string="Unidades Curriculares" /> -->
-						<!-- <field name="active"/> -->
+						<field name="plano_transicao" />
 					</group>
 				</sheet>
 			</form>
 		</field>
 	</record>
+
+	<!-- Tree -->
 	<record id="view_tree_proposta_novo_plano" model="ir.ui.view">
 		<field name="name">Lista de Proposta Novo Plano</field>
 		<field name="model">transum.proposta_novo_plano</field>
 		<field name="arch" type="xml">
 			<tree>
 				<field name="plano_transicao"/>
-				<!-- <field name="nr_mecanografico" />
-                <field name="email" /> -->
 			</tree>
 		</field>
 	</record>	
-	<record id="view_search_proposta_novo_plano" model="ir.ui.view">
-		<field name="name">Filtros do Proposta Novo Plano</field>
-		<field name="model">transum.proposta_novo_plano</field>
-		<field name="arch" type="xml">
-			<search>
-              <!-- <field name="name" string="Nome"
-                  filter_domain="[('name','ilike',self)]"/>
-              <field name="nr_mecanografico" string="Nº Mecanográfico"
-                  filter_domain="[('nr_mecanografico','ilike',self)]"/> -->
-            </search>
-		</field>
-	</record>
 </odoo>

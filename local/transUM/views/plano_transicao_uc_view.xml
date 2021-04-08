@@ -1,19 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
+	<!-- Form -->
 	<record id="view_form_plano_transicao_uc" model="ir.ui.view">
 		<field name="name">Plano de Transicao UC Form</field>
 		<field name="model">transum.plano_transicao_uc</field>
 		<field name="arch" type="xml">
 			<form>
 				<header>
-					<!-- Buttons will go here -->
-					<!--<button name="button_check_isbn" type="object"
-						string="Check ISBN" /> -->
 				</header>
 				<sheet>
-					<!-- Content goes here: -->
 					<group name="group_top">
-						<!-- <field name="plano_transicao" /> -->
 						<field name="uc_antiga" widget='many2many'/>
 						<field name="uc_nova" widget='many2many'/>
 					</group>
@@ -21,15 +17,18 @@
 			</form>
 		</field>
 	</record>
+
+	<!-- Tree -->
 	<record id="view_tree_plano_transicao_uc" model="ir.ui.view">
 		<field name="name">Lista de Plano de Transicao UC</field>
 		<field name="model">transum.plano_transicao_uc</field>
 		<field name="arch" type="xml">
 			<tree>
-<!-- 				<field name="plano_transicao" />-->			
+				
 				<field name="uc_antiga" />
-				<field name="uc_nova" />     
+				<field name="uc_nova" />
+				<!-- <field name="plano_transicao" /> -->
 			</tree>
 		</field>
-	</record>	
+	</record>
 </odoo>

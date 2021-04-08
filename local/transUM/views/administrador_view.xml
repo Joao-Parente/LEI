@@ -1,46 +1,34 @@
 <?xml version="1.0"?>
 <odoo>
+	<!-- Form -->
 	<record id="view_form_administrador" model="ir.ui.view">
 		<field name="name">Administrador Form</field>
 		<field name="model">transum.administrador</field>
 		<field name="arch" type="xml">
 			<form>
 				<header>
-					<!-- Buttons will go here -->
-					<!--<button name="button_check_isbn" type="object"
-						string="Check ISBN" /> -->
-                     <!-- <button name="desativar"
-                        type="object"
-                        string="Desativar"
-                        attrs="{'invisible':[('active','=',False)]}"
-                        groups="planum.planum_group_admin"
-                        class="oe_highlight" />
-                    <button name="ativar"
-                        type="object"
-                        string="Ativar"
-                        attrs="{'invisible':[('active','=',True)]}"
-                        groups="planum.planum_group_admin"
-                        class="oe_highlight" /> -->
 				</header>
 				<sheet>
 					<!-- Content goes here: -->
 					<group name="group_top">
-						<field name="name" />
-                        <field name="email" />
-                        <field name="active"/>
+						<field name="nome" />
+						<field name="email" />
+						<field name="active"/>
 					</group>
 				</sheet>
 			</form>
 		</field>
 	</record>
-    <record id="view_tree_administrador" model="ir.ui.view">
+
+	<!-- Tree -->
+	<record id="view_tree_administrador" model="ir.ui.view">
 		<field name="name">Administradores</field>
 		<field name="model">transum.administrador</field>
 		<field name="arch" type="xml">
 			<tree>
-                <field name="name" />
-                <field name="email" />
-                <field name="active" />
+				<field name="nome" />
+				<field name="email" />
+				<field name="active" />
 			</tree>
 		</field>
 	</record>

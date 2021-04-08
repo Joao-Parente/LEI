@@ -6,26 +6,29 @@
 		<field name="model">transum.uc</field>
 		<field name="arch" type="xml">
 			<form>
-				<header>
-				</header>
+				<header></header>
 				<sheet>
 					<group name="group_top">
-						<field name="active" />
-						<field name="codigo" />
-						<field name="designacao" />
-						<field name="ects" />
-						<field name="ano" />
-						<field name="semestre" />
-						<field name="obrigatoria" />
-						<field name="tem_opcao" />
-						<field name="uc_opcao" attrs="{'invisible':[('obrigatoria','=',True)]}"/>
-						<field name="uc_principal" attrs="{'invisible':[('tem_opcao','=',False)]}"/>						
+						<group>
+							<!-- <field name="active" /> -->
+							<field name="codigo" />
+							<field name="designacao" />
+							<field name="ects" />
+							<field name="ano" />
+							<field name="semestre" />
+							<field name="obrigatoria" />
+							<field name="tem_opcao" />
+							<field name="uc_opcao" attrs="{'invisible':[('obrigatoria','=',True)]}"/>
+							<field name="uc_principal" attrs="{'invisible':[('tem_opcao','=',False)]}"/>
+						</group>
+						<group>
+							<field name="plano_curso" attrs="{'invisible':[('plano_curso','=',[])]}" />
+						</group>
 					</group>
 				</sheet>
 			</form>
 		</field>
 	</record>
-
 	<!-- Tree -->
 	<record id="view_tree_uc" model="ir.ui.view">
 		<field name="name">Lista de UCs</field>
@@ -39,7 +42,6 @@
 			</tree>
 		</field>
 	</record>
-
 	<!-- Search -->
 	<record id="view_search_uc" model="ir.ui.view">
 		<field name="name">Filtros da UC</field>

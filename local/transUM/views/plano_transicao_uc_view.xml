@@ -6,8 +6,7 @@
 		<field name="model">transum.plano_transicao_uc</field>
 		<field name="arch" type="xml">
 			<form>
-				<header>
-				</header>
+				<header></header>
 				<sheet>
 					<group name="group_top">
 						<field name="uc_antiga" widget='many2many'/>
@@ -17,14 +16,12 @@
 			</form>
 		</field>
 	</record>
-
 	<!-- Tree -->
 	<record id="view_tree_plano_transicao_uc" model="ir.ui.view">
 		<field name="name">Lista de Plano de Transicao UC</field>
 		<field name="model">transum.plano_transicao_uc</field>
 		<field name="arch" type="xml">
 			<tree>
-				
 				<field name="uc_antiga" />
 				<field name="uc_nova" />
 				<!-- <field name="plano_transicao" /> -->

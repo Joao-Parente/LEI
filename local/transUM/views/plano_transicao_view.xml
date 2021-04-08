@@ -6,8 +6,7 @@
 		<field name="model">transum.plano_transicao</field>
 		<field name="arch" type="xml">
 			<form>
-				<header>
-				</header>
+				<header></header>
 				<sheet>
 					<group name="group_top">
 						<field name="designacao" />
@@ -17,7 +16,6 @@
 			</form>
 		</field>
 	</record>
-
 	<!-- Tree -->
 	<record id="view_tree_plano_transicao" model="ir.ui.view">
 		<field name="name">Lista de Plano de Transicao</field>

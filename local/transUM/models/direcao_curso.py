@@ -7,7 +7,7 @@ class Direcao_Curso(models.Model):
     _order = 'codigo desc'
     _rec_name = 'codigo'
     _description = 'Direção de Curso'
-    active = fields.Boolean('Active?', default=True)
+    active = fields.Boolean('Ativo?', default=True)
 
     codigo = fields.Char('Código')
     

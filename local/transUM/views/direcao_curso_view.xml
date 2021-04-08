@@ -6,26 +6,24 @@
 		<field name="model">transum.direcao_curso</field>
 		<field name="arch" type="xml">
 			<form>
-				<header>
-				</header>
+				<header></header>
 				<sheet>
 					<group name="group_top">
-						<field name="active" />
+						<!-- <field name="active" /> -->
 						<field name="codigo" />
 						<field name="curso_id" string="Curso" />
 						<field name="docentes">
-                            <tree delete="true">
-                                <field name="nome"/>
-                                <field name="nr_mecanografico"/>
-                            </tree>
-                        </field>
-						<field name="planos_estudo" widget="Many2many" />
+							<tree delete="true">
+								<field name="nome"/>
+								<field name="nr_mecanografico"/>
+							</tree>
+						</field>
+						<field name="planos_estudo" widget="Many2many" attrs="{'invisible':[('planos_estudo','=',[])]}"/>
 					</group>
 				</sheet>
 			</form>
 		</field>
 	</record>
-
 	<!-- Tree -->
 	<record id="view_tree_direcao_curso" model="ir.ui.view">
 		<field name="name">Lista de Direcoes Curso</field>
@@ -37,18 +35,15 @@
 			</tree>
 		</field>
 	</record>
-
 	<!-- Search -->
 	<record id="view_search_direcao_curso" model="ir.ui.view">
 		<field name="name">Filtros da Direcao Curso</field>
 		<field name="model">transum.direcao_curso</field>
 		<field name="arch" type="xml">
 			<search>
-              <field name="codigo" string="Código"
-                  filter_domain="[('codigo','ilike',self)]"/>
-              <field name="curso_id" string="Curso ID"
-                  filter_domain="[('curso_id','ilike',self)]"/>
-            </search>
+				<field name="codigo" string="Código" filter_domain="[('codigo','ilike',self)]"/>
+				<field name="curso_id" string="Curso ID" filter_domain="[('curso_id','ilike',self)]"/>
+			</search>
 		</field>
 	</record>
 </odoo>

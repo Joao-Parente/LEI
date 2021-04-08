@@ -7,7 +7,6 @@
 		<field name="arch" type="xml">
 			<form>
 				<sheet>
-					<!-- Content goes here: -->
 					<group name="group_top">
 						<notebook>
 							<page string="Perfil">
@@ -15,17 +14,17 @@
 									<field name="nr_mecanografico" />
 									<field name="nome" />
 									<field name="email" />
-									<field name="estado" readonly="1"/>
+									<field name="estado" readonly="1" />
 									<field name="ano" />
 									<field name="estatuto" />
-									<field name="curso_id" string="Curso" />
-									<field name="proposta_plano_aluno" readonly="1"/>
+									<field name="curso_id" string="Curso" widget="many2many_tags"/>
+									<field name="proposta_plano_aluno" attrs="{'invisible':[('proposta_plano_aluno','=',False)]}" readonly="1"/>
 								</group>
 							</page>
-							<page string="Plano de Estudos">
+							<page string="Planos de Estudos" attrs="{'invisible':[('planos_atuais','=',[])]}">
 								<group>
-									<field name="planos_atuais" />
-									<field name="plano_historico" readonly="1"/>
+									<field name="planos_atuais" readonly="1" />
+									<field name="plano_historico" attrs="{'invisible':[('plano_historico','=',[])]}" readonly="1"/>
 								</group>
 							</page>
 						</notebook>
@@ -34,7 +33,6 @@
 			</form>
 		</field>
 	</record>
-
 	<!-- Tree -->
 	<record id="view_tree_aluno" model="ir.ui.view">
 		<field name="name">Lista de Alunos</field>
@@ -48,7 +46,6 @@
 			</tree>
 		</field>
 	</record>
-
 	<!-- Search -->
 	<record id="view_search_aluno" model="ir.ui.view">
 		<field name="name">Filtros do Aluno</field>

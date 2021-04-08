@@ -8,7 +8,7 @@ class Aluno(models.Model):
     _order = "nr_mecanografico desc"
     _rec_name = 'nr_mecanografico'
     _description = "Aluno"
-    active = fields.Boolean('Active?', default=True)
+    active = fields.Boolean('Ativo?', default=True)
 
     nr_mecanografico = fields.Char('Nº Mecanográfico')
     nome = fields.Char('Nome')

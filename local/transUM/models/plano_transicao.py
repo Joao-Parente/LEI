@@ -7,7 +7,7 @@ class Plano_Transicao(models.Model):
     _order = "designacao desc"
     _rec_name = 'designacao'
     _description = 'Plano de Transição'
-    active = fields.Boolean('Active?', default=True)
+    active = fields.Boolean('Ativo?', default=True)
 
     designacao = fields.Char('Designação')
 

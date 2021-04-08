@@ -6,20 +6,17 @@
 		<field name="model">transum.administrador</field>
 		<field name="arch" type="xml">
 			<form>
-				<header>
-				</header>
+				<header></header>
 				<sheet>
-					<!-- Content goes here: -->
 					<group name="group_top">
+						<!-- <field name="active"/> -->
 						<field name="nome" />
 						<field name="email" />
-						<field name="active"/>
 					</group>
 				</sheet>
 			</form>
 		</field>
 	</record>
-
 	<!-- Tree -->
 	<record id="view_tree_administrador" model="ir.ui.view">
 		<field name="name">Administradores</field>
@@ -28,7 +25,7 @@
 			<tree>
 				<field name="nome" />
 				<field name="email" />
-				<field name="active" />
+				<!-- <field name="active" /> -->
 			</tree>
 		</field>
 	</record>

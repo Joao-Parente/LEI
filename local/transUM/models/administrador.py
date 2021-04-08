@@ -8,6 +8,7 @@ class Administrador(models.Model):
     _order = "nome desc"
     _rec_name = 'nome'
     _description = "Administrador"
-    active = fields.Boolean("Active?", default=True)
+    active = fields.Boolean("Ativo?", default=True)
 
     nome = fields.Char('Nome')
+    

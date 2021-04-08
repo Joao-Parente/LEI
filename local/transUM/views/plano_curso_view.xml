@@ -6,8 +6,7 @@
 		<field name="model">transum.plano_curso</field>
 		<field name="arch" type="xml">
 			<form>
-				<header>
-				</header>
+				<header></header>
 				<sheet>
 					<group name="group_top">
 						<field name="codigo" />
@@ -18,7 +17,6 @@
 			</form>
 		</field>
 	</record>
-
 	<!-- Tree -->
 	<record id="view_tree_plano_curso" model="ir.ui.view">
 		<field name="name">Lista de Planos de Curso</field>
@@ -30,7 +28,6 @@
 			</tree>
 		</field>
 	</record>
-
 	<!-- Search -->
 	<record id="view_search_plano_curso" model="ir.ui.view">
 		<field name="name">Filtros do Plano Curso</field>

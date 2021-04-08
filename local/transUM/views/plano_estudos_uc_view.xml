@@ -6,8 +6,7 @@
 		<field name="model">transum.plano_estudos_uc</field>
 		<field name="arch" type="xml">
 			<form>
-				<header>
-				</header>
+				<header></header>
 				<sheet>
 					<group name="group_top">
 						<field name="uc" />
@@ -18,7 +17,6 @@
 			</form>
 		</field>
 	</record>
-	
 	<!-- Tree -->
 	<record id="view_tree_uc" model="ir.ui.view">
 		<field name="name">Lista de Plano de Estudos UC</field>

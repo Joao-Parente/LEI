@@ -12,7 +12,7 @@
 						<field name="codigo" />
 						<field name="dc_associada" />
 						<field name="aluno_associado" />
-						<field name="nota_uc" widget="Many2many"/>
+						<field name="nota_uc" />
 					</group>
 				</sheet>
 			</form>

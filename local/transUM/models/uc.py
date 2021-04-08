@@ -3,12 +3,11 @@ from odoo import models, fields
 
 class UC(models.Model):
 
-    #_inherits = {'res.users': 'user_id'}
     _name = 'transum.uc'
     _order = 'codigo desc'
     _rec_name = 'codigo_designacao'
     _description = 'Unidade Curricular'
-    active = fields.Boolean('Active?', default=True)
+    active = fields.Boolean('Ativa?', default=True)
 
     ects = fields.Integer('Créditos', default=5)
     designacao = fields.Char('Designação')
@@ -26,7 +25,7 @@ class UC(models.Model):
     uc_antiga_transicao = fields.Many2one('transum.plano_transicao_uc', string='UC Antiga')
     uc_nova_transicao = fields.Many2one('transum.plano_transicao_uc', string='UC Nova')
 
-    plano_curso = fields.Many2many('transum.plano_curso', string='Plano de Curso')
+    plano_curso = fields.Many2many('transum.plano_curso', string='Planos de Curso')
 
     codigo_designacao = fields.Char(compute='_compute_codigo_designacao')
 

@@ -7,7 +7,7 @@ class Curso(models.Model):
     _order = "designacao desc"
     _rec_name = 'designacao'
     _description = "Curso"
-    active = fields.Boolean('Active?', default=True)
+    active = fields.Boolean('Ativo?', default=True)
 
     designacao = fields.Char('Designação')
     departamento = fields.Char('Departamento')
@@ -17,4 +17,4 @@ class Curso(models.Model):
 
     direcao_curso = fields.One2many('transum.direcao_curso', 'curso_id', 'Direção de Curso')
 
-    plano_curso = fields.One2many('transum.plano_curso', 'curso_id', 'Plano de Curso')
+    plano_curso = fields.One2many('transum.plano_curso', 'curso_id', 'Planos de Curso')

@@ -6,19 +6,17 @@
 		<field name="model">transum.proposta_novo_plano</field>
 		<field name="arch" type="xml">
 			<form>
-				<header>
-				</header>
+				<header></header>
 				<sheet>
 					<group name="group_top">
 						<field name="plano_antigo" />
-                        <field name="planos_novos" />
+						<field name="planos_novos" />
 						<field name="plano_transicao" />
 					</group>
 				</sheet>
 			</form>
 		</field>
 	</record>
-
 	<!-- Tree -->
 	<record id="view_tree_proposta_novo_plano" model="ir.ui.view">
 		<field name="name">Lista de Proposta Novo Plano</field>
@@ -28,5 +26,5 @@
 				<field name="plano_transicao"/>
 			</tree>
 		</field>
-	</record>	
+	</record>
 </odoo>

@@ -23,4 +23,4 @@ class Plano_Estudos_UC(models.Model):
             if not plano_estudos_uc.creditacao :
                 plano_estudos_uc.designacao = plano_estudos_uc.uc.ano + ' ano - ' + plano_estudos_uc.uc.semestre + 'º Sem. :: ' + plano_estudos_uc.uc.designacao + ' =  Nota:' + str(plano_estudos_uc.nota )
             else:
-                plano_estudos_uc.designacao = plano_estudos_uc.uc.ano + ' ano - ' + plano_estudos_uc.uc.semestre + 'º Sem. :: ' + plano_estudos_uc.uc.designacaov+ ' = Creditada'
+                plano_estudos_uc.designacao = plano_estudos_uc.uc.ano + ' ano - ' + plano_estudos_uc.uc.semestre + 'º Sem. :: ' + plano_estudos_uc.uc.designacao + ' = Creditada'

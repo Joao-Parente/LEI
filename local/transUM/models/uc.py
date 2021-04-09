@@ -1,4 +1,5 @@
-from odoo import models, fields
+from odoo import models, fields, api
+from odoo.exceptions import ValidationError
 
 
 class UC(models.Model):
@@ -28,6 +29,12 @@ class UC(models.Model):
     plano_curso = fields.Many2many('transum.plano_curso', string='Planos de Curso')
 
     codigo_designacao = fields.Char(compute='_compute_codigo_designacao')
+
+    @api.constrains('designacao', 'codigo')
+    def _check_uc(self):
+        for record in self:
+            if not record.designacao or not record.codigo:
+                raise models.ValidationError('Uma Unidade Curricular deve possuir um código e uma designação !')
 
     def _compute_codigo_designacao(self):
         for uc in self:

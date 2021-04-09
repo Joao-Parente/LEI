@@ -1,4 +1,5 @@
-from odoo import models, fields
+from odoo import models, fields, api
+from odoo.exceptions import ValidationError
 
 
 class Direcao_Curso(models.Model):
@@ -16,3 +17,11 @@ class Direcao_Curso(models.Model):
     docentes = fields.Many2many('transum.docente', string='Docentes')
 
     planos_estudo = fields.One2many('transum.plano_estudos', 'dc_associada', 'Planos de Estudos do Curso')
+
+    @api.constrains('codigo', 'curso_id', 'docentes')
+    def _check_dc(self):
+        for record in self:
+            if not record.codigo or not record.curso_id:
+                raise models.ValidationError('Uma Direção de Curso deve possuir um código e um curso associado !')
+            if not record.docentes:
+                raise models.ValidationError('Uma Direção de Curso deve possuir pelo menos um docente !')

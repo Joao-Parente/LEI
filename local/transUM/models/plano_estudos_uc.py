@@ -1,4 +1,5 @@
-from odoo import models, fields
+from odoo import models, fields, api
+from odoo.exceptions import ValidationError
 
 
 class Plano_Estudos_UC(models.Model):
@@ -17,6 +18,16 @@ class Plano_Estudos_UC(models.Model):
     plano_estudos = fields.Many2one('transum.plano_estudos', 'Plano de Estudos')
 
     designacao = fields.Char(compute='_compute_designacao', string="Ano - Semestre :: UC -  Nota ou Creditada")
+
+    @api.constrains('creditacao', 'nota', 'uc')
+    def _check_plano_estudos_uc(self):
+        for record in self:
+            if not record.uc :
+                raise models.ValidationError('Deve indicar uma Unidade Curricular !')
+            if not record.creditacao and record.nota >= 0 and record.nota <= 20:
+                raise models.ValidationError('Nota inválida !')
+            if record.creditacao and record.nota != 0:
+                raise models.ValidationError('Se foi creditada não é indicado a nota !')
 
     def _compute_designacao(self):
         for plano_estudos_uc in self:

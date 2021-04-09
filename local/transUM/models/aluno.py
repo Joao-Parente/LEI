@@ -1,4 +1,5 @@
-from odoo import models, fields
+from odoo import models, fields, api
+from odoo.exceptions import ValidationError
 
 
 class Aluno(models.Model):
@@ -23,3 +24,9 @@ class Aluno(models.Model):
     plano_historico = fields.One2many('transum.plano_estudos', 'historico_aluno_associado', 'Histórico')
 
     proposta_plano_aluno = fields.Many2one('transum.proposta_novo_plano', 'Proposta')
+
+    @api.constrains('nr_mecanografico', 'email', 'nome')
+    def _check_aluno(self):
+        for record in self:
+            if not record.nr_mecanografico or not record.email or not record.nome:
+                raise models.ValidationError('Um Aluno deve possuir um nº mecanográfico, um email e um nome !')

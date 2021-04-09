@@ -1,4 +1,5 @@
-from odoo import models, fields
+from odoo import models, fields, api
+from odoo.exceptions import ValidationError
 
 
 class Plano_Estudos(models.Model):
@@ -20,3 +21,15 @@ class Plano_Estudos(models.Model):
     proposta_nova = fields.Many2one('transum.proposta_novo_plano', 'Propostas Novos Planos Novas')
 
     nota_uc = fields.One2many('transum.plano_estudos_uc', 'plano_estudos', string='Unidades Curriculares')
+
+    @api.constrains('codigo', 'dc_associada', 'aluno_associado', 'nota_uc')
+    def _check_plano_estudos(self):
+        for record in self:
+            if not record.codigo:
+                raise models.ValidationError('Um Plano de Estudos deve possuir um código !')
+            if not record.dc_associada:
+                raise models.ValidationError('Um Plano de Estudos deve possuir uma Direção de Curso associada !')
+            if not record.aluno_associado:
+                raise models.ValidationError('Um Plano de Estudos deve estar associado a um determinado aluno !')
+            if not record.nota_uc:
+                raise models.ValidationError('Um Plano de Estudos deve possuir pelos menos uma Unidade Curricular !')

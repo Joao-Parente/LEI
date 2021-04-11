@@ -20,8 +20,16 @@ class Direcao_Curso(models.Model):
 
     @api.constrains('codigo', 'curso_id', 'docentes')
     def _check_dc(self):
-        for record in self:
-            if not record.codigo or not record.curso_id:
-                raise models.ValidationError('Uma Direção de Curso deve possuir um código e um curso associado !')
-            if not record.docentes:
-                raise models.ValidationError('Uma Direção de Curso deve possuir pelo menos um docente !')
+        # Campos vazios 
+        if not self.codigo or not self.curso_id:
+            raise models.ValidationError('Uma Direção de Curso deve possuir um código e um curso associado !')
+        if not self.docentes:
+            raise models.ValidationError('Uma Direção de Curso deve possuir pelo menos um docente !')
+
+        # Codigo unico
+        if len(self.env['transum.direcao_curso'].search([('codigo', '=', self.codigo)])) > 1:
+            raise models.ValidationError('O código introduzido já está associado a outra Direção de Curso !')
+
+        # DC por curso
+        if len(self.env['transum.direcao_curso'].search([('curso_id', '=', self.curso_id.id)])) > 1:
+            raise models.ValidationError('O curso seleccionado já possui uma Direção de Curso !')

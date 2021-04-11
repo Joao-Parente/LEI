@@ -32,10 +32,15 @@ class UC(models.Model):
 
     @api.constrains('designacao', 'codigo')
     def _check_uc(self):
-        for record in self:
-            if not record.designacao or not record.codigo:
-                raise models.ValidationError('Uma Unidade Curricular deve possuir um código e uma designação !')
+        # Campos vazios
+        if not self.designacao or not self.codigo:
+            raise models.ValidationError('Uma Unidade Curricular deve possuir um código e uma designação !')
+        
+        # ID unico
+        if len(self.env['transum.uc'].search([('codigo', '=', self.codigo)])) > 1:
+            raise models.ValidationError('O código introduzido já está associado a outra Unidade Curricular !')
+
 
     def _compute_codigo_designacao(self):
-        for uc in self:
-            uc.codigo_designacao = uc.codigo + ' - ' + uc.designacao
+        for record in self:
+            record.codigo_designacao = record.codigo + ' - ' + record.designacao

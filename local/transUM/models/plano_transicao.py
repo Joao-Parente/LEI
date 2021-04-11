@@ -19,8 +19,8 @@ class Plano_Transicao(models.Model):
 
     @api.constrains('designacao', 'transicao_ucs')
     def _check_plano_curso(self):
-        for record in self:
-            if not record.designacao:
-                raise models.ValidationError('Um Plano de Transição deve possuir uma designação !')
-            if not record.transicao_ucs:
-                raise models.ValidationError('Um Plano de Transição deve possuir pelo menos uma correspondência !')
+        # Campos vazios
+        if not self.designacao:
+            raise models.ValidationError('Um Plano de Transição deve possuir uma designação !')
+        if not self.transicao_ucs:
+            raise models.ValidationError('Um Plano de Transição deve possuir pelo menos uma correspondência !')

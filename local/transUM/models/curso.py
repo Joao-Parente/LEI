@@ -22,6 +22,6 @@ class Curso(models.Model):
 
     @api.constrains('designacao', 'departamento')
     def _check_curso(self):
-        for record in self:
-            if not record.designacao or not record.departamento:
-                raise models.ValidationError('Um Curso deve possuir uma designação e um departamento !')
+        # Campos vazios
+        if not self.designacao or not self.departamento:
+            raise models.ValidationError('Um Curso deve possuir uma designação e um departamento !')

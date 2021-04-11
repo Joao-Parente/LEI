@@ -17,18 +17,18 @@
 										<field name="tipo"/>
 									</group>
 									<group>
-										<field name="direcao_curso" attrs="{'invisible':[('direcao_curso','=',[])]}" />
+										<field name="direcao_curso" attrs="{'invisible':[('direcao_curso','=',[])]}" readonly="1"/>
 									</group>
 								</group>
 							</page>
-							<page string="Alunos" attrs="{'invisible':[('alunos','=',[])]}">
+							<page string="Alunos" attrs="{'invisible':[('alunos','=',[])]}" readonly="1">
 								<group>
-									<field name="alunos" attrs="{'invisible':[('alunos','=',[])]}" />
+									<field name="alunos" attrs="{'invisible':[('alunos','=',[])]}" readonly="1"/>
 								</group>
 							</page>
-							<page string="Planos do Curso" attrs="{'invisible':[('plano_curso','=',[])]}">
+							<page string="Planos do Curso" attrs="{'invisible':[('plano_curso','=',[])]}" readonly="1">
 								<group>
-									<field name="plano_curso" attrs="{'invisible':[('plano_curso','=',[])]}" />
+									<field name="plano_curso" attrs="{'invisible':[('plano_curso','=',[])]}" readonly="1"/>
 								</group>
 							</page>
 						</notebook>

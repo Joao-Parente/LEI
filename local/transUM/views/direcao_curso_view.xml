@@ -18,7 +18,7 @@
 								<field name="nr_mecanografico"/>
 							</tree>
 						</field>
-						<field name="planos_estudo" widget="Many2many" attrs="{'invisible':[('planos_estudo','=',[])]}"/>
+						<field name="planos_estudo" widget="Many2many" attrs="{'invisible':[('planos_estudo','=',[])]}" readonly="1"/>
 					</group>
 				</sheet>
 			</form>

@@ -26,7 +26,13 @@ class Aluno(models.Model):
     proposta_plano_aluno = fields.Many2one('transum.proposta_novo_plano', 'Proposta')
 
     @api.constrains('nr_mecanografico', 'email', 'nome')
-    def _check_aluno(self):
-        for record in self:
-            if not record.nr_mecanografico or not record.email or not record.nome:
-                raise models.ValidationError('Um Aluno deve possuir um nº mecanográfico, um email e um nome !')
+    def _check_aluno(self):   
+        # Campos vazios 
+        if not self.nr_mecanografico or not self.email or not self.nome:
+            raise models.ValidationError('Um Aluno deve possuir um nº mecanográfico, um email e um nome !')
+            
+        # ID unico
+        if len(self.env['transum.aluno'].search([('nr_mecanografico', '=', self.nr_mecanografico)])) > 1:
+            raise models.ValidationError('O nº mecanográfico introduzido já está associado a outro Aluno !')
+        
+        # Curso deve possuir um P.C

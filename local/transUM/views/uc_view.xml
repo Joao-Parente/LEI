@@ -18,11 +18,11 @@
 							<field name="semestre" />
 							<field name="obrigatoria" />
 							<field name="tem_opcao" />
-							<field name="uc_opcao" attrs="{'invisible':[('obrigatoria','=',True)]}"/>
-							<field name="uc_principal" attrs="{'invisible':[('tem_opcao','=',False)]}"/>
+							<field name="uc_opcao" attrs="{'invisible':[('obrigatoria','=',True)]}" readonly="1"/>
+							<field name="uc_principal" attrs="{'invisible':[('tem_opcao','=',False)]}" readonly="1"/>
 						</group>
 						<group>
-							<field name="plano_curso" attrs="{'invisible':[('plano_curso','=',[])]}" />
+							<field name="plano_curso" attrs="{'invisible':[('plano_curso','=',[])]}" readonly="1"/>
 						</group>
 					</group>
 				</sheet>

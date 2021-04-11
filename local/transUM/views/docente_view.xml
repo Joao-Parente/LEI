@@ -16,7 +16,7 @@
 							<field name="nome" />
 						</group>
 						<group>
-							<field name="direcoes_curso" attrs="{'invisible':[('direcoes_curso','=',[])]}" />
+							<field name="direcoes_curso" attrs="{'invisible':[('direcoes_curso','=',[])]}" readonly="1"/>
 						</group>
 					</group>
 				</sheet>

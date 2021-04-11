@@ -19,6 +19,10 @@ class Docente(models.Model):
 
     @api.constrains('nr_mecanografico', 'email', 'nome')
     def _check_docente(self):
-        for record in self:
-            if not record.nr_mecanografico or not record.email or not record.nome:
-                raise models.ValidationError('Um Docente deve possuir um nº mecanográfico, um email e um nome !')
+        # Campos vazios
+        if not record.nr_mecanografico or not record.email or not record.nome:
+            raise models.ValidationError('Um Docente deve possuir um nº mecanográfico, um email e um nome !')
+            
+        # ID unico
+        if len(record.env['transum.docente'].search([('nr_mecanografico', '=', record.nr_mecanografico)])) > 1:
+            raise models.ValidationError('O nº mecanográfico introduzido já está associado a outro Docente !')

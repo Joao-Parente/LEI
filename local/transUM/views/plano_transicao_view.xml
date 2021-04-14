@@ -6,7 +6,12 @@
 		<field name="model">transum.plano_transicao</field>
 		<field name="arch" type="xml">
 			<form>
-				<header></header>
+				<header>
+					<button name="transitar"
+                        type="object"
+                        string="Transição"
+                        class="oe_highlight" />
+				</header>
 				<sheet>
 					<group name="group_top">
 						<field name="designacao" />

@@ -24,6 +24,7 @@
 			<tree>
 				<field name="uc_antiga" />
 				<field name="uc_nova" />
+				<field name="uc_antiga"><tree><field name="codigo_designacao"/></tree></field>
 				<!-- <field name="plano_transicao" /> -->
 			</tree>
 		</field>

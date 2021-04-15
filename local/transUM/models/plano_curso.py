@@ -20,6 +20,7 @@ class Plano_Curso(models.Model):
     # plano_antigo = fields.Many2one('transum.plano_transicao','Plano de Curso Antigo')
     # plano_novo = fields.Many2one('transum.plano_transicao','Planos de Curso Novos')
 
+    
     @api.constrains('codigo', 'curso_id', 'ucs')
     def _check_plano_curso(self):
         # Campos vazios

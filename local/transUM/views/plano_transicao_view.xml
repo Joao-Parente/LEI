@@ -7,15 +7,13 @@
 		<field name="arch" type="xml">
 			<form>
 				<header>
-					<button name="transitar"
-                        type="object"
-                        string="Transição"
-                        class="oe_highlight" />
+					<button name="transitar" type="object" string="Transição" class="oe_highlight" attrs="{'invisible':[('transicao_ucs','=',[])]}"/>
 				</header>
 				<sheet>
 					<group name="group_top">
 						<field name="designacao" />
-						<field name="transicao_ucs" />
+						<field name="curso_id" />
+						<field name="transicao_ucs" widget='many2many'/>
 					</group>
 				</sheet>
 			</form>

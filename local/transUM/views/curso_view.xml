@@ -31,6 +31,11 @@
 									<field name="plano_curso" attrs="{'invisible':[('plano_curso','=',[])]}" readonly="1"/>
 								</group>
 							</page>
+							<page string="Planos de Transição" attrs="{'invisible':[('plano_transicao','=',[])]}" readonly="1">
+								<group>
+									<field name="plano_transicao" attrs="{'invisible':[('plano_transicao','=',[])]}" readonly="1"/>
+								</group>
+							</page>
 						</notebook>
 					</group>
 				</sheet>

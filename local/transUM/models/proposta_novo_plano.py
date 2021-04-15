@@ -8,7 +8,7 @@ class Proposta_Novo_Plano(models.Model):
     active = fields.Boolean('Ativo?', default=True)
 
     plano_antigo = fields.Many2one('transum.plano_estudos', 'Plano de Estudos Antigo')
-    planos_novos = fields.One2many('transum.plano_estudos', 'proposta_nova', 'Plano de Estudos Novos')
+    planos_novos = fields.One2many('transum.plano_estudos', 'proposta_nova', 'Planos de Estudos Novos')
 
     aluno = fields.One2many('transum.aluno', 'proposta_plano_aluno', 'Aluno Associado')
 

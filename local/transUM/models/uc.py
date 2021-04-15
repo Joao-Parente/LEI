@@ -40,7 +40,7 @@ class UC(models.Model):
         if len(self.env['transum.uc'].search([('codigo', '=', self.codigo)])) > 1:
             raise models.ValidationError('O código introduzido já está associado a outra Unidade Curricular !')
 
-
+    
     def _compute_codigo_designacao(self):
         for record in self:
             record.codigo_designacao = record.codigo + ' - ' + record.designacao

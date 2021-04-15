@@ -25,6 +25,38 @@ class Aluno(models.Model):
 
     proposta_plano_aluno = fields.Many2one('transum.proposta_novo_plano', 'Proposta')
 
+    """ @api.model
+    def create(self, vals):
+        list_plano_estudos = []
+        for c in vals['curso_id']:
+            curso = self.env['transum.curso'].browse(c)
+            # ERRO NA LINHA ABAIXO : unhashable type: 'list
+            list_planos_curso = curso.get_plano_curso()
+            
+            for plano_curso_id in list_planos_curso:
+                plano_curso = self.env['transum.plano_curso'].browse(plano_curso_id)
+
+                pl_est_aluno = self.env['transum.plano_estudos'].create([{
+                    'codigo': 'Plano_Estudos_' + vals['nr_mecanografico'] 
+                }])
+                self.env['transum.plano_estudos'].write(pl_est_aluno)
+
+                for uc in plano_curso.ucs:
+                    pl_est_uc = self.env['transum.plano_estudos_uc'].create([{
+                        'nota': 0.0,
+                        'uc': uc.id,
+                        'plano_estudos': pl_est_aluno.id
+                    }])
+                    self.env['transum.plano_estudos_uc'].write(pl_est_uc)
+
+                    list_plano_estudos.append(pl_est_aluno.id)        
+
+        # Não sei se está correto.
+        val["planos_atuais"] = list_plano_estudos
+
+        return super().create(vals) """
+
+    
     @api.constrains('nr_mecanografico', 'email', 'nome')
     def _check_aluno(self):   
         # Campos vazios 
@@ -36,3 +68,9 @@ class Aluno(models.Model):
             raise models.ValidationError('O nº mecanográfico introduzido já está associado a outro Aluno !')
         
         # Curso deve possuir um P.C
+        for c in self.curso_id:
+            curso = self.env['transum.curso'].browse(c.id)
+            plano_curso = curso.get_plano_curso()
+            if not plano_curso:
+                raise models.ValidationError('O Curso selecionado não possui um Plano de Curso !')
+                            

@@ -18,6 +18,7 @@ class Direcao_Curso(models.Model):
 
     planos_estudo = fields.One2many('transum.plano_estudos', 'dc_associada', 'Planos de Estudos do Curso')
 
+    
     @api.constrains('codigo', 'curso_id', 'docentes')
     def _check_dc(self):
         # Campos vazios 

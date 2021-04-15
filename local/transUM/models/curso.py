@@ -20,6 +20,21 @@ class Curso(models.Model):
 
     plano_curso = fields.One2many('transum.plano_curso', 'curso_id', 'Planos de Curso')
 
+    plano_transicao = fields.One2many('transum.plano_transicao', 'curso_id', 'Planos de Transição')
+    
+    def get_plano_curso(self):
+        list_plano_curso = []
+
+        for rec in self:
+            if not rec.plano_curso:
+                return list_plano_curso
+
+            for pc in rec.plano_curso:            
+                list_plano_curso.append(pc.id)
+
+        return list_plano_curso
+
+
     @api.constrains('designacao', 'departamento')
     def _check_curso(self):
         # Campos vazios

@@ -22,14 +22,15 @@ class Plano_Estudos(models.Model):
 
     nota_uc = fields.One2many('transum.plano_estudos_uc', 'plano_estudos', string='Unidades Curriculares')
 
+    
     @api.constrains('codigo', 'dc_associada', 'aluno_associado', 'nota_uc')
     def _check_plano_estudos(self):
         # Campos vazios & Associacoes
         if not self.codigo:
             raise models.ValidationError('Um Plano de Estudos deve possuir um código !')
-        if not self.dc_associada:
+        """if not self.dc_associada:
             raise models.ValidationError('Um Plano de Estudos deve possuir uma Direção de Curso associada !')
-        """ if not self.aluno_associado:
-            raise models.ValidationError('Um Plano de Estudos deve estar associado a um determinado aluno !') """
-        """ if not self.nota_uc:
+        if not self.aluno_associado:
+            raise models.ValidationError('Um Plano de Estudos deve estar associado a um determinado aluno !')
+        if not self.nota_uc:
             raise models.ValidationError('Um Plano de Estudos deve possuir pelos menos uma Unidade Curricular !') """

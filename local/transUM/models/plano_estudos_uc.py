@@ -19,30 +19,22 @@ class Plano_Estudos_UC(models.Model):
 
     designacao = fields.Char(compute='_compute_designacao', string="Ano - Semestre :: UC -  Nota ou Creditada")
 
+    
     @api.constrains('creditacao', 'nota', 'uc')
-    def _check_plano_estudos_uc(self):
-        """# Campos vazios
-        if not self.uc :
-            raise models.ValidationError('Deve indicar uma Unidade Curricular !')
-        # Validar nota
-        if not self.creditacao and (self.nota < 0 or self.nota > 20):
-            raise models.ValidationError('Nota inválida !')
-        # Validar creditação
-        if self.creditacao and self.nota != 0:
-            raise models.ValidationError('Se foi creditada não é indicado a nota !') """
-            
+    def _check_plano_estudos_uc(self):            
         for record in self:
             # Campos vazios
             if not record.uc :
                 raise models.ValidationError('Deve indicar uma Unidade Curricular !')
+
             # Validar nota
             if not record.creditacao and (record.nota < 0 or record.nota > 20):
                 raise models.ValidationError('Nota inválida !')
+
             # Validar creditação
             if record.creditacao and record.nota != 0:
                 raise models.ValidationError('Se foi creditada não é indicado a nota !')
-           
-
+    
 
     def _compute_designacao(self):
         for record in self:

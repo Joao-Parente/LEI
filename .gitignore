@@ -13,3 +13,4 @@ config.cfg
 /logs/
 .vscode
 .co
+.DS_Store

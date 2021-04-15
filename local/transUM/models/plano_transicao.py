@@ -29,12 +29,15 @@ class Plano_Transicao(models.Model):
 
     def transitar(self): 
         todos_os_alunos = self.env['transum.aluno']
-        alunos = self.env['transum.aluno'].search([('nr_mecanografico', '=', 'a84829')]) 
+        #alunos = self.env['transum.aluno'].search([('nr_mecanografico', '=', 'a84829')]) 
+        alunos = self.env['transum.aluno'].search([]) 
         p_estudos = self.env['transum.plano_estudos']
         p_estudo_uc = self.env['transum.plano_estudos_uc']
         p_novo_plano = self.env['transum.proposta_novo_plano']
 
         for aluno in alunos:
+            
+            print('\n\nola from aluno\n\n')
 
             p_atuais = aluno.planos_atuais
             
@@ -43,6 +46,8 @@ class Plano_Transicao(models.Model):
 
             for plano in p_atuais:
                 
+                print('\n\nola from plano\n\n')
+
                 proposta_nova = p_novo_plano.create([{
                     'plano_antigo': plano.id,
                     'plano_transicao': self.id 
@@ -51,18 +56,20 @@ class Plano_Transicao(models.Model):
 
                 aluno.proposta_plano_aluno = proposta_nova.id
 
-                stringue = 'novo_plano_a84829'
                 pestudosnovo = p_estudos.create([{
-                    'codigo': stringue,
+                    'codigo': 'Novo_Plano_'+plano.codigo,
                     'dc_associada': plano.dc_associada.id,
-                    'aluno_associado': plano.aluno_associado.id,
+                    #'aluno_associado': plano.aluno_associado.id,
                     'proposta_nova': proposta_nova.id
                 }])
                 p_estudo_uc.write(pestudosnovo)
-                print('\n\ncriei o plano de estudos -> ' + str(pestudosnovo.id) + ', codigo = ' + pestudosnovo.codigo + '\n\n')
+                #print('\n\ncriei o plano de estudos -> ' + str(pestudosnovo.id) + ', codigo = ' + pestudosnovo.codigo + '\n\n')
                 ucs_feitas = plano.nota_uc
 
                 for t_ucs in self.transicao_ucs:
+                    
+                    print('\n\nola from t_ucs\n\n')
+
                     uc_antiga = t_ucs.uc_antiga
                     uc_nova = t_ucs.uc_nova
 
@@ -80,7 +87,7 @@ class Plano_Transicao(models.Model):
                     }])
                     p_estudo_uc.write(adada)
                         
-                    print('\n\nCriou -> ' + str(adada.id) + '\n\n')
+                    #print('\n\nCriou -> ' + str(adada.id) + '\n\n')
 
                 break    
 

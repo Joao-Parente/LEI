@@ -29,7 +29,7 @@ class Plano_Estudos(models.Model):
             raise models.ValidationError('Um Plano de Estudos deve possuir um código !')
         if not self.dc_associada:
             raise models.ValidationError('Um Plano de Estudos deve possuir uma Direção de Curso associada !')
-        if not self.aluno_associado:
-            raise models.ValidationError('Um Plano de Estudos deve estar associado a um determinado aluno !')
+        """ if not self.aluno_associado:
+            raise models.ValidationError('Um Plano de Estudos deve estar associado a um determinado aluno !') """
         """ if not self.nota_uc:
             raise models.ValidationError('Um Plano de Estudos deve possuir pelos menos uma Unidade Curricular !') """

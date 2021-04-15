@@ -36,8 +36,6 @@ class Plano_Transicao(models.Model):
         p_novo_plano = self.env['transum.proposta_novo_plano']
 
         for aluno in alunos:
-            
-            print('\n\nola from aluno\n\n')
 
             p_atuais = aluno.planos_atuais
             
@@ -45,8 +43,6 @@ class Plano_Transicao(models.Model):
             aluno_planos_novos = None
 
             for plano in p_atuais:
-                
-                print('\n\nola from plano\n\n')
 
                 proposta_nova = p_novo_plano.create([{
                     'plano_antigo': plano.id,
@@ -63,13 +59,10 @@ class Plano_Transicao(models.Model):
                     'proposta_nova': proposta_nova.id
                 }])
                 p_estudo_uc.write(pestudosnovo)
-                #print('\n\ncriei o plano de estudos -> ' + str(pestudosnovo.id) + ', codigo = ' + pestudosnovo.codigo + '\n\n')
                 ucs_feitas = plano.nota_uc
 
                 for t_ucs in self.transicao_ucs:
                     
-                    print('\n\nola from t_ucs\n\n')
-
                     uc_antiga = t_ucs.uc_antiga
                     uc_nova = t_ucs.uc_nova
 
@@ -87,8 +80,6 @@ class Plano_Transicao(models.Model):
                     }])
                     p_estudo_uc.write(adada)
                         
-                    #print('\n\nCriou -> ' + str(adada.id) + '\n\n')
-
                 break    
 
             

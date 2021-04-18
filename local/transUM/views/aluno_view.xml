@@ -42,7 +42,7 @@
 				<field name="nr_mecanografico" />
 				<field name="nome"/>
 				<field name="ano"/>
-				<field name="curso_id" />
+				<field name="curso_id" widget="many2many_tags"/>
 			</tree>
 		</field>
 	</record>

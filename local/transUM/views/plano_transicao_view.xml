@@ -13,7 +13,7 @@
 					<group name="group_top">
 						<field name="designacao" />
 						<field name="curso_id" />
-						<field name="transicao_ucs" widget='many2many'/>
+						<field name="transicao_ucs"/>
 					</group>
 				</sheet>
 			</form>

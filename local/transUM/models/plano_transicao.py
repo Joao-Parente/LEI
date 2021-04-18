@@ -25,62 +25,51 @@ class Plano_Transicao(models.Model):
     def _check_plano_curso(self):
         # Campos vazios
         if not self.designacao or not self.curso_id:
-            raise models.ValidationError('Um Plano de Transição deve possuir uma designação !')
+            raise models.ValidationError('Um Plano de Transição deve possuir uma designação e um curso !')
         if not self.transicao_ucs:
             raise models.ValidationError('Um Plano de Transição deve possuir pelo menos uma correspondência !')
 
 
-    def transitar(self): 
-        todos_os_alunos = self.env['transum.aluno']
-        #alunos = self.env['transum.aluno'].search([('nr_mecanografico', '=', 'a84829')]) 
-        alunos = self.env['transum.aluno'].search([]) 
-        p_estudos = self.env['transum.plano_estudos']
-        p_estudo_uc = self.env['transum.plano_estudos_uc']
-        p_novo_plano = self.env['transum.proposta_novo_plano']
+    def transitar(self):
+        curso = self.env['transum.curso'].search([('id', '=', self.curso_id.id)])
+        
+        plano_estudos = self.env['transum.plano_estudos']
+        plano_estudos_uc = self.env['transum.plano_estudos_uc']
+        proposta_novo_plano = self.env['transum.proposta_novo_plano']
 
-        for aluno in alunos:
+        for aluno in curso.alunos:
 
-            p_atuais = aluno.planos_atuais
-            
-            aluno_plano_antigo = None
-            aluno_planos_novos = None
-
-            for plano in p_atuais:
-
-                proposta_nova = p_novo_plano.create([{
+            for plano in aluno.planos_atuais:
+                proposta = proposta_novo_plano.create([{
                     'plano_antigo': plano.id,
                     'plano_transicao': self.id 
                 }])
-                p_novo_plano.write(proposta_nova)
+                proposta_novo_plano.write(proposta)
 
-                aluno.proposta_plano_aluno = proposta_nova.id
+                aluno.proposta_plano_aluno = proposta.id
 
-                pestudosnovo = p_estudos.create([{
-                    'codigo': 'Novo_Plano_'+plano.codigo,
+                plano_novo = plano_estudos.create([{
+                    'codigo': 'Novo_Plano_' + plano.codigo,
                     'dc_associada': plano.dc_associada.id,
-                    #'aluno_associado': plano.aluno_associado.id,
-                    'proposta_nova': proposta_nova.id
+                    'proposta_nova': proposta.id
                 }])
-                p_estudo_uc.write(pestudosnovo)
-                ucs_feitas = plano.nota_uc
+                plano_estudos.write(plano_novo)
 
-                for t_ucs in self.transicao_ucs:
+
+                for uc_transicao in self.transicao_ucs:
+                    transicao = None
                     
-                    uc_antiga = t_ucs.uc_antiga
-                    uc_nova = t_ucs.uc_nova
-
-                    abc = None
-                    for antiga_uc in uc_antiga:
-                        for uc_info in ucs_feitas:
-                            if uc_info.uc.codigo == antiga_uc.codigo:
-                                abc = uc_info
+                    for antiga_uc in uc_transicao.uc_antiga:
+                        for info_uc in plano.nota_uc:
+                            if info_uc.uc.codigo == antiga_uc.codigo:
+                                transicao = info_uc
                            
-                    adada = p_estudo_uc.create([{
-                        'creditacao': abc.creditacao,
-                        'nota': abc.nota,
-                        'uc': uc_nova[0].id,
-                        'plano_estudos': pestudosnovo.id
+                    uc_plano = plano_estudos_uc.create([{
+                        'creditacao': transicao.creditacao,
+                        'nota': transicao.nota,
+                        'uc': uc_transicao.uc_nova[0].id,
+                        'plano_estudos': plano_novo.id
                     }])
-                    p_estudo_uc.write(adada)
+                    plano_estudos_uc.write(uc_plano)
                         
                 break

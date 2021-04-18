@@ -26,7 +26,6 @@
 			<tree>
 				<field name="codigo" />
 				<field name="dc_associada" />
-				<field name="aluno_associado" />
 			</tree>
 		</field>
 	</record>

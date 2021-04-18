@@ -22,6 +22,7 @@ class Curso(models.Model):
 
     plano_transicao = fields.One2many('transum.plano_transicao', 'curso_id', 'Planos de Transição')
     
+    
     def get_plano_curso(self):
         list_plano_curso = []
 

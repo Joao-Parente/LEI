@@ -9,9 +9,17 @@
 				<header></header>
 				<sheet>
 					<group name="group_top">
-						<field name="codigo" />
-						<field name="curso_id" />
-						<field name="ucs" widget='many2many'/>
+						<notebook>
+							<page string="Informação">
+								<group>
+									<field name="codigo" />
+									<field name="curso_id" />
+								</group>
+							</page>
+							<page string="Plano">
+								<field name="ucs" widget='many2many'/>
+							</page>
+						</notebook>
 					</group>
 				</sheet>
 			</form>

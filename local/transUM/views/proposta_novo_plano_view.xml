@@ -12,9 +12,13 @@
 				</header>
 				<sheet>
 					<group name="group_top">
-						<field name="plano_antigo" />
-						<field name="planos_novos" />
-						<field name="plano_transicao" />
+						<group>
+							<field name="plano_antigo" />
+							<field name="plano_transicao" />
+						</group>
+						<group>
+							<field name="planos_novos" />
+						</group>
 					</group>
 				</sheet>
 			</form>

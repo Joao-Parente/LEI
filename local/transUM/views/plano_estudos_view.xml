@@ -9,10 +9,27 @@
 				<header></header>
 				<sheet>
 					<group name="group_top">
-						<field name="codigo" />
-						<field name="dc_associada" />
-						<field name="aluno_associado" />
-						<field name="nota_uc" />
+						<notebook>
+							<page string="Informação">
+								<group>
+									<field name="codigo" />
+									<field name="dc_associada" />
+									<field name="aluno_associado" />
+								</group>
+							</page>
+							<page string="Plano">
+								<field name="nota_uc" string="Unidades Curriculares"> 
+									<tree default_order="ano,semestre,codigo">
+										<field name="ano"/>
+										<field name="semestre"/>
+										<field name="codigo"/>
+										<field name="designacao"/>
+										<field name="creditacao"/>
+										<field name="nota" />
+									</tree>
+								</field>
+							</page>
+						</notebook>
 					</group>
 				</sheet>
 			</form>

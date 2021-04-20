@@ -9,16 +9,23 @@
 				<header></header>
 				<sheet>
 					<group name="group_top">
-						<!-- <field name="active" /> -->
-						<field name="codigo" />
-						<field name="curso_id" string="Curso" />
-						<field name="docentes">
-							<tree delete="true">
-								<field name="nome"/>
-								<field name="nr_mecanografico"/>
-							</tree>
-						</field>
-						<field name="planos_estudo" widget="Many2many" attrs="{'invisible':[('planos_estudo','=',[])]}" readonly="1"/>
+						<notebook>
+							<page string="Informação">
+								<group>
+									<group>
+										<!-- <field name="active" /> -->
+										<field name="codigo" />
+										<field name="curso_id" string="Curso" />
+									</group>
+									<group>
+										<field name="docentes"/>
+									</group>
+								</group>
+							</page>
+							<page string="Planos de Estudos Associados" attrs="{'invisible':[('planos_estudo','=',[])]}" readonly="1">
+								<field name="planos_estudo" widget="Many2many" attrs="{'invisible':[('planos_estudo','=',[])]}" readonly="1"/>
+							</page>
+						</notebook>
 					</group>
 				</sheet>
 			</form>

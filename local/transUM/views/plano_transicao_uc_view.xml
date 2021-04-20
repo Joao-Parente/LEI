@@ -22,8 +22,8 @@
 		<field name="model">transum.plano_transicao_uc</field>
 		<field name="arch" type="xml">
 			<tree>
-				<field name="uc_antiga"/>
-				<field name="uc_nova"/>
+				<field name="uc_antiga" widget="many2many_tags"/>					
+				<field name="uc_nova" widget="many2many_tags"/>
 				<!-- <field name="plano_transicao" /> -->
 			</tree>
 		</field>

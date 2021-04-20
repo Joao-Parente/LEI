@@ -16,7 +16,7 @@ class Direcao_Curso(models.Model):
     
     docentes = fields.Many2many('transum.docente', string='Docentes')
 
-    planos_estudo = fields.One2many('transum.plano_estudos', 'dc_associada', 'Planos de Estudos do Curso')
+    planos_estudo = fields.One2many('transum.plano_estudos', 'dc_associada', 'Planos de Estudos')
 
     
     @api.constrains('codigo', 'curso_id', 'docentes')

@@ -11,14 +11,18 @@
 						<notebook>
 							<page string="Perfil">
 								<group>
-									<field name="nr_mecanografico" />
-									<field name="nome" />
-									<field name="email" />
-									<field name="estado" readonly="1" />
-									<field name="ano" />
-									<field name="estatuto" />
-									<field name="curso_id" string="Curso" widget="many2many_tags"/>
-									<field name="proposta_plano_aluno" attrs="{'invisible':[('proposta_plano_aluno','=',False)]}" readonly="1"/>
+									<group>
+										<field name="nr_mecanografico" />
+										<field name="nome" />
+										<field name="email" />
+										<field name="estado" readonly="1"/>
+										<field name="ano" />
+										<field name="estatuto" />
+										<field name="proposta_plano_aluno" attrs="{'invisible':[('proposta_plano_aluno','=',False)]}" readonly="1"/>
+									</group>
+									<group>
+										<field name="curso_id" string="Curso"/>
+									</group>
 								</group>
 							</page>
 							<page string="Planos de Estudos" attrs="{'invisible':[('planos_atuais','=',[])]}">
@@ -52,10 +56,10 @@
 		<field name="model">transum.aluno</field>
 		<field name="arch" type="xml">
 			<search>
-				<field name="nome" string="Nome" filter_domain="[('nome','ilike',self)]"/>
 				<field name="nr_mecanografico" string="Nº Mecanográfico" filter_domain="[('nr_mecanografico','ilike',self)]"/>
-				<field name="curso_id" string="Curso" filter_domain="[('curso_id','ilike',self)]"/>
+				<field name="nome" string="Nome" filter_domain="[('nome','ilike',self)]"/>
 				<field name="ano" string="Ano" filter_domain="[('ano','ilike',self)]"/>
+				<field name="curso_id" string="Curso" filter_domain="[('curso_id','ilike',self)]"/>
 			</search>
 		</field>
 	</record>

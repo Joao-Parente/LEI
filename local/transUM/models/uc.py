@@ -6,7 +6,7 @@ class UC(models.Model):
 
     _name = 'transum.uc'
     _order = 'codigo desc'
-    _rec_name = 'codigo_designacao'
+    _rec_name = 'codigo'
     _description = 'Unidade Curricular'
     active = fields.Boolean('Ativa?', default=True)
 
@@ -28,7 +28,6 @@ class UC(models.Model):
 
     plano_curso = fields.Many2many('transum.plano_curso', string='Planos de Curso')
 
-    codigo_designacao = fields.Char(compute='_compute_codigo_designacao')
 
     @api.constrains('designacao', 'codigo')
     def _check_uc(self):
@@ -39,8 +38,3 @@ class UC(models.Model):
         # ID unico
         if len(self.env['transum.uc'].search([('codigo', '=', self.codigo)])) > 1:
             raise models.ValidationError('O código introduzido já está associado a outra Unidade Curricular !')
-
-    
-    def _compute_codigo_designacao(self):
-        for record in self:
-            record.codigo_designacao = record.codigo + ' - ' + record.designacao

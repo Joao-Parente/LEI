@@ -22,19 +22,13 @@
 								</group>
 							</page>
 							<page string="Alunos" attrs="{'invisible':[('alunos','=',[])]}" readonly="1">
-								<group>
-									<field name="alunos" attrs="{'invisible':[('alunos','=',[])]}" readonly="1"/>
-								</group>
+								<field name="alunos" attrs="{'invisible':[('alunos','=',[])]}" readonly="1"/>
 							</page>
 							<page string="Planos do Curso" attrs="{'invisible':[('plano_curso','=',[])]}" readonly="1">
-								<group>
-									<field name="plano_curso" attrs="{'invisible':[('plano_curso','=',[])]}" readonly="1"/>
-								</group>
+								<field name="plano_curso" attrs="{'invisible':[('plano_curso','=',[])]}" readonly="1"/>								
 							</page>
 							<page string="Planos de Transição" attrs="{'invisible':[('plano_transicao','=',[])]}" readonly="1">
-								<group>
-									<field name="plano_transicao" attrs="{'invisible':[('plano_transicao','=',[])]}" readonly="1"/>
-								</group>
+								<field name="plano_transicao" attrs="{'invisible':[('plano_transicao','=',[])]}" readonly="1"/>
 							</page>
 						</notebook>
 					</group>

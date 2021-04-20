@@ -11,8 +11,8 @@
 				</header>
 				<sheet>
 					<group name="group_top">
-						<field name="designacao" />
-						<field name="curso_id" />
+						<field name="designacao"/>
+						<field name="curso_id"/>
 						<field name="transicao_ucs"/>
 					</group>
 				</sheet>

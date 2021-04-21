@@ -18,11 +18,11 @@
 							<field name="semestre" />
 							<field name="obrigatoria" />
 							<field name="tem_opcao" />
-							<field name="uc_opcao" attrs="{'invisible':[('obrigatoria','=',True)]}" readonly="1"/>
-							<field name="uc_principal" attrs="{'invisible':[('tem_opcao','=',False)]}" readonly="1"/>
+							<field name="uc_opcao" attrs="{'invisible':[('obrigatoria','=',True)]}" />
+							<field name="uc_principal" attrs="{'invisible':[('tem_opcao','=',False)]}" />
 						</group>
 						<group>
-							<field name="plano_curso" attrs="{'invisible':[('plano_curso','=',[])]}" readonly="1"/>
+							<field name="plano_curso" attrs="{'invisible':[('plano_curso','=',[])]}" readonly="1" />
 						</group>
 					</group>
 				</sheet>
@@ -35,7 +35,7 @@
 		<field name="model">transum.uc</field>
 		<field name="arch" type="xml">
 			<tree>
-				<field name="codigo"/>
+				<field name="codigo" />
 				<field name="designacao" />
 				<field name="ano" />
 				<field name="semestre" />
@@ -48,10 +48,10 @@
 		<field name="model">transum.uc</field>
 		<field name="arch" type="xml">
 			<search>
-				<field name="codigo" string="Código" filter_domain="[('codigo','ilike',self)]"/>
-				<field name="designacao" string="Designação" filter_domain="[('designacao','ilike',self)]"/>
-				<field name="ano" string="Ano" filter_domain="[('ano','ilike',self)]"/>
-				<field name="semestre" string="Semestre" filter_domain="[('semestre','ilike',self)]"/>
+				<field name="codigo" string="Código" filter_domain="[('codigo','ilike',self)]" />
+				<field name="designacao" string="Designação" filter_domain="[('designacao','ilike',self)]" />
+				<field name="ano" string="Ano" filter_domain="[('ano','ilike',self)]" />
+				<field name="semestre" string="Semestre" filter_domain="[('semestre','ilike',self)]" />
 			</search>
 		</field>
 	</record>

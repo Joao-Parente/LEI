@@ -18,12 +18,12 @@
 										<field name="curso_id" string="Curso" />
 									</group>
 									<group>
-										<field name="docentes"/>
+										<field name="docentes" />
 									</group>
 								</group>
 							</page>
 							<page string="Planos de Estudos Associados" attrs="{'invisible':[('planos_estudo','=',[])]}" readonly="1">
-								<field name="planos_estudo" widget="Many2many" attrs="{'invisible':[('planos_estudo','=',[])]}" readonly="1"/>
+								<field name="planos_estudo" widget="Many2many" attrs="{'invisible':[('planos_estudo','=',[])]}" readonly="1" />
 							</page>
 						</notebook>
 					</group>
@@ -48,8 +48,8 @@
 		<field name="model">transum.direcao_curso</field>
 		<field name="arch" type="xml">
 			<search>
-				<field name="codigo" string="Código" filter_domain="[('codigo','ilike',self)]"/>
-				<field name="curso_id" string="Curso ID" filter_domain="[('curso_id','ilike',self)]"/>
+				<field name="codigo" string="Código" filter_domain="[('codigo','ilike',self)]" />
+				<field name="curso_id" string="Curso ID" filter_domain="[('curso_id','ilike',self)]" />
 			</search>
 		</field>
 	</record>

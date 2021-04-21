@@ -9,8 +9,8 @@
 				<header></header>
 				<sheet>
 					<group name="group_top">
-						<!-- <field name="active"/> -->
-						<field name="nome" />
+						<!-- <field name="active" /> -->
+						<field name="name" />
 						<field name="email" />
 					</group>
 				</sheet>
@@ -23,7 +23,7 @@
 		<field name="model">transum.administrador</field>
 		<field name="arch" type="xml">
 			<tree>
-				<field name="nome" />
+				<field name="name" />
 				<field name="email" />
 				<!-- <field name="active" /> -->
 			</tree>

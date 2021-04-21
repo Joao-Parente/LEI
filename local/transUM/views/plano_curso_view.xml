@@ -6,7 +6,9 @@
 		<field name="model">transum.plano_curso</field>
 		<field name="arch" type="xml">
 			<form>
-				<header></header>
+				<header>
+					<button name="gerar" type="object" string="Gerar Planos de Estudos" class="oe_highlight" attrs="{'invisible':[('ucs','=',[])]}" />
+				</header>
 				<sheet>
 					<group name="group_top">
 						<notebook>
@@ -17,7 +19,7 @@
 								</group>
 							</page>
 							<page string="Plano">
-								<field name="ucs" widget='many2many'/>
+								<field name="ucs" widget='many2many' />
 							</page>
 						</notebook>
 					</group>
@@ -31,7 +33,7 @@
 		<field name="model">transum.plano_curso</field>
 		<field name="arch" type="xml">
 			<tree>
-				<field name="codigo"/>
+				<field name="codigo" />
 				<field name="curso_id" />
 			</tree>
 		</field>
@@ -42,7 +44,7 @@
 		<field name="model">transum.plano_curso</field>
 		<field name="arch" type="xml">
 			<search>
-				<field name="codigo" string="Código" filter_domain="[('codigo','ilike',self)]"/>
+				<field name="codigo" string="Código" filter_domain="[('codigo','ilike',self)]" />
 			</search>
 		</field>
 	</record>

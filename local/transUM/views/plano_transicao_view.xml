@@ -7,13 +7,13 @@
 		<field name="arch" type="xml">
 			<form>
 				<header>
-					<button name="transitar" type="object" string="Transição" class="oe_highlight" attrs="{'invisible':[('transicao_ucs','=',[])]}"/>
+					<button name="transitar" type="object" string="Transição" class="oe_highlight" attrs="{'invisible':[('transicao_ucs','=',[])]}" />
 				</header>
 				<sheet>
 					<group name="group_top">
-						<field name="designacao"/>
-						<field name="curso_id"/>
-						<field name="transicao_ucs"/>
+						<field name="designacao" />
+						<field name="curso_id" />
+						<field name="transicao_ucs" />
 					</group>
 				</sheet>
 			</form>
@@ -26,6 +26,7 @@
 		<field name="arch" type="xml">
 			<tree>
 				<field name="designacao" />
+				<field name="curso_id" />
 			</tree>
 		</field>
 	</record>

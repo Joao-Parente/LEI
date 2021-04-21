@@ -13,7 +13,7 @@ class Plano_Estudos_UC(models.Model):
     creditacao = fields.Boolean('Creditação', default=False)
     nota = fields.Float('Nota')
 
-    uc = fields.Many2one('transum.uc', 'Unidades Curriculares')
+    uc = fields.Many2one('transum.uc', 'UC')
     codigo = fields.Char('Código', related='uc.codigo')
     designacao = fields.Char('Designação', related='uc.designacao')
     ano = fields.Selection('Ano', related='uc.ano')

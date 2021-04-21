@@ -10,13 +10,13 @@
 				<sheet>
 					<group name="group_top">
 						<group>
-							<!-- <field name="active"/> -->
+							<!-- <field name="active" /> -->
 							<field name="nr_mecanografico" />
 							<field name="email" />
 							<field name="nome" />
 						</group>
 						<group>
-							<field name="direcoes_curso" attrs="{'invisible':[('direcoes_curso','=',[])]}" readonly="1"/>
+							<field name="direcoes_curso" attrs="{'invisible':[('direcoes_curso','=',[])]}" readonly="1" />
 						</group>
 					</group>
 				</sheet>
@@ -31,7 +31,7 @@
 			<tree>
 				<field name="nr_mecanografico" />
 				<field name="email" />
-				<field name="nome"/>
+				<field name="nome" />
 			</tree>
 		</field>
 	</record>
@@ -41,9 +41,9 @@
 		<field name="model">transum.docente</field>
 		<field name="arch" type="xml">
 			<search>
-				<field name="nr_mecanografico" string="Nº Mecanográfico" filter_domain="[('nr_mecanografico','ilike',self)]"/>
-				<field name="email" string="Email" filter_domain="[('email','ilike',self)]"/>
-				<field name="nome" string="Nome" filter_domain="[('nome','ilike',self)]"/>
+				<field name="nr_mecanografico" string="Nº Mecanográfico" filter_domain="[('nr_mecanografico','ilike',self)]" />
+				<field name="email" string="Email" filter_domain="[('email','ilike',self)]" />
+				<field name="nome" string="Nome" filter_domain="[('nome','ilike',self)]" />
 			</search>
 		</field>
 	</record>

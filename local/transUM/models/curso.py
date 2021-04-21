@@ -14,15 +14,22 @@ class Curso(models.Model):
     departamento = fields.Char('Departamento')
     tipo = fields.Selection([('1', 'Licenciatura'), ('2', 'Mestrado Integrado'), ('3', 'Mestrado')], default='1')
 
-    alunos = fields.Many2many('transum.aluno', string='Alunos')
-
     direcao_curso = fields.One2many('transum.direcao_curso', 'curso_id', 'Direção de Curso')
+
+    alunos = fields.Many2many('transum.aluno', string='Alunos')
 
     plano_curso = fields.One2many('transum.plano_curso', 'curso_id', 'Planos de Curso')
 
     plano_transicao = fields.One2many('transum.plano_transicao', 'curso_id', 'Planos de Transição')
-    
-    
+
+
+    @api.constrains('designacao', 'departamento')
+    def _check_curso(self):
+        # Campos vazios
+        if not self.designacao or not self.departamento:
+            raise models.ValidationError('Um Curso deve possuir uma designação e um departamento !')
+
+
     def get_plano_curso(self):
         list_plano_curso = []
 
@@ -32,13 +39,5 @@ class Curso(models.Model):
 
             for pc in rec.plano_curso:            
                 list_plano_curso.append(pc.id)
-                #print('\n\n\n\n\n\n\nplano curso -> '+str(pc.id)+'\n\n\n\n\n\n\n')
 
         return list_plano_curso
-
-
-    @api.constrains('designacao', 'departamento')
-    def _check_curso(self):
-        # Campos vazios
-        if not self.designacao or not self.departamento:
-            raise models.ValidationError('Um Curso deve possuir uma designação e um departamento !')

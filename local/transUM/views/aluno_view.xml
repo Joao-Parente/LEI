@@ -15,20 +15,20 @@
 										<field name="nr_mecanografico" />
 										<field name="nome" />
 										<field name="email" />
-										<field name="estado" readonly="1"/>
-										<field name="ano" />
 										<field name="estatuto" />
-										<field name="proposta_plano_aluno" attrs="{'invisible':[('proposta_plano_aluno','=',False)]}" readonly="1"/>
+										<field name="ano" />
+										<field name="estado" readonly="1" />
+										<field name="proposta_plano_aluno" attrs="{'invisible':[('proposta_plano_aluno','=',False)]}" readonly="1" />
 									</group>
 									<group>
-										<field name="curso_id" string="Curso"/>
+										<field name="curso_id" string="Curso" />
 									</group>
 								</group>
 							</page>
 							<page string="Planos de Estudos" attrs="{'invisible':[('planos_atuais','=',[])]}">
 								<group>
 									<field name="planos_atuais" readonly="1" />
-									<field name="plano_historico" attrs="{'invisible':[('plano_historico','=',[])]}" readonly="1"/>
+									<field name="plano_historico" attrs="{'invisible':[('plano_historico','=',[])]}" readonly="1" />
 								</group>
 							</page>
 						</notebook>
@@ -44,9 +44,9 @@
 		<field name="arch" type="xml">
 			<tree default_order="nr_mecanografico">
 				<field name="nr_mecanografico" />
-				<field name="nome"/>
-				<field name="ano"/>
-				<field name="curso_id" widget="many2many_tags"/>
+				<field name="nome" />
+				<field name="ano" />
+				<field name="curso_id" widget="many2many_tags" />
 			</tree>
 		</field>
 	</record>
@@ -56,10 +56,10 @@
 		<field name="model">transum.aluno</field>
 		<field name="arch" type="xml">
 			<search>
-				<field name="nr_mecanografico" string="Nº Mecanográfico" filter_domain="[('nr_mecanografico','ilike',self)]"/>
-				<field name="nome" string="Nome" filter_domain="[('nome','ilike',self)]"/>
-				<field name="ano" string="Ano" filter_domain="[('ano','ilike',self)]"/>
-				<field name="curso_id" string="Curso" filter_domain="[('curso_id','ilike',self)]"/>
+				<field name="nr_mecanografico" string="Nº Mecanográfico" filter_domain="[('nr_mecanografico','ilike',self)]" />
+				<field name="nome" string="Nome" filter_domain="[('nome','ilike',self)]" />
+				<field name="ano" string="Ano" filter_domain="[('ano','ilike',self)]" />
+				<field name="curso_id" string="Curso" filter_domain="[('curso_id','ilike',self)]" />
 			</search>
 		</field>
 	</record>

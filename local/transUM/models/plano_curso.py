@@ -36,3 +36,27 @@ class Plano_Curso(models.Model):
         # PC por curso
         if len(self.env['transum.plano_curso'].search([('curso_id', '=', self.curso_id.id)])) > 1:
             raise models.ValidationError('O curso introduzido já possui um Plano de Curso definido !')
+
+    
+    def gerar(self):
+        curso = self.env['transum.curso'].search([('id', '=', self.curso_id.id)])
+
+        plano_estudos = self.env['transum.plano_estudos']
+        plano_estudos_uc = self.env['transum.plano_estudos_uc']
+
+        for aluno in curso.alunos:
+            pl_est_aluno = plano_estudos.create([{
+                'codigo': 'Plano_Estudos_' + aluno.nr_mecanografico,
+                'dc_associada': curso.direcao_curso[0].id,
+                'aluno_associado': aluno.id
+            }])
+            plano_estudos.write(pl_est_aluno)
+
+            for uc in self.ucs:
+                pl_est_uc = plano_estudos_uc.create([{
+                    'uc': uc.id,
+                    'creditacao': False,
+                    'nota': 0,
+                    'plano_estudos': pl_est_aluno.id
+                }])
+                plano_estudos_uc.write(pl_est_uc)

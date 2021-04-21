@@ -25,57 +25,10 @@ class Aluno(models.Model):
 
     proposta_plano_aluno = fields.Many2one('transum.proposta_novo_plano', 'Proposta')
 
-    @api.model
-    def create(self, vals):
-
-        #print('\n\n\n\n\n\nvals -> '+str(vals)+'\n\n\n\n\n\n')
-
-        list_plano_estudos = []
-        for c in vals['curso_id']:
-
-            #print('\n\n\n\n\n\nc -> '+str(c[2][0])+'\n\n\n\n\n\n')
-
-            curso = self.env['transum.curso'].search([('id', '=', c[2][0])])
-
-            #print('\n\n\n\n\n\ndepartamento curso -> '+curso.departamento+'\n\n\n\n\n\n')
-            # ERRO NA LINHA ABAIXO : unhashable type: 'list
-            
-            
-            
-            list_planos_curso = curso.get_plano_curso()
-            
-            for plano_curso_id in list_planos_curso:
-                plano_curso = self.env['transum.plano_curso'].search([('id', '=', plano_curso_id)])
-                #print('\n\n\n\n\n\nplano curso codigo-> '+plano_curso.codigo+'\n\n\n\n\n\n')
-                pl_est_aluno = self.env['transum.plano_estudos'].create([{
-                    'codigo': 'Plano_Estudos_' + vals['nr_mecanografico'] 
-                }])
-                self.env['transum.plano_estudos'].write(pl_est_aluno)
-                
-                list_plano_estudos.append(pl_est_aluno.id)
-
-                for uc in plano_curso.ucs:
-                    pl_est_uc = self.env['transum.plano_estudos_uc'].create([{
-                        'nota': 0.0,
-                        'uc': uc.id,
-                        'plano_estudos': pl_est_aluno.id
-                    }])
-                    self.env['transum.plano_estudos_uc'].write(pl_est_uc)
-                    #print('\n\n\n\n\n\nestou na 62 plestuc -> '+ str(pl_est_uc) +'\n\n\n\n\n\n')
-                            
-
-        # Não sei se está correto.
-        print('\n\n\n\n\n\nantes da 68 -> '+str(list_plano_estudos)+'\n\n\n\n\n\n')
-        #for abc in
-        #vals["planos_atuais"] = list_plano_estudos
-        vals["planos_atuais"] = (6, 0, list_plano_estudos)
-
-        return super().create(vals)
-
     
     @api.constrains('nr_mecanografico', 'email', 'nome')
     def _check_aluno(self):   
-        # Campos vazios 
+        # Campos vazios
         if not self.nr_mecanografico or not self.email or not self.nome:
             raise models.ValidationError('Um Aluno deve possuir um nº mecanográfico, um email e um nome !')
             

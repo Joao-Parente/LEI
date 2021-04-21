@@ -12,23 +12,23 @@
 							<page string="Informação">
 								<group>
 									<group>
-										<field name="designacao"/>
-										<field name="departamento"/>
-										<field name="tipo"/>
+										<field name="designacao" />
+										<field name="departamento" />
+										<field name="tipo" />
 									</group>
 									<group>
-										<field name="direcao_curso" attrs="{'invisible':[('direcao_curso','=',[])]}" readonly="1"/>
+										<field name="direcao_curso" attrs="{'invisible':[('direcao_curso','=',[])]}" readonly="1" />
 									</group>
 								</group>
 							</page>
 							<page string="Alunos" attrs="{'invisible':[('alunos','=',[])]}" readonly="1">
-								<field name="alunos" attrs="{'invisible':[('alunos','=',[])]}" readonly="1"/>
+								<field name="alunos" attrs="{'invisible':[('alunos','=',[])]}" readonly="1" />
 							</page>
 							<page string="Planos do Curso" attrs="{'invisible':[('plano_curso','=',[])]}" readonly="1">
-								<field name="plano_curso" attrs="{'invisible':[('plano_curso','=',[])]}" readonly="1"/>								
+								<field name="plano_curso" attrs="{'invisible':[('plano_curso','=',[])]}" readonly="1" />								
 							</page>
 							<page string="Planos de Transição" attrs="{'invisible':[('plano_transicao','=',[])]}" readonly="1">
-								<field name="plano_transicao" attrs="{'invisible':[('plano_transicao','=',[])]}" readonly="1"/>
+								<field name="plano_transicao" attrs="{'invisible':[('plano_transicao','=',[])]}" readonly="1" />
 							</page>
 						</notebook>
 					</group>
@@ -42,9 +42,9 @@
 		<field name="model">transum.curso</field>
 		<field name="arch" type="xml">
 			<tree>
-				<field name="designacao"/>
-				<field name="departamento"/>
-				<field name="tipo"/>
+				<field name="designacao" />
+				<field name="departamento" />
+				<field name="tipo" />
 			</tree>
 		</field>
 	</record>
@@ -54,9 +54,9 @@
 		<field name="model">transum.curso</field>
 		<field name="arch" type="xml">
 			<search>
-				<field name="designacao" string="Designação" filter_domain="[('designacao','ilike',self)]"/>
-				<field name="departamento" string="Departamento" filter_domain="[('departamento','ilike',self)]"/>
-				<field name="tipo" string="Tipo" filter_domain="[('tipo','ilike',self)]"/>
+				<field name="designacao" string="Designação" filter_domain="[('designacao','ilike',self)]" />
+				<field name="departamento" string="Departamento" filter_domain="[('departamento','ilike',self)]" />
+				<field name="tipo" string="Tipo" filter_domain="[('tipo','ilike',self)]" />
 			</search>
 		</field>
 	</record>

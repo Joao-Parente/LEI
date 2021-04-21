@@ -28,6 +28,9 @@ class Plano_Transicao(models.Model):
             raise models.ValidationError('Um Plano de Transição deve possuir uma designação e um curso !')
         if not self.transicao_ucs:
             raise models.ValidationError('Um Plano de Transição deve possuir pelo menos uma correspondência !')
+        # Plano de Transicao por Curso
+        if len(self.env['transum.plano_transicao'].search([('curso_id', '=', self.curso_id.id)])) > 1:
+            raise models.ValidationError('O curso introduzido já está associado a outro Plano de Transição !')
 
 
     def transitar(self):
@@ -49,21 +52,19 @@ class Plano_Transicao(models.Model):
                 aluno.proposta_plano_aluno = proposta.id
 
                 plano_novo = plano_estudos.create([{
-                    'codigo': 'Novo_Plano_' + plano.codigo,
+                    'codigo': 'Novo_Plano_Estudos_' + aluno.nr_mecanografico,
                     'dc_associada': plano.dc_associada.id,
                     'proposta_nova': proposta.id
                 }])
                 plano_estudos.write(plano_novo)
 
-
                 for uc_transicao in self.transicao_ucs:
                     transicao = None
-                    
                     for antiga_uc in uc_transicao.uc_antiga:
                         for info_uc in plano.nota_uc:
                             if info_uc.uc.codigo == antiga_uc.codigo:
                                 transicao = info_uc
-                           
+                                  
                     uc_plano = plano_estudos_uc.create([{
                         'creditacao': transicao.creditacao,
                         'nota': transicao.nota,
@@ -72,4 +73,4 @@ class Plano_Transicao(models.Model):
                     }])
                     plano_estudos_uc.write(uc_plano)
                         
-                break  
+                break

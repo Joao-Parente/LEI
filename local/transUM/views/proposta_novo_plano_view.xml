@@ -7,8 +7,8 @@
 		<field name="arch" type="xml">
 			<form>
 				<header>
-					<!-- <button name="aprovar" type="object" string="Aprovar" class="oe_highlight"/>
-					<button name="rejeitar" type="object" string="Rejeitar" class="oe_highlight"/> -->
+					<!-- <button name="aprovar" type="object" string="Aprovar" class="oe_highlight" />
+					<button name="rejeitar" type="object" string="Rejeitar" class="oe_highlight" /> -->
 				</header>
 				<sheet>
 					<group name="group_top">
@@ -30,7 +30,7 @@
 		<field name="model">transum.proposta_novo_plano</field>
 		<field name="arch" type="xml">
 			<tree>
-				<field name="plano_transicao"/>
+				<field name="designacao" />
 			</tree>
 		</field>
 	</record>

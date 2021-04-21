@@ -38,7 +38,7 @@ class Plano_Transicao(models.Model):
         proposta_novo_plano = self.env['transum.proposta_novo_plano']
 
         for aluno in curso.alunos:
-
+            
             for plano in aluno.planos_atuais:
                 proposta = proposta_novo_plano.create([{
                     'plano_antigo': plano.id,
@@ -72,4 +72,4 @@ class Plano_Transicao(models.Model):
                     }])
                     plano_estudos_uc.write(uc_plano)
                         
-                break
+                break  

@@ -32,6 +32,7 @@ class Curso(models.Model):
 
             for pc in rec.plano_curso:            
                 list_plano_curso.append(pc.id)
+                #print('\n\n\n\n\n\n\nplano curso -> '+str(pc.id)+'\n\n\n\n\n\n\n')
 
         return list_plano_curso
 

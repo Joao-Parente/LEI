@@ -35,11 +35,3 @@ class Aluno(models.Model):
         # ID unico
         if len(self.env['transum.aluno'].search([('nr_mecanografico', '=', self.nr_mecanografico)])) > 1:
             raise models.ValidationError('O nº mecanográfico introduzido já está associado a outro Aluno !')
-        
-        # Curso deve possuir um P.C
-        for c in self.curso_id:
-            curso = self.env['transum.curso'].browse(c.id)
-            plano_curso = curso.get_plano_curso()
-            if not plano_curso:
-                raise models.ValidationError('O Curso selecionado não possui um Plano de Curso !')
-                            

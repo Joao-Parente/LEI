@@ -7,7 +7,7 @@
 		<field name="arch" type="xml">
 			<form>
 				<header>
-					<!-- <button name="aprovar" type="object" string="Aprovar" class="oe_highlight" />
+					<button name="aprovar" type="object" string="Aprovar" class="oe_highlight" />
 					<button name="rejeitar" type="object" string="Rejeitar" class="oe_highlight" /> -->
 				</header>
 				<sheet>

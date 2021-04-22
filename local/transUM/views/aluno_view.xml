@@ -27,8 +27,12 @@
 							</page>
 							<page string="Planos de Estudos" attrs="{'invisible':[('planos_atuais','=',[])]}">
 								<group>
-									<field name="planos_atuais" readonly="1" />
-									<field name="plano_historico" attrs="{'invisible':[('plano_historico','=',[])]}" readonly="1" />
+									<group>									
+										<field name="planos_atuais" readonly="1" />
+									</group>
+									<group>
+										<field name="plano_historico" attrs="{'invisible':[('plano_historico','=',[])]}" readonly="1" />
+									</group>
 								</group>
 							</page>
 						</notebook>

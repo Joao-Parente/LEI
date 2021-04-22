@@ -49,6 +49,7 @@ class Plano_Transicao(models.Model):
                 }])
                 proposta_novo_plano.write(proposta)
 
+                aluno.estado = '2'
                 aluno.proposta_plano_aluno = proposta.id
 
                 plano_novo = plano_estudos.create([{

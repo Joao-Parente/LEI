@@ -22,3 +22,25 @@ class Proposta_Novo_Plano(models.Model):
     def _compute_designacao(self):
         for record in self:
             record.designacao = 'Proposta de Transição ' + str(record.id)
+
+    def aprovar(self):
+        alunos = self.env['transum.aluno']
+        planos_estudos = self.env['transum.plano_estudos']
+
+        for aluno_id in self.aluno:
+            aluno = alunos.search([('id', '=', aluno_id.id)])
+
+            for plano_novo in self.planos_novos:
+                plano_novo.aluno_associado = aluno.id
+
+            pln_antg = planos_estudos.search([('id', '=', self.plano_antigo.id)])
+            pln_antg.aluno_associado = None
+            pln_antg.historico_aluno_associado = aluno.id
+            
+            aluno.proposta_plano_aluno = None
+            aluno.estado = '3'
+        
+
+    def rejeitar(self):
+        for aluno_id in self.aluno:
+            aluno = self.env['transum.aluno'].search([('id', '=', aluno_id.id)])

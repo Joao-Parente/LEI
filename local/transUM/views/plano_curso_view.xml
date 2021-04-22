@@ -16,6 +16,7 @@
 								<group>
 									<field name="codigo" />
 									<field name="curso_id" />
+									<field name="total_creditos" readonly="1" />
 								</group>
 							</page>
 							<page string="Plano">

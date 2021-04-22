@@ -16,11 +16,19 @@ class Plano_Curso(models.Model):
 
     ucs = fields.Many2many('transum.uc', string='Unidades Curriculares')
 
+    total_creditos = fields.Integer(compute='_compute_total_creditos', string='Total de Créditos', default=0)
+
     # Nao ligado ao plano de transicao
     # plano_antigo = fields.Many2one('transum.plano_transicao','Plano de Curso Antigo')
     # plano_novo = fields.Many2one('transum.plano_transicao','Planos de Curso Novos')
 
+    def _compute_total_creditos(self):
+        for record in self:
+            for uc_id in record.ucs:
+                uc = self.env['transum.uc'].search([('id', '=', uc_id.id)])
+                record.total_creditos += uc.ects
     
+
     @api.constrains('codigo', 'curso_id', 'ucs')
     def _check_plano_curso(self):
         # Campos vazios

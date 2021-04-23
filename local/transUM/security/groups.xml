@@ -1,7 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
-    <record id="group_librarian" model="res.groups">
-        <field name="name">Librarians</field>
-        <field name="users" eval="[(4, ref('base.user_admin'))]" />
+
+    <record id="module_transum_category" model="ir.module.category">
+        <field name="name">TransUM</field>
     </record>
+
+    <!-- PlanUM Administrador Group -->
+    <record id="transum_group_admin" model="res.groups">
+        <field name="name">Administrador</field>
+        <field name="category_id" ref="module_transum_category"/>
+        <field name="implied_ids" eval="[(4, ref('base.group_user')),(4, ref('base.group_system'))]"/>
+        <field name="users" eval="[(4, ref('base.user_root')), (4, ref('base.user_admin'))]"/>
+    </record>
+
 </odoo>

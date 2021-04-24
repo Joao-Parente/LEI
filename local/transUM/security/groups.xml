@@ -13,4 +13,22 @@
         <field name="users" eval="[(4, ref('base.user_root')), (4, ref('base.user_admin'))]"/>
     </record>
 
+
+    <!-- PlanUM Direcao Group -->
+    <record id="transum_group_direcao_curso" model="res.groups">
+        <field name="name">Direção de Curso</field>
+        <field name="category_id" ref="module_transum_category"/>
+        <field name="implied_ids" eval="[(4, ref('base.group_user')),(4, ref('base.group_system'))]"/>
+        <field name="users" eval="[(4, ref('base.user_root')), (4, ref('base.user_admin'))]"/>
+    </record>
+
+
+    <!-- PlanUM Alunos Group -->
+    <record id="transum_group_aluno" model="res.groups">
+        <field name="name">Aluno</field>
+        <field name="category_id" ref="module_transum_category"/>
+        <field name="implied_ids" eval="[(4, ref('base.group_user')),(4, ref('base.group_system'))]"/>
+        <field name="users" eval="[(4, ref('base.user_root')), (4, ref('base.user_admin'))]"/>
+    </record>
+
 </odoo>

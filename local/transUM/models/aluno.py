@@ -4,7 +4,7 @@ from odoo.exceptions import ValidationError
 
 class Aluno(models.Model):
 
-    #_inherits = {'res.users': 'user_id'}
+    _inherits = {'res.users': 'user_id'}
     _name = 'transum.aluno'
     _order = "nr_mecanografico desc"
     _rec_name = 'nr_mecanografico'
@@ -12,8 +12,8 @@ class Aluno(models.Model):
     active = fields.Boolean('Ativo?', default=True)
 
     nr_mecanografico = fields.Char('Nº Mecanográfico')
-    nome = fields.Char('Nome')
-    email = fields.Char('Email')
+    # nome = fields.Char('Nome')
+    #email = fields.Char('Email')
     estado = fields.Selection([('1','Não Transitado'),('2','Em Transição'),('3','Transitado')], default='1')
     ano = fields.Selection([('1','1º ano'),('2','2º ano'),('3','3º ano'),('4','4º ano'),('5','5º ano'),('6','6º ano')], default='1')
     estatuto = fields.Selection([('1','Estudante'),('2','Trabalhador Estudante'),('3','Estudante Atleta')], default='1')
@@ -29,9 +29,23 @@ class Aluno(models.Model):
     @api.constrains('nr_mecanografico', 'email', 'nome')
     def _check_aluno(self):   
         # Campos vazios
-        if not self.nr_mecanografico or not self.email or not self.nome:
+        #if not self.nr_mecanografico or not self.email or not self.nome:
+        if not self.nr_mecanografico :
             raise models.ValidationError('Um Aluno deve possuir um nº mecanográfico, um email e um nome !')
             
         # ID unico
         if len(self.env['transum.aluno'].search([('nr_mecanografico', '=', self.nr_mecanografico)])) > 1:
             raise models.ValidationError('O nº mecanográfico introduzido já está associado a outro Aluno !')
+
+
+    @api.model
+    def create(self, vals):
+
+        new_record = super().create(vals)
+
+        security_group = self.env.ref('transum.transum_group_aluno')
+        security_group.write({
+            'users': [(4, new_record.user_id.id)]
+        })
+
+        return new_record

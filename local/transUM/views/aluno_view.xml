@@ -13,8 +13,13 @@
 								<group>
 									<group>
 										<field name="nr_mecanografico" />
-										<field name="nome" />
-										<field name="email" />
+										<!--field name="nome" /-->
+
+										<!--field name="email" /-->
+										<field name="name">res.users.form.inherit</field>
+										<field name="login">res.users.form.inherit</field>
+										<field name="password">res.users.form.inherit</field>
+
 										<field name="estatuto" />
 										<field name="ano" />
 										<field name="estado" readonly="1" />
@@ -48,7 +53,8 @@
 		<field name="arch" type="xml">
 			<tree default_order="nr_mecanografico">
 				<field name="nr_mecanografico" />
-				<field name="nome" />
+				<!--field name="nome" /-->
+				
 				<field name="ano" />
 				<field name="curso_id" widget="many2many_tags" />
 			</tree>
@@ -61,7 +67,7 @@
 		<field name="arch" type="xml">
 			<search>
 				<field name="nr_mecanografico" string="Nº Mecanográfico" filter_domain="[('nr_mecanografico','ilike',self)]" />
-				<field name="nome" string="Nome" filter_domain="[('nome','ilike',self)]" />
+				<!--field name="nome" string="Nome" filter_domain="[('nome','ilike',self)]" /-->
 				<field name="ano" string="Ano" filter_domain="[('ano','ilike',self)]" />
 				<field name="curso_id" string="Curso" filter_domain="[('curso_id','ilike',self)]" />
 			</search>

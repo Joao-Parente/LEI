@@ -1,2 +1,39 @@
 id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
 access_admin_curso,Admin a Curso,model_transum_curso,transum_group_admin,1,1,1,1
+access_admin_plano_curso,Admin a Plano de Curso,model_transum_plano_curso,transum_group_admin,1,1,1,1
+access_admin_plano_estudos,Admin a Plano de Estudos,model_transum_plano_estudos,transum_group_admin,1,1,1,1
+access_admin_plano_estudos_uc,Admin a Plano de Estudos uc,model_transum_plano_estudos_uc,transum_group_admin,1,1,1,1
+access_admin_plano_transicao,Admin a Plano de Transicao,model_transum_plano_transicao,transum_group_admin,1,1,1,1
+access_admin_plano_transicao_uc,Admin a Plano de Transicao UC,model_transum_plano_transicao_uc,transum_group_admin,1,1,1,1
+access_admin_uc,Admin a UC,model_transum_uc,transum_group_admin,1,1,1,1
+access_admin_proposta,Admin a Proposta,model_transum_proposta_novo_plano,transum_group_admin,1,1,1,1
+access_admin_docente,Admin a Docentes,model_transum_docente,transum_group_admin,1,1,1,1
+access_admin_direcao_curso,Admin a Direcao de curso,model_transum_direcao_curso,transum_group_admin,1,1,1,1
+access_admin_aluno,Admin a Aluno,model_transum_aluno,transum_group_admin,1,1,1,1
+
+
+access_direcao_curso,Admin a Curso,model_transum_curso,transum_group_direcao_curso,1,1,1,1
+access_direcao_plano_curso,Admin a Plano de Curso,model_transum_plano_curso,transum_group_direcao_curso,1,1,1,1
+access_direcao_plano_estudos,Admin a Plano de Estudos,model_transum_plano_estudos,transum_group_direcao_curso,1,1,1,1
+access_direcao_plano_estudos_uc,Admin a Plano de Estudos uc,model_transum_plano_estudos_uc,transum_group_direcao_curso,1,1,1,1
+access_direcao_plano_transicao,Admin a Plano de Transicao,model_transum_plano_transicao,transum_group_direcao_curso,1,1,1,1
+access_direcao_plano_transicao_uc,Admin a Plano de Transicao UC,model_transum_plano_transicao_uc,transum_group_direcao_curso,1,1,1,1
+access_direcao_uc,Admin a UC,model_transum_uc,transum_group_direcao_curso,1,1,1,1
+access_direcao_proposta,Admin a Proposta,model_transum_proposta_novo_plano,transum_group_direcao_curso,1,1,1,1
+access_direcao_docente,Admin a Docentes,model_transum_docente,transum_group_direcao_curso,1,1,1,1
+access_direcao_direcao_curso,Admin a Direcao de curso,model_transum_direcao_curso,transum_group_direcao_curso,1,1,1,1
+access_direcao_aluno,Admin a Aluno,model_transum_aluno,transum_group_direcao_curso,1,1,1,1
+
+
+
+access_aluno_curso,Admin a Curso,model_transum_curso,transum_group_aluno,0,0,0,0
+access_aluno_plano_curso,Admin a Plano de Curso,model_transum_plano_curso,transum_group_aluno,0,0,0,0
+access_aluno_plano_estudos,Admin a Plano de Estudos,model_transum_plano_estudos,transum_group_aluno,0,0,0,0
+access_aluno_plano_estudos_uc,Admin a Plano de Estudos uc,model_transum_plano_estudos_uc,transum_group_aluno,0,0,0,0
+access_aluno_plano_transicao,Admin a Plano de Transicao,model_transum_plano_transicao,transum_group_aluno,0,0,0,0
+access_aluno_plano_transicao_uc,Admin a Plano de Transicao UC,model_transum_plano_transicao_uc,transum_group_aluno,0,0,0,0
+access_aluno_uc,Admin a UC,model_transum_uc,transum_group_aluno,0,0,0,0
+access_aluno_proposta,Admin a Proposta,model_transum_proposta_novo_plano,transum_group_aluno,1,0,0,0
+access_aluno_docente,Admin a Docentes,model_transum_docente,transum_group_aluno,0,0,0,0
+access_aluno_direcao_curso,Admin a Direcao de curso,model_transum_direcao_curso,transum_group_aluno,0,0,0,0
+access_aluno_aluno,Admin a Aluno,model_transum_aluno,transum_group_aluno,1,0,0,0

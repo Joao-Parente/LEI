@@ -2,7 +2,7 @@
     {
         "curso": "MiEI",
         "codigoUC": "H501N1",
-        "nomeUC": "\u00c1lgebra Linear EI",
+        "nomeUC": "Álgebra Linear EI",
         "ano": "1",
         "semestre": "1",
         "creditos": 5.0,
@@ -11,7 +11,7 @@
     {
         "curso": "MiEI",
         "codigoUC": "H501N2",
-        "nomeUC": "C\u00e1lculo",
+        "nomeUC": "Cálculo",
         "ano": "1",
         "semestre": "1",
         "creditos": 5.0,
@@ -20,7 +20,7 @@
     {
         "curso": "MiEI",
         "codigoUC": "H501N3",
-        "nomeUC": "T\u00f3picos de Matem\u00e1tica Discreta",
+        "nomeUC": "Tópicos de Matemática Discreta",
         "ano": "1",
         "semestre": "1",
         "creditos": 5.0,
@@ -29,7 +29,7 @@
     {
         "curso": "MiEI",
         "codigoUC": "H501N4",
-        "nomeUC": "Programa\u00e7\u00e3o Funcional",
+        "nomeUC": "Programação Funcional",
         "ano": "1",
         "semestre": "1",
         "creditos": 5.0,
@@ -47,7 +47,7 @@
     {
         "curso": "MiEI",
         "codigoUC": "H501N6",
-        "nomeUC": "Laborat\u00f3rios de Inform\u00e1tica I",
+        "nomeUC": "Laboratórios de Informática I",
         "ano": "1",
         "semestre": "1",
         "creditos": 5.0,
@@ -56,7 +56,7 @@
     {
         "curso": "MiEI",
         "codigoUC": "H502N1",
-        "nomeUC": "Sistemas de Computa\u00e7\u00e3o",
+        "nomeUC": "Sistemas de Computação",
         "ano": "1",
         "semestre": "2",
         "creditos": 5.0,
@@ -65,7 +65,7 @@
     {
         "curso": "MiEI",
         "codigoUC": "H502N2",
-        "nomeUC": "An\u00e1lise",
+        "nomeUC": "Análise",
         "ano": "1",
         "semestre": "2",
         "creditos": 5.0,
@@ -74,7 +74,7 @@
     {
         "curso": "MiEI",
         "codigoUC": "H502N3",
-        "nomeUC": "T\u00f3picos de F\u00edsica Moderna",
+        "nomeUC": "Tópicos de Física Moderna",
         "ano": "1",
         "semestre": "2",
         "creditos": 5.0,
@@ -83,7 +83,7 @@
     {
         "curso": "MiEI",
         "codigoUC": "H502N4",
-        "nomeUC": "L\u00f3gica EI",
+        "nomeUC": "Lógica EI",
         "ano": "1",
         "semestre": "2",
         "creditos": 5.0,
@@ -92,7 +92,7 @@
     {
         "curso": "MiEI",
         "codigoUC": "H502N5",
-        "nomeUC": "Programa\u00e7\u00e3o Imperativa",
+        "nomeUC": "Programação Imperativa",
         "ano": "1",
         "semestre": "2",
         "creditos": 5.0,
@@ -101,7 +101,7 @@
     {
         "curso": "MiEI",
         "codigoUC": "H502N6",
-        "nomeUC": "Laborat\u00f3rios de Inform\u00e1tica II",
+        "nomeUC": "Laboratórios de Informática II",
         "ano": "1",
         "semestre": "2",
         "creditos": 5.0,
@@ -110,7 +110,7 @@
     {
         "curso": "MiEI",
         "codigoUC": "H503N1",
-        "nomeUC": "Introdu\u00e7\u00e3o aos Sistemas Din\u00e2micos",
+        "nomeUC": "Introdução aos Sistemas Dinâmicos",
         "ano": "2",
         "semestre": "1",
         "creditos": 5.0,
@@ -119,7 +119,7 @@
     {
         "curso": "MiEI",
         "codigoUC": "H503N2",
-        "nomeUC": "Estat\u00edstica Aplicada",
+        "nomeUC": "Estatística Aplicada",
         "ano": "2",
         "semestre": "1",
         "creditos": 5.0,
@@ -128,7 +128,7 @@
     {
         "curso": "MiEI",
         "codigoUC": "H503N3",
-        "nomeUC": "Engenharia Econ\u00f3mica",
+        "nomeUC": "Engenharia Económica",
         "ano": "2",
         "semestre": "1",
         "creditos": 5.0,
@@ -146,7 +146,7 @@
     {
         "curso": "MiEI",
         "codigoUC": "H503N5",
-        "nomeUC": "Comunica\u00e7\u00e3o de Dados",
+        "nomeUC": "Comunicação de Dados",
         "ano": "2",
         "semestre": "1",
         "creditos": 5.0,
@@ -173,7 +173,7 @@
     {
         "curso": "MiEI",
         "codigoUC": "H504N2",
-        "nomeUC": "Programa\u00e7\u00e3o Orientada aos Objetos",
+        "nomeUC": "Programação Orientada aos Objetos",
         "ano": "2",
         "semestre": "2",
         "creditos": 5.0,
@@ -191,7 +191,7 @@
     {
         "curso": "MiEI",
         "codigoUC": "H504N4",
-        "nomeUC": "Op\u00e7\u00e3o UMinho",
+        "nomeUC": "Opção UMinho",
         "ano": "2",
         "semestre": "2",
         "creditos": 5.0,
@@ -200,7 +200,7 @@
     {
         "curso": "MiEI",
         "codigoUC": "H504N5",
-        "nomeUC": "C\u00e1lculo de Programas",
+        "nomeUC": "Cálculo de Programas",
         "ano": "2",
         "semestre": "2",
         "creditos": 5.0,
@@ -209,7 +209,7 @@
     {
         "curso": "MiEI",
         "codigoUC": "H504N6",
-        "nomeUC": "Laborat\u00f3rios de Inform\u00e1tica III",
+        "nomeUC": "Laboratórios de Informática III",
         "ano": "2",
         "semestre": "2",
         "creditos": 5.0,
@@ -236,7 +236,7 @@
     {
         "curso": "MiEI",
         "codigoUC": "H505N3",
-        "nomeUC": "Modelos Determin\u00edsticos de Investiga\u00e7\u00e3o Operacional",
+        "nomeUC": "Modelos Determinísticos de Investigação Operacional",
         "ano": "3",
         "semestre": "1",
         "creditos": 5.0,
@@ -245,7 +245,7 @@
     {
         "curso": "MiEI",
         "codigoUC": "H505N4",
-        "nomeUC": "Sistemas Distribu\u00eddos",
+        "nomeUC": "Sistemas Distribuídos",
         "ano": "3",
         "semestre": "1",
         "creditos": 5.0,
@@ -263,7 +263,7 @@
     {
         "curso": "MiEI",
         "codigoUC": "H505N6",
-        "nomeUC": "M\u00e9todos Num\u00e9ricos e Otimiza\u00e7\u00e3o n\u00e3o Linear",
+        "nomeUC": "Métodos Numéricos e Otimização não Linear",
         "ano": "3",
         "semestre": "1",
         "creditos": 5.0,
@@ -272,7 +272,7 @@
     {
         "curso": "MiEI",
         "codigoUC": "H506N1",
-        "nomeUC": "Sistemas de Representa\u00e7\u00e3o de Conhecimento e Racioc\u00ednio",
+        "nomeUC": "Sistemas de Representação de Conhecimento e Raciocínio",
         "ano": "3",
         "semestre": "2",
         "creditos": 5.0,
@@ -281,7 +281,7 @@
     {
         "curso": "MiEI",
         "codigoUC": "H506N2",
-        "nomeUC": "Computa\u00e7\u00e3o Gr\u00e1fica",
+        "nomeUC": "Computação Gráfica",
         "ano": "3",
         "semestre": "2",
         "creditos": 5.0,
@@ -290,7 +290,7 @@
     {
         "curso": "MiEI",
         "codigoUC": "H506N3",
-        "nomeUC": "Modelos Estoc\u00e1sticos de Investiga\u00e7\u00e3o Operacional",
+        "nomeUC": "Modelos Estocásticos de Investigação Operacional",
         "ano": "3",
         "semestre": "2",
         "creditos": 5.0,
@@ -299,7 +299,7 @@
     {
         "curso": "MiEI",
         "codigoUC": "H506N4",
-        "nomeUC": "Comunica\u00e7\u00f5es por Computador",
+        "nomeUC": "Comunicações por Computador",
         "ano": "3",
         "semestre": "2",
         "creditos": 5.0,
@@ -317,7 +317,7 @@
     {
         "curso": "MiEI",
         "codigoUC": "H506N6",
-        "nomeUC": "Laborat\u00f3rios de Inform\u00e1tica IV",
+        "nomeUC": "Laboratórios de Informática IV",
         "ano": "3",
         "semestre": "2",
         "creditos": 5.0,
@@ -326,7 +326,7 @@
     {
         "curso": "MiEI",
         "codigoUC": "H507N1",
-        "nomeUC": "Op\u00e7\u00e3o A1",
+        "nomeUC": "Opção A1",
         "ano": "4",
         "semestre": "1",
         "creditos": 5.0,
@@ -335,7 +335,7 @@
     {
         "curso": "MiEI",
         "codigoUC": "H507N2",
-        "nomeUC": "Op\u00e7\u00e3o A2",
+        "nomeUC": "Opção A2",
         "ano": "4",
         "semestre": "1",
         "creditos": 5.0,
@@ -344,7 +344,7 @@
     {
         "curso": "MiEI",
         "codigoUC": "H507N3",
-        "nomeUC": "Op\u00e7\u00e3o B1",
+        "nomeUC": "Opção B1",
         "ano": "4",
         "semestre": "1",
         "creditos": 5.0,
@@ -353,7 +353,7 @@
     {
         "curso": "MiEI",
         "codigoUC": "H507N4",
-        "nomeUC": "Op\u00e7\u00e3o B2",
+        "nomeUC": "Opção B2",
         "ano": "4",
         "semestre": "1",
         "creditos": 5.0,
@@ -362,7 +362,7 @@
     {
         "curso": "MiEI",
         "codigoUC": "H507N5",
-        "nomeUC": "Op\u00e7\u00e3o I1",
+        "nomeUC": "Opção I1",
         "ano": "4",
         "semestre": "1",
         "creditos": 5.0,
@@ -371,7 +371,7 @@
     {
         "curso": "MiEI",
         "codigoUC": "H507N6",
-        "nomeUC": "Op\u00e7\u00e3o I2",
+        "nomeUC": "Opção I2",
         "ano": "4",
         "semestre": "1",
         "creditos": 5.0,
@@ -380,7 +380,7 @@
     {
         "curso": "MiEI",
         "codigoUC": "H508N1",
-        "nomeUC": "Op\u00e7\u00e3o A3",
+        "nomeUC": "Opção A3",
         "ano": "4",
         "semestre": "2",
         "creditos": 5.0,
@@ -389,7 +389,7 @@
     {
         "curso": "MiEI",
         "codigoUC": "H508N2",
-        "nomeUC": "Op\u00e7\u00e3o A4",
+        "nomeUC": "Opção A4",
         "ano": "4",
         "semestre": "2",
         "creditos": 5.0,
@@ -398,7 +398,7 @@
     {
         "curso": "MiEI",
         "codigoUC": "H508N3",
-        "nomeUC": "Op\u00e7\u00e3o B3",
+        "nomeUC": "Opção B3",
         "ano": "4",
         "semestre": "2",
         "creditos": 5.0,
@@ -407,7 +407,7 @@
     {
         "curso": "MiEI",
         "codigoUC": "H508N4",
-        "nomeUC": "Op\u00e7\u00e3o B4",
+        "nomeUC": "Opção B4",
         "ano": "4",
         "semestre": "2",
         "creditos": 5.0,
@@ -416,7 +416,7 @@
     {
         "curso": "MiEI",
         "codigoUC": "H508N5",
-        "nomeUC": "Laborat\u00f3rio em Engenharia Inform\u00e1tica",
+        "nomeUC": "Laboratório em Engenharia Informática",
         "ano": "4",
         "semestre": "2",
         "creditos": 10.0,
@@ -425,7 +425,7 @@
     {
         "curso": "MiEI",
         "codigoUC": "H509A1",
-        "nomeUC": "Disserta\u00e7\u00e3o em Engenharia Inform\u00e1tica",
+        "nomeUC": "Dissertação em Engenharia Informática",
         "ano": "5",
         "semestre": "A",
         "creditos": 45.0,
@@ -434,7 +434,7 @@
     {
         "curso": "MiEI",
         "codigoUC": "H509N1",
-        "nomeUC": "Projeto em Engenharia Inform\u00e1tica",
+        "nomeUC": "Projeto em Engenharia Informática",
         "ano": "5",
         "semestre": "1",
         "creditos": 15.0,

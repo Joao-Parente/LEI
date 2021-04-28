@@ -38,17 +38,14 @@ class Aluno(models.Model):
             raise models.ValidationError('O nº mecanográfico introduzido já está associado a outro Aluno !')
 
 
-    """ @api.model
+    @api.model
     def create(self, vals):
-
-
+        
         new_record = super().create(vals)
 
         grouprel=self.env['res.groups'].search([('name', '=', 'Aluno')])
         grouprel.write({
             'users': [(4, new_record.user_id.id)]
         })
-
-
 
         return new_record

@@ -34,8 +34,8 @@ class Plano_Curso(models.Model):
         # Campos vazios
         if not self.codigo or not self.curso_id:
             raise models.ValidationError('Um Plano de Curso deve possuir um código e um curso !')
-        if not self.ucs:
-            raise models.ValidationError('Um Plano de Curso deve possuir unidades curriculares !')
+        """ if not self.ucs:
+            raise models.ValidationError('Um Plano de Curso deve possuir unidades curriculares !') """
         
         # ID unico
         if len(self.env['transum.plano_curso'].search([('codigo', '=', self.codigo)])) > 1:

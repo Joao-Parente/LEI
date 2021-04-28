@@ -38,7 +38,7 @@ class Aluno(models.Model):
             raise models.ValidationError('O nº mecanográfico introduzido já está associado a outro Aluno !')
 
 
-    @api.model
+    """ @api.model
     def create(self, vals):
 
         new_record = super().create(vals)
@@ -48,4 +48,4 @@ class Aluno(models.Model):
             'users': [(4, new_record.user_id.id)]
         })
 
-        return new_record
+        return new_record """

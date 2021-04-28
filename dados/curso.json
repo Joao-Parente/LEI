@@ -1,443 +1,449 @@
-[
-    {
-        "curso": "MiEI",
-        "codigoUC": "H501N1",
-        "nomeUC": "Álgebra Linear EI",
-        "ano": "1",
-        "semestre": "1",
-        "creditos": 5.0,
-        "fator": 1.0
-    },
-    {
-        "curso": "MiEI",
-        "codigoUC": "H501N2",
-        "nomeUC": "Cálculo",
-        "ano": "1",
-        "semestre": "1",
-        "creditos": 5.0,
-        "fator": 1.0
-    },
-    {
-        "curso": "MiEI",
-        "codigoUC": "H501N3",
-        "nomeUC": "Tópicos de Matemática Discreta",
-        "ano": "1",
-        "semestre": "1",
-        "creditos": 5.0,
-        "fator": 1.0
-    },
-    {
-        "curso": "MiEI",
-        "codigoUC": "H501N4",
-        "nomeUC": "Programação Funcional",
-        "ano": "1",
-        "semestre": "1",
-        "creditos": 5.0,
-        "fator": 1.0
-    },
-    {
-        "curso": "MiEI",
-        "codigoUC": "H501N5",
-        "nomeUC": "Elementos de Engenharia de Sistemas",
-        "ano": "1",
-        "semestre": "1",
-        "creditos": 5.0,
-        "fator": 1.5
-    },
-    {
-        "curso": "MiEI",
-        "codigoUC": "H501N6",
-        "nomeUC": "Laboratórios de Informática I",
-        "ano": "1",
-        "semestre": "1",
-        "creditos": 5.0,
-        "fator": 2.0
-    },
-    {
-        "curso": "MiEI",
-        "codigoUC": "H502N1",
-        "nomeUC": "Sistemas de Computação",
-        "ano": "1",
-        "semestre": "2",
-        "creditos": 5.0,
-        "fator": 1.0
-    },
-    {
-        "curso": "MiEI",
-        "codigoUC": "H502N2",
-        "nomeUC": "Análise",
-        "ano": "1",
-        "semestre": "2",
-        "creditos": 5.0,
-        "fator": 1.0
-    },
-    {
-        "curso": "MiEI",
-        "codigoUC": "H502N3",
-        "nomeUC": "Tópicos de Física Moderna",
-        "ano": "1",
-        "semestre": "2",
-        "creditos": 5.0,
-        "fator": 1.5
-    },
-    {
-        "curso": "MiEI",
-        "codigoUC": "H502N4",
-        "nomeUC": "Lógica EI",
-        "ano": "1",
-        "semestre": "2",
-        "creditos": 5.0,
-        "fator": 1.0
-    },
-    {
-        "curso": "MiEI",
-        "codigoUC": "H502N5",
-        "nomeUC": "Programação Imperativa",
-        "ano": "1",
-        "semestre": "2",
-        "creditos": 5.0,
-        "fator": 1.0
-    },
-    {
-        "curso": "MiEI",
-        "codigoUC": "H502N6",
-        "nomeUC": "Laboratórios de Informática II",
-        "ano": "1",
-        "semestre": "2",
-        "creditos": 5.0,
-        "fator": 2.0
-    },
-    {
-        "curso": "MiEI",
-        "codigoUC": "H503N1",
-        "nomeUC": "Introdução aos Sistemas Dinâmicos",
-        "ano": "2",
-        "semestre": "1",
-        "creditos": 5.0,
-        "fator": 1.0
-    },
-    {
-        "curso": "MiEI",
-        "codigoUC": "H503N2",
-        "nomeUC": "Estatística Aplicada",
-        "ano": "2",
-        "semestre": "1",
-        "creditos": 5.0,
-        "fator": 1.5
-    },
-    {
-        "curso": "MiEI",
-        "codigoUC": "H503N3",
-        "nomeUC": "Engenharia Económica",
-        "ano": "2",
-        "semestre": "1",
-        "creditos": 5.0,
-        "fator": 1.5
-    },
-    {
-        "curso": "MiEI",
-        "codigoUC": "H503N4",
-        "nomeUC": "Arquitetura de Computadores",
-        "ano": "2",
-        "semestre": "1",
-        "creditos": 5.0,
-        "fator": 2.0
-    },
-    {
-        "curso": "MiEI",
-        "codigoUC": "H503N5",
-        "nomeUC": "Comunicação de Dados",
-        "ano": "2",
-        "semestre": "1",
-        "creditos": 5.0,
-        "fator": 2.0
-    },
-    {
-        "curso": "MiEI",
-        "codigoUC": "H503N6",
-        "nomeUC": "Algoritmos e Complexidade",
-        "ano": "2",
-        "semestre": "1",
-        "creditos": 5.0,
-        "fator": 1.0
-    },
-    {
-        "curso": "MiEI",
-        "codigoUC": "H504N1",
-        "nomeUC": "Sistemas Operativos",
-        "ano": "2",
-        "semestre": "2",
-        "creditos": 5.0,
-        "fator": 2.0
-    },
-    {
-        "curso": "MiEI",
-        "codigoUC": "H504N2",
-        "nomeUC": "Programação Orientada aos Objetos",
-        "ano": "2",
-        "semestre": "2",
-        "creditos": 5.0,
-        "fator": 1.0
-    },
-    {
-        "curso": "MiEI",
-        "codigoUC": "H504N3",
-        "nomeUC": "Eletromagnetismo EE",
-        "ano": "2",
-        "semestre": "2",
-        "creditos": 5.0,
-        "fator": 1.5
-    },
-    {
-        "curso": "MiEI",
-        "codigoUC": "H504N4",
-        "nomeUC": "Opção UMinho",
-        "ano": "2",
-        "semestre": "2",
-        "creditos": 5.0,
-        "fator": 1.0
-    },
-    {
-        "curso": "MiEI",
-        "codigoUC": "H504N5",
-        "nomeUC": "Cálculo de Programas",
-        "ano": "2",
-        "semestre": "2",
-        "creditos": 5.0,
-        "fator": 2.0
-    },
-    {
-        "curso": "MiEI",
-        "codigoUC": "H504N6",
-        "nomeUC": "Laboratórios de Informática III",
-        "ano": "2",
-        "semestre": "2",
-        "creditos": 5.0,
-        "fator": 2.0
-    },
-    {
-        "curso": "MiEI",
-        "codigoUC": "H505N1",
-        "nomeUC": "Bases de Dados",
-        "ano": "3",
-        "semestre": "1",
-        "creditos": 5.0,
-        "fator": 2.0
-    },
-    {
-        "curso": "MiEI",
-        "codigoUC": "H505N2",
-        "nomeUC": "Desenvolvimento de Sistemas de Software",
-        "ano": "3",
-        "semestre": "1",
-        "creditos": 5.0,
-        "fator": 2.0
-    },
-    {
-        "curso": "MiEI",
-        "codigoUC": "H505N3",
-        "nomeUC": "Modelos Determinísticos de Investigação Operacional",
-        "ano": "3",
-        "semestre": "1",
-        "creditos": 5.0,
-        "fator": 1.5
-    },
-    {
-        "curso": "MiEI",
-        "codigoUC": "H505N4",
-        "nomeUC": "Sistemas Distribuídos",
-        "ano": "3",
-        "semestre": "1",
-        "creditos": 5.0,
-        "fator": 2.0
-    },
-    {
-        "curso": "MiEI",
-        "codigoUC": "H505N5",
-        "nomeUC": "Redes de Computadores",
-        "ano": "3",
-        "semestre": "1",
-        "creditos": 5.0,
-        "fator": 2.0
-    },
-    {
-        "curso": "MiEI",
-        "codigoUC": "H505N6",
-        "nomeUC": "Métodos Numéricos e Otimização não Linear",
-        "ano": "3",
-        "semestre": "1",
-        "creditos": 5.0,
-        "fator": 1.5
-    },
-    {
-        "curso": "MiEI",
-        "codigoUC": "H506N1",
-        "nomeUC": "Sistemas de Representação de Conhecimento e Raciocínio",
-        "ano": "3",
-        "semestre": "2",
-        "creditos": 5.0,
-        "fator": 2.0
-    },
-    {
-        "curso": "MiEI",
-        "codigoUC": "H506N2",
-        "nomeUC": "Computação Gráfica",
-        "ano": "3",
-        "semestre": "2",
-        "creditos": 5.0,
-        "fator": 2.0
-    },
-    {
-        "curso": "MiEI",
-        "codigoUC": "H506N3",
-        "nomeUC": "Modelos Estocásticos de Investigação Operacional",
-        "ano": "3",
-        "semestre": "2",
-        "creditos": 5.0,
-        "fator": 1.5
-    },
-    {
-        "curso": "MiEI",
-        "codigoUC": "H506N4",
-        "nomeUC": "Comunicações por Computador",
-        "ano": "3",
-        "semestre": "2",
-        "creditos": 5.0,
-        "fator": 2.0
-    },
-    {
-        "curso": "MiEI",
-        "codigoUC": "H506N5",
-        "nomeUC": "Processamento de Linguagens",
-        "ano": "3",
-        "semestre": "2",
-        "creditos": 5.0,
-        "fator": 2.0
-    },
-    {
-        "curso": "MiEI",
-        "codigoUC": "H506N6",
-        "nomeUC": "Laboratórios de Informática IV",
-        "ano": "3",
-        "semestre": "2",
-        "creditos": 5.0,
-        "fator": 2.0
-    },
-    {
-        "curso": "MiEI",
-        "codigoUC": "H507N1",
-        "nomeUC": "Opção A1",
-        "ano": "4",
-        "semestre": "1",
-        "creditos": 5.0,
-        "fator": 2.0
-    },
-    {
-        "curso": "MiEI",
-        "codigoUC": "H507N2",
-        "nomeUC": "Opção A2",
-        "ano": "4",
-        "semestre": "1",
-        "creditos": 5.0,
-        "fator": 2.0
-    },
-    {
-        "curso": "MiEI",
-        "codigoUC": "H507N3",
-        "nomeUC": "Opção B1",
-        "ano": "4",
-        "semestre": "1",
-        "creditos": 5.0,
-        "fator": 2.0
-    },
-    {
-        "curso": "MiEI",
-        "codigoUC": "H507N4",
-        "nomeUC": "Opção B2",
-        "ano": "4",
-        "semestre": "1",
-        "creditos": 5.0,
-        "fator": 2.0
-    },
-    {
-        "curso": "MiEI",
-        "codigoUC": "H507N5",
-        "nomeUC": "Opção I1",
-        "ano": "4",
-        "semestre": "1",
-        "creditos": 5.0,
-        "fator": 2.0
-    },
-    {
-        "curso": "MiEI",
-        "codigoUC": "H507N6",
-        "nomeUC": "Opção I2",
-        "ano": "4",
-        "semestre": "1",
-        "creditos": 5.0,
-        "fator": 2.0
-    },
-    {
-        "curso": "MiEI",
-        "codigoUC": "H508N1",
-        "nomeUC": "Opção A3",
-        "ano": "4",
-        "semestre": "2",
-        "creditos": 5.0,
-        "fator": 2.0
-    },
-    {
-        "curso": "MiEI",
-        "codigoUC": "H508N2",
-        "nomeUC": "Opção A4",
-        "ano": "4",
-        "semestre": "2",
-        "creditos": 5.0,
-        "fator": 2.0
-    },
-    {
-        "curso": "MiEI",
-        "codigoUC": "H508N3",
-        "nomeUC": "Opção B3",
-        "ano": "4",
-        "semestre": "2",
-        "creditos": 5.0,
-        "fator": 2.0
-    },
-    {
-        "curso": "MiEI",
-        "codigoUC": "H508N4",
-        "nomeUC": "Opção B4",
-        "ano": "4",
-        "semestre": "2",
-        "creditos": 5.0,
-        "fator": 2.0
-    },
-    {
-        "curso": "MiEI",
-        "codigoUC": "H508N5",
-        "nomeUC": "Laboratório em Engenharia Informática",
-        "ano": "4",
-        "semestre": "2",
-        "creditos": 10.0,
-        "fator": 2.0
-    },
-    {
-        "curso": "MiEI",
-        "codigoUC": "H509A1",
-        "nomeUC": "Dissertação em Engenharia Informática",
-        "ano": "5",
-        "semestre": "A",
-        "creditos": 45.0,
-        "fator": 2.0
-    },
-    {
-        "curso": "MiEI",
-        "codigoUC": "H509N1",
-        "nomeUC": "Projeto em Engenharia Informática",
-        "ano": "5",
-        "semestre": "1",
-        "creditos": 15.0,
-        "fator": 2.0
-    }
-]
+{
+    "designacao": "Mestrado Integrado em Engenharia Informática",
+    "departamento": "Departamento de Informática",
+    "tipo":"2",
+    "plano_curso_designacao":"Plano Curso Miei",
+    "plano_curso": [
+        {
+            "curso": "MiEI",
+            "codigoUC": "H501N1",
+            "nomeUC": "Álgebra Linear EI",
+            "ano": "1",
+            "semestre": "1",
+            "creditos": 5.0,
+            "fator": 1.0
+        },
+        {
+            "curso": "MiEI",
+            "codigoUC": "H501N2",
+            "nomeUC": "Cálculo",
+            "ano": "1",
+            "semestre": "1",
+            "creditos": 5.0,
+            "fator": 1.0
+        },
+        {
+            "curso": "MiEI",
+            "codigoUC": "H501N3",
+            "nomeUC": "Tópicos de Matemática Discreta",
+            "ano": "1",
+            "semestre": "1",
+            "creditos": 5.0,
+            "fator": 1.0
+        },
+        {
+            "curso": "MiEI",
+            "codigoUC": "H501N4",
+            "nomeUC": "Programação Funcional",
+            "ano": "1",
+            "semestre": "1",
+            "creditos": 5.0,
+            "fator": 1.0
+        },
+        {
+            "curso": "MiEI",
+            "codigoUC": "H501N5",
+            "nomeUC": "Elementos de Engenharia de Sistemas",
+            "ano": "1",
+            "semestre": "1",
+            "creditos": 5.0,
+            "fator": 1.5
+        },
+        {
+            "curso": "MiEI",
+            "codigoUC": "H501N6",
+            "nomeUC": "Laboratórios de Informática I",
+            "ano": "1",
+            "semestre": "1",
+            "creditos": 5.0,
+            "fator": 2.0
+        },
+        {
+            "curso": "MiEI",
+            "codigoUC": "H502N1",
+            "nomeUC": "Sistemas de Computação",
+            "ano": "1",
+            "semestre": "2",
+            "creditos": 5.0,
+            "fator": 1.0
+        },
+        {
+            "curso": "MiEI",
+            "codigoUC": "H502N2",
+            "nomeUC": "Análise",
+            "ano": "1",
+            "semestre": "2",
+            "creditos": 5.0,
+            "fator": 1.0
+        },
+        {
+            "curso": "MiEI",
+            "codigoUC": "H502N3",
+            "nomeUC": "Tópicos de Física Moderna",
+            "ano": "1",
+            "semestre": "2",
+            "creditos": 5.0,
+            "fator": 1.5
+        },
+        {
+            "curso": "MiEI",
+            "codigoUC": "H502N4",
+            "nomeUC": "Lógica EI",
+            "ano": "1",
+            "semestre": "2",
+            "creditos": 5.0,
+            "fator": 1.0
+        },
+        {
+            "curso": "MiEI",
+            "codigoUC": "H502N5",
+            "nomeUC": "Programação Imperativa",
+            "ano": "1",
+            "semestre": "2",
+            "creditos": 5.0,
+            "fator": 1.0
+        },
+        {
+            "curso": "MiEI",
+            "codigoUC": "H502N6",
+            "nomeUC": "Laboratórios de Informática II",
+            "ano": "1",
+            "semestre": "2",
+            "creditos": 5.0,
+            "fator": 2.0
+        },
+        {
+            "curso": "MiEI",
+            "codigoUC": "H503N1",
+            "nomeUC": "Introdução aos Sistemas Dinâmicos",
+            "ano": "2",
+            "semestre": "1",
+            "creditos": 5.0,
+            "fator": 1.0
+        },
+        {
+            "curso": "MiEI",
+            "codigoUC": "H503N2",
+            "nomeUC": "Estatística Aplicada",
+            "ano": "2",
+            "semestre": "1",
+            "creditos": 5.0,
+            "fator": 1.5
+        },
+        {
+            "curso": "MiEI",
+            "codigoUC": "H503N3",
+            "nomeUC": "Engenharia Económica",
+            "ano": "2",
+            "semestre": "1",
+            "creditos": 5.0,
+            "fator": 1.5
+        },
+        {
+            "curso": "MiEI",
+            "codigoUC": "H503N4",
+            "nomeUC": "Arquitetura de Computadores",
+            "ano": "2",
+            "semestre": "1",
+            "creditos": 5.0,
+            "fator": 2.0
+        },
+        {
+            "curso": "MiEI",
+            "codigoUC": "H503N5",
+            "nomeUC": "Comunicação de Dados",
+            "ano": "2",
+            "semestre": "1",
+            "creditos": 5.0,
+            "fator": 2.0
+        },
+        {
+            "curso": "MiEI",
+            "codigoUC": "H503N6",
+            "nomeUC": "Algoritmos e Complexidade",
+            "ano": "2",
+            "semestre": "1",
+            "creditos": 5.0,
+            "fator": 1.0
+        },
+        {
+            "curso": "MiEI",
+            "codigoUC": "H504N1",
+            "nomeUC": "Sistemas Operativos",
+            "ano": "2",
+            "semestre": "2",
+            "creditos": 5.0,
+            "fator": 2.0
+        },
+        {
+            "curso": "MiEI",
+            "codigoUC": "H504N2",
+            "nomeUC": "Programação Orientada aos Objetos",
+            "ano": "2",
+            "semestre": "2",
+            "creditos": 5.0,
+            "fator": 1.0
+        },
+        {
+            "curso": "MiEI",
+            "codigoUC": "H504N3",
+            "nomeUC": "Eletromagnetismo EE",
+            "ano": "2",
+            "semestre": "2",
+            "creditos": 5.0,
+            "fator": 1.5
+        },
+        {
+            "curso": "MiEI",
+            "codigoUC": "H504N4",
+            "nomeUC": "Opção UMinho",
+            "ano": "2",
+            "semestre": "2",
+            "creditos": 5.0,
+            "fator": 1.0
+        },
+        {
+            "curso": "MiEI",
+            "codigoUC": "H504N5",
+            "nomeUC": "Cálculo de Programas",
+            "ano": "2",
+            "semestre": "2",
+            "creditos": 5.0,
+            "fator": 2.0
+        },
+        {
+            "curso": "MiEI",
+            "codigoUC": "H504N6",
+            "nomeUC": "Laboratórios de Informática III",
+            "ano": "2",
+            "semestre": "2",
+            "creditos": 5.0,
+            "fator": 2.0
+        },
+        {
+            "curso": "MiEI",
+            "codigoUC": "H505N1",
+            "nomeUC": "Bases de Dados",
+            "ano": "3",
+            "semestre": "1",
+            "creditos": 5.0,
+            "fator": 2.0
+        },
+        {
+            "curso": "MiEI",
+            "codigoUC": "H505N2",
+            "nomeUC": "Desenvolvimento de Sistemas de Software",
+            "ano": "3",
+            "semestre": "1",
+            "creditos": 5.0,
+            "fator": 2.0
+        },
+        {
+            "curso": "MiEI",
+            "codigoUC": "H505N3",
+            "nomeUC": "Modelos Determinísticos de Investigação Operacional",
+            "ano": "3",
+            "semestre": "1",
+            "creditos": 5.0,
+            "fator": 1.5
+        },
+        {
+            "curso": "MiEI",
+            "codigoUC": "H505N4",
+            "nomeUC": "Sistemas Distribuídos",
+            "ano": "3",
+            "semestre": "1",
+            "creditos": 5.0,
+            "fator": 2.0
+        },
+        {
+            "curso": "MiEI",
+            "codigoUC": "H505N5",
+            "nomeUC": "Redes de Computadores",
+            "ano": "3",
+            "semestre": "1",
+            "creditos": 5.0,
+            "fator": 2.0
+        },
+        {
+            "curso": "MiEI",
+            "codigoUC": "H505N6",
+            "nomeUC": "Métodos Numéricos e Otimização não Linear",
+            "ano": "3",
+            "semestre": "1",
+            "creditos": 5.0,
+            "fator": 1.5
+        },
+        {
+            "curso": "MiEI",
+            "codigoUC": "H506N1",
+            "nomeUC": "Sistemas de Representação de Conhecimento e Raciocínio",
+            "ano": "3",
+            "semestre": "2",
+            "creditos": 5.0,
+            "fator": 2.0
+        },
+        {
+            "curso": "MiEI",
+            "codigoUC": "H506N2",
+            "nomeUC": "Computação Gráfica",
+            "ano": "3",
+            "semestre": "2",
+            "creditos": 5.0,
+            "fator": 2.0
+        },
+        {
+            "curso": "MiEI",
+            "codigoUC": "H506N3",
+            "nomeUC": "Modelos Estocásticos de Investigação Operacional",
+            "ano": "3",
+            "semestre": "2",
+            "creditos": 5.0,
+            "fator": 1.5
+        },
+        {
+            "curso": "MiEI",
+            "codigoUC": "H506N4",
+            "nomeUC": "Comunicações por Computador",
+            "ano": "3",
+            "semestre": "2",
+            "creditos": 5.0,
+            "fator": 2.0
+        },
+        {
+            "curso": "MiEI",
+            "codigoUC": "H506N5",
+            "nomeUC": "Processamento de Linguagens",
+            "ano": "3",
+            "semestre": "2",
+            "creditos": 5.0,
+            "fator": 2.0
+        },
+        {
+            "curso": "MiEI",
+            "codigoUC": "H506N6",
+            "nomeUC": "Laboratórios de Informática IV",
+            "ano": "3",
+            "semestre": "2",
+            "creditos": 5.0,
+            "fator": 2.0
+        },
+        {
+            "curso": "MiEI",
+            "codigoUC": "H507N1",
+            "nomeUC": "Opção A1",
+            "ano": "4",
+            "semestre": "1",
+            "creditos": 5.0,
+            "fator": 2.0
+        },
+        {
+            "curso": "MiEI",
+            "codigoUC": "H507N2",
+            "nomeUC": "Opção A2",
+            "ano": "4",
+            "semestre": "1",
+            "creditos": 5.0,
+            "fator": 2.0
+        },
+        {
+            "curso": "MiEI",
+            "codigoUC": "H507N3",
+            "nomeUC": "Opção B1",
+            "ano": "4",
+            "semestre": "1",
+            "creditos": 5.0,
+            "fator": 2.0
+        },
+        {
+            "curso": "MiEI",
+            "codigoUC": "H507N4",
+            "nomeUC": "Opção B2",
+            "ano": "4",
+            "semestre": "1",
+            "creditos": 5.0,
+            "fator": 2.0
+        },
+        {
+            "curso": "MiEI",
+            "codigoUC": "H507N5",
+            "nomeUC": "Opção I1",
+            "ano": "4",
+            "semestre": "1",
+            "creditos": 5.0,
+            "fator": 2.0
+        },
+        {
+            "curso": "MiEI",
+            "codigoUC": "H507N6",
+            "nomeUC": "Opção I2",
+            "ano": "4",
+            "semestre": "1",
+            "creditos": 5.0,
+            "fator": 2.0
+        },
+        {
+            "curso": "MiEI",
+            "codigoUC": "H508N1",
+            "nomeUC": "Opção A3",
+            "ano": "4",
+            "semestre": "2",
+            "creditos": 5.0,
+            "fator": 2.0
+        },
+        {
+            "curso": "MiEI",
+            "codigoUC": "H508N2",
+            "nomeUC": "Opção A4",
+            "ano": "4",
+            "semestre": "2",
+            "creditos": 5.0,
+            "fator": 2.0
+        },
+        {
+            "curso": "MiEI",
+            "codigoUC": "H508N3",
+            "nomeUC": "Opção B3",
+            "ano": "4",
+            "semestre": "2",
+            "creditos": 5.0,
+            "fator": 2.0
+        },
+        {
+            "curso": "MiEI",
+            "codigoUC": "H508N4",
+            "nomeUC": "Opção B4",
+            "ano": "4",
+            "semestre": "2",
+            "creditos": 5.0,
+            "fator": 2.0
+        },
+        {
+            "curso": "MiEI",
+            "codigoUC": "H508N5",
+            "nomeUC": "Laboratório em Engenharia Informática",
+            "ano": "4",
+            "semestre": "2",
+            "creditos": 10.0,
+            "fator": 2.0
+        },
+        {
+            "curso": "MiEI",
+            "codigoUC": "H509A1",
+            "nomeUC": "Dissertação em Engenharia Informática",
+            "ano": "5",
+            "semestre": "A",
+            "creditos": 45.0,
+            "fator": 2.0
+        },
+        {
+            "curso": "MiEI",
+            "codigoUC": "H509N1",
+            "nomeUC": "Projeto em Engenharia Informática",
+            "ano": "5",
+            "semestre": "1",
+            "creditos": 15.0,
+            "fator": 2.0
+        }
+    ]
+}

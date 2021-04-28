@@ -14,12 +14,12 @@ class UC(models.Model):
     designacao = fields.Char('Designação')
     codigo = fields.Char('Código')
     ano = fields.Selection([('1', '1º ano'), ('2', '2º ano'), ('3', '3º ano'), ('4', '4º ano'), ('5', '5º ano')], default='1')
-    semestre = fields.Selection([('1', '1º Semestre'), ('2', '2º Semestre')], default='1')
-    obrigatoria = fields.Boolean('Obrigatória?', default=True)        
+    semestre = fields.Selection([('1', '1º Semestre'), ('2', '2º Semestre'), ('A','Anual')], default='1')
+    
+    """ obrigatoria = fields.Boolean('Obrigatória?', default=True)        
     tem_opcao = fields.Boolean('Tem Opções?')
-
     uc_opcao = fields.Many2one('transum.uc', string='UC de Opção')
-    uc_principal = fields.One2many('transum.uc', 'uc_opcao', string='UC Opcional')
+    uc_principal = fields.One2many('transum.uc', 'uc_opcao', string='UC Opcional') """
 
     plano_estudos = fields.One2many('transum.plano_estudos_uc', 'uc', string='Planos de Estudos')
     

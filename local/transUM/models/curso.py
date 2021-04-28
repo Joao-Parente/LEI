@@ -21,6 +21,8 @@ class Curso(models.Model):
 
     plano_transicao = fields.One2many('transum.plano_transicao', 'curso_id', 'Planos de Transição')
 
+    transicao_cursos_novos = fields.Many2one('transum.plano_transicao','Cursos Novos')
+
 
     @api.constrains('designacao', 'departamento')
     def _check_curso(self):

@@ -15,11 +15,9 @@ class Plano_Transicao(models.Model):
 
     curso_id = fields.Many2one('transum.curso', 'Curso')
 
+    cursos_novos = fields.One2many('transum.curso','transicao_cursos_novos','Cursos Novos')
+
     transicao_ucs = fields.One2many('transum.plano_transicao_uc', 'plano_transicao', 'Correspondência')
-
-    #plano_curso_antigo = fields.One2Many('transum.plano_curso','','Plano de Curso Antigo')
-    #plano_curso_novo = fields.One2Many('transum.plano_curso','','Planos de Curso Novos')
-
 
     @api.constrains('designacao', 'transicao_ucs')
     def _check_plano_curso(self):
@@ -32,7 +30,6 @@ class Plano_Transicao(models.Model):
         if len(self.env['transum.plano_transicao'].search([('curso_id', '=', self.curso_id.id)])) > 1:
             raise models.ValidationError('O curso introduzido já está associado a outro Plano de Transição !')
 
-
     def transitar(self):
         curso = self.env['transum.curso'].search([('id', '=', self.curso_id.id)])
         
@@ -41,8 +38,9 @@ class Plano_Transicao(models.Model):
         proposta_novo_plano = self.env['transum.proposta_novo_plano']
 
         for aluno in curso.alunos:
-            
+
             for plano in aluno.planos_atuais:
+
                 proposta = proposta_novo_plano.create([{
                     'plano_antigo': plano.id,
                     'plano_transicao': self.id 
@@ -52,26 +50,37 @@ class Plano_Transicao(models.Model):
                 aluno.estado = '2'
                 aluno.proposta_plano_aluno = proposta.id
 
-                plano_novo = plano_estudos.create([{
-                    'codigo': 'Novo_Plano_Estudos_' + aluno.nr_mecanografico,
-                    'dc_associada': plano.dc_associada.id,
-                    'proposta_nova': proposta.id
-                }])
-                plano_estudos.write(plano_novo)
+                for cn in self.cursos_novos:
 
-                for uc_transicao in self.transicao_ucs:
-                    transicao = None
-                    for antiga_uc in uc_transicao.uc_antiga:
-                        for info_uc in plano.nota_uc:
-                            if info_uc.uc.codigo == antiga_uc.codigo:
-                                transicao = info_uc
-                                  
-                    uc_plano = plano_estudos_uc.create([{
-                        'creditacao': transicao.creditacao,
-                        'nota': transicao.nota,
-                        'uc': uc_transicao.uc_nova[0].id,
-                        'plano_estudos': plano_novo.id
+                    pl_est_aluno = plano_estudos.create([{
+                        'codigo': cn.tipo + '_Novo_Plano_Estudos_' + aluno.nr_mecanografico,
+                        'dc_associada': cn.direcao_curso[0].id,
+                        'proposta_nova': proposta.id
+                        #'aluno_associado': aluno.id
                     }])
-                    plano_estudos_uc.write(uc_plano)
+                    plano_estudos.write(pl_est_aluno)
+
+                    for uc in cn.plano_curso[0].ucs:
+
+                        pl_est_uc = plano_estudos_uc.create([{
+                            'uc': uc.id,
+                            'creditacao': False,
+                            'nota': 0,
+                            'plano_estudos': pl_est_aluno.id
+                        }])
+                        plano_estudos_uc.write(pl_est_uc)
+
+                    for uc_transicao in self.transicao_ucs:
+                        transicao = None
+                        for antiga_uc in uc_transicao.uc_antiga:
+                            for info_uc in plano.nota_uc:
+                                if info_uc.uc.codigo == antiga_uc.codigo:
+                                    transicao = info_uc
+
+                        pros = proposta_novo_plano.search([('id','=',proposta.id)])
+                        for plano22 in pros.planos_novos:
+                            if plano22.existe_uc(uc_transicao.uc_nova[0].codigo,transicao.nota) == True:
+                                break
+
                         
                 break

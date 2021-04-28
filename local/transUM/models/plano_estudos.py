@@ -54,3 +54,12 @@ class Plano_Estudos(models.Model):
             raise models.ValidationError('Um Plano de Estudos deve estar associado a um determinado aluno !')
         if not self.nota_uc:
             raise models.ValidationError('Um Plano de Estudos deve possuir pelos menos uma Unidade Curricular !') """
+
+    def existe_uc(self,codigo:str,nota:float) -> bool:
+
+        for uc in self.nota_uc:
+            if uc.codigo == codigo:
+                if nota >= 10:
+                    uc.nota = nota
+                return True
+        return False        

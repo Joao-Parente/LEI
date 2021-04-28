@@ -40,7 +40,7 @@ class Aluno(models.Model):
 
     @api.model
     def create(self, vals):
-        
+
         new_record = super().create(vals)
 
         grouprel=self.env['res.groups'].search([('name', '=', 'Aluno')])

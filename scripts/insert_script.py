@@ -2,7 +2,7 @@ import xmlrpc.client
 import json
 
 url = "http://localhost:8069"
-db = 'odoov3'
+db = 'odoov4'
 username = 'admin'
 password = 'admin'
 
@@ -25,6 +25,8 @@ id_curso = models.execute_kw(db, uid, password, 'transum.curso', 'create', [{
     'departamento': departamento,
     'tipo': tipo_curso,
 }]) 
+cursos = []
+cursos.append(id_curso)
 
 print('Curso Inserido com Sucesso!')
 
@@ -52,3 +54,22 @@ id_plano_curso = models.execute_kw(db, uid, password, 'transum.plano_curso', 'cr
 print('Plano de Curso inserido com Sucesso!')
 
 ficheiro.close()
+
+ficheiro = open('../dados/alunos.json')
+
+dados = json.load(ficheiro)
+
+numero = 0
+for aluno in dados:
+        aluno_id = models.execute_kw(db, uid, password, 'transum.aluno', 'create', [{
+                'nr_mecanografico': aluno['nr_mecanografico'],
+                'login': aluno['email'],
+                'password': aluno['email'],
+                'name': aluno['name'],
+                'curso_id': cursos,
+                }])
+
+        print('Vou no aluno = '+str(numero))
+        numero+=1  
+
+ficheiro.close()         

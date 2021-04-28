@@ -41,11 +41,14 @@ class Aluno(models.Model):
     @api.model
     def create(self, vals):
 
+
         new_record = super().create(vals)
 
-        security_group = self.env.ref('transum.transum_group_aluno')
-        security_group.write({
+        grouprel=self.env['res.groups'].search([('name', '=', 'Aluno')])
+        grouprel.write({
             'users': [(4, new_record.user_id.id)]
         })
+
+
 
         return new_record

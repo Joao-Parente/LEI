@@ -1,5 +1,5 @@
-import xmlrpc.client
 import json
+import xmlrpc.client
 
 url = "http://localhost:8069"
 db = 'odoov4'
@@ -11,65 +11,54 @@ models = xmlrpc.client.ServerProxy('{}/xmlrpc/2/object'.format(url))
 version = common.version()
 uid = common.authenticate(db, username, password, {})
 
-ficheiro = open('../dados/curso.json')
+with open('../dados/curso.json', mode='r', encoding='utf8') as ficheiro:
+    dados = json.load(ficheiro)
 
-dados = json.load(ficheiro)
-
-designacao_curso = dados['designacao']
-departamento = dados['departamento']
-tipo_curso = dados['tipo']
-plano_curso_designacao = dados['plano_curso_designacao']
-
-id_curso = models.execute_kw(db, uid, password, 'transum.curso', 'create', [{
-    'designacao': designacao_curso,
-    'departamento': departamento,
-    'tipo': tipo_curso,
-}]) 
-cursos = []
-cursos.append(id_curso)
-
-print('Curso Inserido com Sucesso!')
-
-ucs_ids = []
-numero = 0
-for i in dados['plano_curso']:
-    id_uc = models.execute_kw(db, uid, password, 'transum.uc', 'create', [{
-        'ects': i['creditos'],
-        'designacao': i['nomeUC'],
-        'codigo': i['codigoUC'],
-        'ano': i['ano'],
-        'semestre': i['semestre'],
+    # INSERT CURSO 
+    id_curso = models.execute_kw(db, uid, password, 'transum.curso', 'create', [{
+        'designacao': dados['designacao'],
+        'departamento': dados['departamento'],
+        'tipo': dados['tipo']
     }])
-    ucs_ids.append(id_uc)
-    numero+=1
+    cursos = [id_curso]
+    print('===  Curso Inserido com Sucesso!     ===')
 
-print('Foram Inseridas '+str(numero)+ ' ucs!')    
+    # INSERT UC's
+    list_ucs = []
+    count_ucs = 0
+    for uc in dados['plano_curso']:
+        id_uc = models.execute_kw(db, uid, password, 'transum.uc', 'create',[{
+            'ects': uc['creditos'],
+            'designacao': uc['nomeUC'],
+            'codigo': uc['codigoUC'],
+            'ano': uc['ano'],
+            'semestre': uc['semestre']
+        }])
+        list_ucs.append(id_uc)
+        count_ucs += 1
+    print('===  Foram inseridas ' + str(count_ucs) + ' UCs          ===')
+   
+    # INSERT PLANO DE CURSO
+    id_plano_curso = models.execute_kw(db, uid, password, 'transum.plano_curso', 'create',[{
+        'codigo': dados['plano_curso_designacao'],
+        'curso_id': id_curso,
+        'ucs': list_ucs
+    }])
+    print('=== Plano_Curso Inserido c/ Sucesso! ===')
 
-id_plano_curso = models.execute_kw(db, uid, password, 'transum.plano_curso', 'create', [{
-    'codigo': plano_curso_designacao,
-    'curso_id': id_curso,
-    'ucs': ucs_ids,
-}])
 
-print('Plano de Curso inserido com Sucesso!')
+with open('../dados/alunos.json', mode='r', encoding='utf8') as ficheiro:
+    dados = json.load(ficheiro)
 
-ficheiro.close()
-
-ficheiro = open('../dados/alunos.json')
-
-dados = json.load(ficheiro)
-
-numero = 0
-for aluno in dados:
-        aluno_id = models.execute_kw(db, uid, password, 'transum.aluno', 'create', [{
-                'nr_mecanografico': aluno['nr_mecanografico'],
-                'login': aluno['email'],
-                'password': aluno['email'],
-                'name': aluno['name'],
-                'curso_id': cursos,
-                }])
-
-        print('Vou no aluno = '+str(numero))
-        numero+=1  
-
-ficheiro.close()         
+    # INSERT ALUNOS
+    count_alunos = 0
+    for aluno in dados:
+        aluno_id = models.execute_kw(db, uid, password, 'transum.aluno', 'create',[{
+            'nr_mecanografico': aluno['nr_mecanografico'],
+            'login': aluno['email'],
+            'password': aluno['nr_mecanografico'],
+            'name': aluno['name'],
+            'curso_id': cursos
+        }])
+        count_alunos += 1
+        print('===  Aluno   ::  ' + str(count_alunos) + '  ===')

@@ -1,46 +1,38 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
+	<record id="module_transum_category" model="ir.module.category">
+		<field name="name">TransUM</field>
+	</record>
 
-    <record id="module_transum_category" model="ir.module.category">
-        <field name="name">TransUM</field>
-    </record>
+	<!--  Administrador Group -->
+	<record id="transum_group_admin" model="res.groups">
+		<field name="name">Administrador</field>
+		<field name="category_id" ref="module_transum_category"/>
+		<field name="implied_ids" eval="[(4, ref('base.group_user')),(4, ref('base.group_system'))]"/>
+		<field name="users" eval="[(4, ref('base.user_root')), (4, ref('base.user_admin'))]"/>
+	</record>
 
-    <!--  Administrador Group -->
-    <record id="transum_group_admin" model="res.groups">
-        <field name="name">Administrador</field>
-        <field name="category_id" ref="module_transum_category"/>
-        <field name="implied_ids" eval="[(4, ref('base.group_user')),(4, ref('base.group_system'))]"/>
-        <field name="users" eval="[(4, ref('base.user_root')), (4, ref('base.user_admin'))]"/>
-    </record>
+	<!--  Direcao Group -->
+	<record id="transum_group_direcao_curso" model="res.groups">
+		<field name="name">Direção de Curso</field>
+		<field name="category_id" ref="module_transum_category"/>
+		<field name="implied_ids" eval="[(4, ref('base.group_user'))]"/>
+	</record>
 
+	<!--  Alunos Group -->
+	<record id="transum_group_aluno" model="res.groups">
+		<field name="name">Aluno</field>
+		<field name="category_id" ref="module_transum_category"/>
+		<field name="implied_ids" eval="[(4, ref('base.group_user'))]"/>
+	</record>
 
-    <!--  Direcao Group -->
-    <record id="transum_group_direcao_curso" model="res.groups">
-        <field name="name">Direção de Curso</field>
-        <field name="category_id" ref="module_transum_category"/>
-        <field name="implied_ids" eval="[(4, ref('base.group_user'))]"/>
-    </record>
-
-
-    <!--  Alunos Group -->
-    <record id="transum_group_aluno" model="res.groups">
-        <field name="name">Aluno</field>
-        <field name="category_id" ref="module_transum_category"/>
-        <field name="implied_ids" eval="[(4, ref('base.group_user'))]"/>
-    </record>
-
-
-
-    <data noupdate="0">
-
-          <record model="ir.rule" id="aluno_perfil_rule">
-                <field name="name">Um aluno vê apenas o seu perfil</field>
-                <field name="model_id" ref="model_transum_aluno"/>
-                <field name="groups" eval="[(4,ref('transum_group_aluno'))]"/>
-                <field name="domain_force">
-                    [('user_id', '=', user.id)]
-                </field>
-            </record>
-    </data>
-
+	<data noupdate="0">
+		<record model="ir.rule" id="aluno_perfil_rule">
+			<field name="name">Um aluno vê apenas o seu perfil </field>
+			<field name="model_id" ref="model_transum_aluno" />
+			<field name="groups" eval="[(4,ref('transum_group_aluno'))]" />
+			<field name="domain_force"> [('user_id', '=', user.id)] </field>
+		</record>
+	</data>
+    
 </odoo>

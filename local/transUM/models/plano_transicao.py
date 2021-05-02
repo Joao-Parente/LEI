@@ -71,16 +71,29 @@ class Plano_Transicao(models.Model):
                         plano_estudos_uc.write(pl_est_uc)
 
                     for uc_transicao in self.transicao_ucs:
-                        transicao = None
+                        somatorio = 0.0
+                        total = 0
                         for antiga_uc in uc_transicao.uc_antiga:
                             for info_uc in plano.nota_uc:
                                 if info_uc.uc.codigo == antiga_uc.codigo:
-                                    transicao = info_uc
+                                    somatorio += info_uc.nota * info_uc.creditos
+                                    total += info_uc.creditos
+
+                        media_pesada = somatorio / total
 
                         pros = proposta_novo_plano.search([('id','=',proposta.id)])
                         for plano22 in pros.planos_novos:
-                            if plano22.existe_uc(uc_transicao.uc_nova[0].codigo,transicao.nota) == True:
+                            if plano22.existe_uc(uc_transicao.uc_nova[0].codigo,media_pesada) == True:
                                 break
+                
+                proposal = proposta_novo_plano.search([('id','=',proposta.id)])
+                for pplano in proposal.planos_novos:
+                    if pplano.total_creditos_falta == 0:
+                        pplano.active = False
 
-                        
+                creditacao = plano.creditos_creditados()
+                if plano.total_creditos_falta + creditacao > plano.total_creditos_feitos - creditacao:
+                    proposal.aprovar()
+
                 break
+            

@@ -10,7 +10,7 @@ class UC(models.Model):
     _description = 'Unidade Curricular'
     active = fields.Boolean('Ativa?', default=True)
 
-    ects = fields.Integer('Créditos', default=5)
+    ects = fields.Float('Créditos', default=5)
     designacao = fields.Char('Designação')
     codigo = fields.Char('Código')
     ano = fields.Selection([('1', '1º ano'), ('2', '2º ano'), ('3', '3º ano'), ('4', '4º ano'), ('5', '5º ano')], default='1')

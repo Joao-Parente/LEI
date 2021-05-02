@@ -18,6 +18,7 @@ class Plano_Estudos_UC(models.Model):
     designacao = fields.Char('Designação', related='uc.designacao')
     ano = fields.Selection('Ano', related='uc.ano')
     semestre = fields.Selection('Semestre', related='uc.semestre')
+    creditos = fields.Float('Creditos', related='uc.ects')
 
     plano_estudos = fields.Many2one('transum.plano_estudos', 'Plano de Estudos')
 
@@ -34,6 +35,6 @@ class Plano_Estudos_UC(models.Model):
                 raise models.ValidationError('Nota inválida !')
 
             # Validar creditação
-            if record.creditacao and record.nota != 0:
-                raise models.ValidationError('Se foi creditada não é indicado a nota !')
+            """ if record.creditacao and record.nota != 0:
+                raise models.ValidationError('Se foi creditada não é indicado a nota !') """
 

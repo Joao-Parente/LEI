@@ -9,13 +9,14 @@ class Proposta_Novo_Plano(models.Model):
     _description = 'Proposta De Novo Plano'    
     active = fields.Boolean('Ativo?', default=True)
 
-    plano_antigo = fields.Many2one('transum.plano_estudos', 'Plano Antigo')
+    plano_antigo = fields.Many2one('transum.plano_estudos', 'Plano Antigo ID')
+    ucs_plano_antigo = fields.One2many('transum.plano_estudos_uc', 'plano_estudos', string='Plano de Estudos UCs', related='plano_antigo.nota_uc')
     planos_novos = fields.One2many('transum.plano_estudos', 'proposta_nova', 'Planos Novos')
 
     aluno = fields.One2many('transum.aluno', 'proposta_plano_aluno', 'Aluno Associado')
 
     plano_transicao = fields.Many2one('transum.plano_transicao', 'Plano de Transição')
-
+    ucs_plano_transicao = fields.One2many('transum.plano_transicao_uc', 'plano_transicao', string='Plano de Transição UCs', related='plano_transicao.transicao_ucs')
     designacao = fields.Char(compute='_compute_designacao')
 
 
@@ -37,7 +38,6 @@ class Proposta_Novo_Plano(models.Model):
             pln_antg.aluno_associado = None
             pln_antg.historico_aluno_associado = aluno.id
             
-            aluno.proposta_plano_aluno = None
             aluno.estado = '3'
         
 

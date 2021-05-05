@@ -12,13 +12,52 @@
 				</header>
 				<sheet>
 					<group name="group_top">
-						<group>
-							<field name="plano_antigo" />
-							<field name="plano_transicao" />
-						</group>
-						<group>
-							<field name="planos_novos" />
-						</group>
+						<notebook>
+							<page string="Planos de Estudos Novos">
+								<field name="planos_novos" string="">
+									<tree default_order="codigo,total_creditos_feitos,total_creditos_falta">
+										<field name="codigo" />
+										<field name="curso_designacao"/>
+										<field name="curso_tipo"/>
+										<field name="total_creditos_feitos" readonly="1" />
+										<field name="total_creditos_falta" readonly="1" />
+									</tree>
+								</field>
+							</page>
+							<page string="Plano de Estudos Antigo">
+								<field name="ucs_plano_antigo" string="">
+									<tree default_order="ano,semestre,codigo">
+										<field name="ano" />
+										<field name="semestre" />
+										<field name="codigo" />
+										<field name="designacao" />
+										<field name="creditacao" />
+										<field name="nota" />
+									</tree>
+								</field>
+							</page>
+							<page string="Plano de Transição">
+								<field name="ucs_plano_transicao" string="">
+									<tree>
+										<field name="curso_antigo" />
+										<field name="uc_antiga" widget="many2many_tags" />
+										<field name="curso_novo" />			
+										<field name="uc_nova" widget="many2many_tags" />
+									</tree>
+								</field>
+							</page>
+							<page string="Aluno Associado">
+								<field name="aluno" string="">
+									<tree default_order="nr_mecanografico,name,ano,curso_id,estado">
+										<field name="nr_mecanografico" />
+										<field name="name" />
+										<field name="ano" />
+										<field name="curso_id" widget="many2many_tags" />
+										<field name="estado" readonly="1" />
+									</tree>
+								</field>
+							</page>
+						</notebook>
 					</group>
 				</sheet>
 			</form>
@@ -31,6 +70,7 @@
 		<field name="arch" type="xml">
 			<tree>
 				<field name="designacao" />
+				<field name="aluno" widget="many2many_tags" />
 			</tree>
 		</field>
 	</record>

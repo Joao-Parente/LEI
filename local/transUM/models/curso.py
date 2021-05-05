@@ -42,3 +42,15 @@ class Curso(models.Model):
                 list_plano_curso.append(pc.id)
 
         return list_plano_curso
+
+    def existe_no_plano_curso(self, uc) -> bool:
+        for record in self:
+            uc_a_pesquisar = self.env['transum.uc'].search([('id', '=', uc)])
+
+            for pc in record.plano_curso:
+                pln_crs = self.env['transum.plano_curso'].search([('id', '=', pc.id)])
+                
+                for uc in pln_crs.ucs:
+                    if uc.codigo == uc_a_pesquisar.codigo :
+                        return True 
+        return False

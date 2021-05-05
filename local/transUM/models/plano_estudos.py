@@ -13,6 +13,8 @@ class Plano_Estudos(models.Model):
     codigo = fields.Char('Código')
 
     dc_associada = fields.Many2one('transum.direcao_curso', 'Direção de Curso')
+    curso_designacao = fields.Char('Designação', related='dc_associada.curso_designacao')
+    curso_tipo = fields.Selection([('1', 'Licenciatura'), ('2', 'Mestrado Integrado'), ('3', 'Mestrado')], related='dc_associada.curso_tipo')
 
     aluno_associado = fields.Many2one('transum.aluno', 'Aluno')
     historico_aluno_associado = fields.Many2one('transum.aluno', 'Histórico do Aluno')

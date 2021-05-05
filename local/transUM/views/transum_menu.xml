@@ -26,6 +26,9 @@
     <act_window id="action_plano_transicao" name="Planos de Transição" res_model="transum.plano_transicao" view_mode="tree,form" />
     <menuitem id="menu_plano_transicao" name="Planos de Transição" parent="menu_transum" action="action_plano_transicao" />
 
+    <act_window id="action_propostas" name="Propostas de Transição" res_model="transum.proposta_novo_plano" view_mode="tree,form" />
+    <menuitem id="menu_propostas" name="Propostas de Transição" parent="menu_transum" action="action_propostas" />
+
     <act_window id="action_ucs" name="Unidades Curriculares" res_model="transum.uc" view_mode="tree,form" />
     <menuitem id="menu_ucs" name="Unidades Curriculares" parent="menu_transum" action="action_ucs" />
 

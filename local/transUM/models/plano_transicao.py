@@ -73,22 +73,64 @@ class Plano_Transicao(models.Model):
                             }])
                             plano_estudos_uc.write(pl_est_uc)
 
+
+                       
+
                         for uc_transicao in self.transicao_ucs:
-                            somatorio = 0.0
-                            total = 0
-                            for antiga_uc in uc_transicao.uc_antiga:
+
+                            print("hiii" + str(len(uc_transicao.uc_antiga)) +" e noba" + str(len(uc_transicao.uc_antiga)) )
+
+                            #Verificar na view que não ha N->N
+
+                            #   1 -> 1
+                            if len(uc_transicao.uc_antiga)==1 and len(uc_transicao.uc_nova)==1 :
+                                print("1->1")
+                                pros = proposta_novo_plano.search([('id','=',proposta.id)])
+
                                 for info_uc in plano.nota_uc:
-                                    if info_uc.uc.codigo == antiga_uc.codigo:
-                                        somatorio += info_uc.nota * info_uc.creditos
-                                        total += info_uc.creditos
+                                     if info_uc.uc.codigo == uc_transicao.uc_antiga[0].codigo:
 
-                            media_pesada = somatorio / total
+                                        for plano22 in pros.planos_novos:
+                                            if plano22.existe_uc(uc_transicao.uc_nova[0].codigo,info_uc.nota) == True:
+                                                break
 
-                            pros = proposta_novo_plano.search([('id','=',proposta.id)])
-                            for plano22 in pros.planos_novos:
-                                if plano22.existe_uc(uc_transicao.uc_nova[0].codigo,media_pesada) == True:
-                                    break
-                    
+                            #   1 -> N
+                            if len(uc_transicao.uc_antiga)==1 and len(uc_transicao.uc_nova)>1 :
+                                print("1->N")
+                                pros = proposta_novo_plano.search([('id','=',proposta.id)])
+
+                                for info_uc in plano.nota_uc:
+                                     if info_uc.uc.codigo == uc_transicao.uc_antiga[0].codigo:
+
+                                        for plano22 in pros.planos_novos:
+                                            for uc_novas in uc_transicao.uc_nova:
+                                                if plano22.existe_uc(uc_novas.codigo,info_uc.nota) == True:
+                                                    print()
+                                                  
+                               
+
+                            print("N->1")   
+                            # N -> 1
+                            if len(uc_transicao.uc_antiga)>1 and len(uc_transicao.uc_nova)==1 :
+                                print("N->1")
+
+                                somatorio = 0.0
+                                total = 0
+                                for antiga_uc in uc_transicao.uc_antiga:
+                                    for info_uc in plano.nota_uc:
+                                         if info_uc.uc.codigo == antiga_uc.codigo:
+                                            somatorio += info_uc.nota * info_uc.creditos
+                                            total += info_uc.creditos
+
+                                media_pesada = somatorio / total
+
+                                pros = proposta_novo_plano.search([('id','=',proposta.id)])
+                                for plano22 in pros.planos_novos:
+                                    if plano22.existe_uc(uc_transicao.uc_nova[0].codigo,media_pesada) == True:
+                                     break
+
+
+
                     proposal = proposta_novo_plano.search([('id','=',proposta.id)])
                     """ for pplano in proposal.planos_novos:
                         if pplano.total_creditos_falta == 0:
@@ -96,7 +138,7 @@ class Plano_Transicao(models.Model):
 
                     creditacao = plano.creditos_creditados()
                     if plano.total_creditos_falta + creditacao > plano.total_creditos_feitos - creditacao:
-                        proposal.opcao = '2'
+                        proposal.aprovar() 
 
                     break
             

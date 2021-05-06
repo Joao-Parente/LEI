@@ -32,7 +32,7 @@ class Plano_Transicao(models.Model):
         
         for uc_transicao in self.transicao_ucs:
             plano_transicao_uc = self.env['transum.plano_transicao_uc'].search([('id', '=', uc_transicao.id)])
-            if not plano_transicao_uc.curso_antigo.id == self.curso_id:
+            if not plano_transicao_uc.curso_antigo.id == self.curso_id.id:
                 raise models.ValidationError('A Correspondência deve possuir Unidades Curriculares do Curso Antigo!')
          
 
@@ -89,14 +89,13 @@ class Plano_Transicao(models.Model):
                                 if plano22.existe_uc(uc_transicao.uc_nova[0].codigo,media_pesada) == True:
                                     break
                     
-                    """ proposal = proposta_novo_plano.search([('id','=',proposta.id)])
-                    for pplano in proposal.planos_novos:
+                    proposal = proposta_novo_plano.search([('id','=',proposta.id)])
+                    """ for pplano in proposal.planos_novos:
                         if pplano.total_creditos_falta == 0:
                             pplano.active = False """
 
                     creditacao = plano.creditos_creditados()
                     if plano.total_creditos_falta + creditacao > plano.total_creditos_feitos - creditacao:
-                        
                         proposal.aprovar() 
 
                     break

@@ -39,12 +39,14 @@
 								</field>
 							</page>
 							<page string="Plano de Transição">
-								<field name="ucs_plano_transicao" string="">
+								<field name="ucs_plano_transicao_mostra" string="">
 									<tree>
 										<field name="curso_antigo" />
 										<field name="uc_antiga" widget="many2many_tags" />
+										<field name="nota_antiga" />
 										<field name="curso_novo" />
 										<field name="uc_nova" widget="many2many_tags" />
+										<field name="nota_nova" />
 									</tree>
 								</field>
 							</page>

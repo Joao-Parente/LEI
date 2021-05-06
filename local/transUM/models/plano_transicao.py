@@ -3,8 +3,6 @@ from odoo.exceptions import ValidationError
 
 
 class Plano_Transicao(models.Model):
-
-
     _name = 'transum.plano_transicao'
     _order = "designacao desc"
     _rec_name = 'designacao'
@@ -18,6 +16,8 @@ class Plano_Transicao(models.Model):
     cursos_novos = fields.One2many('transum.curso','transicao_cursos_novos','Cursos Novos')
 
     transicao_ucs = fields.One2many('transum.plano_transicao_uc', 'plano_transicao', 'Correspondência')
+    transicao_ucs_mostra = fields.One2many('transum.plano_transicao_uc_mostra', 'plano_transicao_mostra', 'Correspondência Bunita')
+
 
     @api.constrains('designacao', 'transicao_ucs', 'curso_id')
     def _check_plano_curso(self):
@@ -42,6 +42,7 @@ class Plano_Transicao(models.Model):
         plano_estudos = self.env['transum.plano_estudos']
         plano_estudos_uc = self.env['transum.plano_estudos_uc']
         proposta_novo_plano = self.env['transum.proposta_novo_plano']
+        plano_mostra = self.env['transum.plano_transicao_uc_mostra']
 
         for aluno in curso.alunos:
             if aluno.estado == '1':
@@ -74,63 +75,81 @@ class Plano_Transicao(models.Model):
                             plano_estudos_uc.write(pl_est_uc)
 
 
-                       
+                    pros = proposta_novo_plano.search([('id','=',proposta.id)])
+                    for uc_transicao in self.transicao_ucs:
+                        #Verificar na view que não ha N->N
+                        print('\n\n\nLINHA 81 ' + str(self.id) + ' \n\n\n')
+                        #   1 -> 1
+                        if len(uc_transicao.uc_antiga)==1 and len(uc_transicao.uc_nova)==1 :
+                            print('\n\n\nLINHA 84\n\n\n')
+                            for info_uc in plano.nota_uc:
+                                if info_uc.uc.codigo == uc_transicao.uc_antiga[0].codigo:
+                                    for plano22 in pros.planos_novos:
+                                        if plano22.existe_uc(uc_transicao.uc_nova[0].codigo,info_uc.nota) == True:
+                                            break
+                                               
+                                    pl_trans_uc = plano_mostra.create([{
+                                        'uc_antiga': uc_transicao.uc_antiga,
+                                        'uc_nova': uc_transicao.uc_nova,
+                                        'nota_antiga': info_uc.nota if info_uc.nota >=10 else 0,
+                                        'nota_nova': info_uc.nota if info_uc.nota >=10 else 0,
+                                        'curso_novo': uc_transicao.curso_novo.id,
+                                        'curso_antigo': uc_transicao.curso_antigo.id,
+                                        'plano_transicao_mostra': self.id
+                                    }])
+                                    plano_mostra.write(pl_trans_uc)
+                                    break
 
-                        for uc_transicao in self.transicao_ucs:
-
-                            print("hiii" + str(len(uc_transicao.uc_antiga)) +" e noba" + str(len(uc_transicao.uc_antiga)) )
-
-                            #Verificar na view que não ha N->N
-
-                            #   1 -> 1
-                            if len(uc_transicao.uc_antiga)==1 and len(uc_transicao.uc_nova)==1 :
-                                print("1->1")
-                                pros = proposta_novo_plano.search([('id','=',proposta.id)])
-
-                                for info_uc in plano.nota_uc:
-                                     if info_uc.uc.codigo == uc_transicao.uc_antiga[0].codigo:
-
-                                        for plano22 in pros.planos_novos:
-                                            if plano22.existe_uc(uc_transicao.uc_nova[0].codigo,info_uc.nota) == True:
+                        #   1 -> N
+                        if len(uc_transicao.uc_antiga)==1 and len(uc_transicao.uc_nova)>1 :
+                            print('\n\n\nLINHA 105\n\n\n')
+                            for info_uc in plano.nota_uc:
+                                if info_uc.uc.codigo == uc_transicao.uc_antiga[0].codigo:
+                                    for plano22 in pros.planos_novos:
+                                        for uc_novas in uc_transicao.uc_nova:
+                                            if plano22.existe_uc(uc_novas.codigo,info_uc.nota) == True:
                                                 break
-
-                            #   1 -> N
-                            if len(uc_transicao.uc_antiga)==1 and len(uc_transicao.uc_nova)>1 :
-                                print("1->N")
-                                pros = proposta_novo_plano.search([('id','=',proposta.id)])
-
-                                for info_uc in plano.nota_uc:
-                                     if info_uc.uc.codigo == uc_transicao.uc_antiga[0].codigo:
-
-                                        for plano22 in pros.planos_novos:
-                                            for uc_novas in uc_transicao.uc_nova:
-                                                if plano22.existe_uc(uc_novas.codigo,info_uc.nota) == True:
-                                                    print()
-                                                  
+                                                    
+                                    pl_trans_uc = plano_mostra.create([{
+                                        'uc_antiga': uc_transicao.uc_antiga,
+                                        'uc_nova': uc_transicao.uc_nova,
+                                        'nota_antiga': info_uc.nota if info_uc.nota >=10 else 0,
+                                        'nota_nova': info_uc.nota if info_uc.nota >=10 else 0,
+                                        'curso_novo': uc_transicao.curso_novo.id,
+                                        'curso_antigo': uc_transicao.curso_antigo.id,
+                                        'plano_transicao_mostra': self.id
+                                    }])
+                                    plano_mostra.write(pl_trans_uc)
+                                    break
                                
+                        # N -> 1
+                        if len(uc_transicao.uc_antiga)>1 and len(uc_transicao.uc_nova)==1 :
+                            print('\n\n\nLINHA 127\n\n\n')
+                            somatorio = 0.0
+                            total = 0
+                            for antiga_uc in uc_transicao.uc_antiga:
+                                for info_uc in plano.nota_uc:
+                                    if info_uc.uc.codigo == antiga_uc.codigo:
+                                        somatorio += info_uc.nota * info_uc.creditos
+                                        total += info_uc.creditos
 
-                            print("N->1")   
-                            # N -> 1
-                            if len(uc_transicao.uc_antiga)>1 and len(uc_transicao.uc_nova)==1 :
-                                print("N->1")
+                            media_pesada = somatorio / total
 
-                                somatorio = 0.0
-                                total = 0
-                                for antiga_uc in uc_transicao.uc_antiga:
-                                    for info_uc in plano.nota_uc:
-                                         if info_uc.uc.codigo == antiga_uc.codigo:
-                                            somatorio += info_uc.nota * info_uc.creditos
-                                            total += info_uc.creditos
+                            for plano22 in pros.planos_novos:
+                                if plano22.existe_uc(uc_transicao.uc_nova[0].codigo,media_pesada) == True:
+                                    break
 
-                                media_pesada = somatorio / total
-
-                                pros = proposta_novo_plano.search([('id','=',proposta.id)])
-                                for plano22 in pros.planos_novos:
-                                    if plano22.existe_uc(uc_transicao.uc_nova[0].codigo,media_pesada) == True:
-                                     break
-
-
-
+                            pl_trans_uc = plano_mostra.create([{
+                                'uc_antiga': uc_transicao.uc_antiga,
+                                'uc_nova': uc_transicao.uc_nova,
+                                'nota_antiga': media_pesada,
+                                'nota_nova': media_pesada,
+                                'curso_novo': uc_transicao.curso_novo.id,
+                                'curso_antigo': uc_transicao.curso_antigo.id,
+                                'plano_transicao_mostra': self.id
+                            }])
+                            plano_mostra.write(pl_trans_uc)
+                                        
                     proposal = proposta_novo_plano.search([('id','=',proposta.id)])
                     """ for pplano in proposal.planos_novos:
                         if pplano.total_creditos_falta == 0:
@@ -138,7 +157,6 @@ class Plano_Transicao(models.Model):
 
                     creditacao = plano.creditos_creditados()
                     if plano.total_creditos_falta + creditacao > plano.total_creditos_feitos - creditacao:
-                        proposal.aprovar() 
+                        proposal.aprovar()
 
                     break
-            

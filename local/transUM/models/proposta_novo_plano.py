@@ -18,7 +18,10 @@ class Proposta_Novo_Plano(models.Model):
     aluno = fields.One2many('transum.aluno', 'proposta_plano_aluno', 'Aluno Associado')
 
     plano_transicao = fields.Many2one('transum.plano_transicao', 'Plano de Transição')
-    ucs_plano_transicao = fields.One2many('transum.plano_transicao_uc', 'plano_transicao', string='Plano de Transição UCs', related='plano_transicao.transicao_ucs')
+    #ucs_plano_transicao = fields.One2many('transum.plano_transicao_uc', 'plano_transicao', string='Plano de Transição UCs', related='plano_transicao.transicao_ucs')
+    ucs_plano_transicao_mostra = fields.One2many('transum.plano_transicao_uc_mostra', 'plano_transicao_mostra', string='Plano de Transição UCs Bunita', related='plano_transicao.transicao_ucs_mostra')
+
+
     designacao = fields.Char(compute='_compute_designacao')
 
 

@@ -11,4 +11,5 @@ from . import plano_estudos
 from . import plano_transicao_uc
 from . import plano_transicao
 from . import proposta_novo_plano
+from . import plano_transicao_uc_mostra
 from . import uc

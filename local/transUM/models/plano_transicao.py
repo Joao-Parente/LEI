@@ -96,7 +96,7 @@ class Plano_Transicao(models.Model):
 
                     creditacao = plano.creditos_creditados()
                     if plano.total_creditos_falta + creditacao > plano.total_creditos_feitos - creditacao:
-                        proposal.aprovar() 
+                        proposal.opcao = '2'
 
                     break
             

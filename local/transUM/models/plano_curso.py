@@ -53,18 +53,21 @@ class Plano_Curso(models.Model):
         plano_estudos_uc = self.env['transum.plano_estudos_uc']
 
         for aluno in curso.alunos:
-            pl_est_aluno = plano_estudos.create([{
-                'codigo': 'Plano_Estudos_' + aluno.nr_mecanografico,
-                'dc_associada': curso.direcao_curso[0].id,
-                'aluno_associado': aluno.id
-            }])
-            plano_estudos.write(pl_est_aluno)
-
-            for uc in self.ucs:
-                pl_est_uc = plano_estudos_uc.create([{
-                    'uc': uc.id,
-                    'creditacao': False,
-                    'nota': 0,
-                    'plano_estudos': pl_est_aluno.id
+            aln = self.env['transum.aluno'].search([('id', '=', aluno.id)])
+            
+            if len(aln.planos_atuais) == 0:
+                pl_est_aluno = plano_estudos.create([{
+                    'codigo': 'Plano_Estudos_' + aluno.nr_mecanografico,
+                    'dc_associada': curso.direcao_curso[0].id,
+                    'aluno_associado': aluno.id
                 }])
-                plano_estudos_uc.write(pl_est_uc)
+                plano_estudos.write(pl_est_aluno)
+
+                for uc in self.ucs:
+                    pl_est_uc = plano_estudos_uc.create([{
+                        'uc': uc.id,
+                        'creditacao': False,
+                        'nota': 0,
+                        'plano_estudos': pl_est_aluno.id
+                    }])
+                    plano_estudos_uc.write(pl_est_uc)

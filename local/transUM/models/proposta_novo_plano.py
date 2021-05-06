@@ -9,6 +9,8 @@ class Proposta_Novo_Plano(models.Model):
     _description = 'Proposta De Novo Plano'    
     active = fields.Boolean('Ativo?', default=True)
 
+    opcao = fields.Selection([('1','Sim'),('2','Não'),('3','Já aceitou')], string='Tem Opção?', default='1')
+
     plano_antigo = fields.Many2one('transum.plano_estudos', 'Plano Antigo ID')
     ucs_plano_antigo = fields.One2many('transum.plano_estudos_uc', 'plano_estudos', string='Plano de Estudos UCs', related='plano_antigo.nota_uc')
     planos_novos = fields.One2many('transum.plano_estudos', 'proposta_nova', 'Planos Novos')
@@ -39,6 +41,9 @@ class Proposta_Novo_Plano(models.Model):
             pln_antg.historico_aluno_associado = aluno.id
             
             aluno.estado = '3'
+            self.opcao = '3'
+
+            # Mudar de curso !!!
         
 
     def rejeitar(self):

@@ -7,12 +7,14 @@
 		<field name="arch" type="xml">
 			<form>
 				<header>
-					<button name="aprovar" type="object" string="Aprovar" class="oe_highlight" />
-					<button name="rejeitar" type="object" string="Rejeitar" class="oe_highlight" /> -->
+					<button name="aprovar" type="object" string="Aprovar" class="oe_highlight" attrs="{'invisible':['|',('opcao', '==', '2'),('opcao','==','3')]}" />
+					<button name="rejeitar" type="object" string="Rejeitar" class="oe_highlight" attrs="{'invisible':['|',('opcao', '==', '2'),('opcao','==','3')]}" />
+					<button name="aprovar" type="object" string="Tomei conhecimento" class="oe_highlight" attrs="{'invisible':['|',('opcao', '==', '1'),('opcao','==','3')]}" />
 				</header>
 				<sheet>
 					<group name="group_top">
 						<notebook>
+							<field name="opcao" invisible="1" />
 							<page string="Planos de Estudos Novos">
 								<field name="planos_novos" string="">
 									<tree default_order="codigo,total_creditos_feitos,total_creditos_falta">
@@ -41,7 +43,7 @@
 									<tree>
 										<field name="curso_antigo" />
 										<field name="uc_antiga" widget="many2many_tags" />
-										<field name="curso_novo" />			
+										<field name="curso_novo" />
 										<field name="uc_nova" widget="many2many_tags" />
 									</tree>
 								</field>

@@ -15,8 +15,20 @@
 					<group name="group_top">
 						<notebook>
 							<field name="opcao" invisible="1" />
+							<page string="Correspondências">
+								<field name="transicao_ucs_mostra" string="" style="pointer-events:none;">
+									<tree>
+										<field name="curso_antigo" />
+										<field name="uc_antiga" widget="many2many_tags" />
+										<field name="nota_antiga" />
+										<field name="curso_novo" />
+										<field name="uc_nova" widget="many2many_tags" />
+										<field name="nota_nova" />
+									</tree>
+								</field>
+							</page>
 							<page string="Planos de Estudos Novos">
-								<field name="planos_novos" string="">
+								<field name="planos_novos" string="" readonly="1">
 									<tree default_order="codigo,total_creditos_feitos,total_creditos_falta">
 										<field name="codigo" />
 										<field name="curso_designacao"/>
@@ -27,7 +39,7 @@
 								</field>
 							</page>
 							<page string="Plano de Estudos Antigo">
-								<field name="ucs_plano_antigo" string="">
+								<field name="ucs_plano_antigo" string="" style="pointer-events:none;">
 									<tree default_order="ano,semestre,codigo">
 										<field name="ano" />
 										<field name="semestre" />
@@ -39,19 +51,17 @@
 								</field>
 							</page>
 							<page string="Plano de Transição">
-								<field name="ucs_plano_transicao_mostra" string="">
+								<field name="ucs_plano_transicao" string="" style="pointer-events:none;">
 									<tree>
 										<field name="curso_antigo" />
 										<field name="uc_antiga" widget="many2many_tags" />
-										<field name="nota_antiga" />
-										<field name="curso_novo" />
+										<field name="curso_novo" />			
 										<field name="uc_nova" widget="many2many_tags" />
-										<field name="nota_nova" />
 									</tree>
 								</field>
 							</page>
 							<page string="Aluno Associado">
-								<field name="aluno" string="">
+								<field name="aluno" string="" style="pointer-events:none;">
 									<tree default_order="nr_mecanografico,name,ano,curso_id,estado">
 										<field name="nr_mecanografico" />
 										<field name="name" />

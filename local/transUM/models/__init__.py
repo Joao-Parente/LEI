@@ -8,8 +8,8 @@ from . import docente
 from . import plano_curso
 from . import plano_estudos_uc
 from . import plano_estudos
+from . import plano_transicao_uc_mostra
 from . import plano_transicao_uc
 from . import plano_transicao
 from . import proposta_novo_plano
-from . import plano_transicao_uc_mostra
 from . import uc

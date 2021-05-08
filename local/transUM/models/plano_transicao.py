@@ -79,6 +79,8 @@ class Plano_Transicao(models.Model):
 
                     pros = proposta_novo_plano.search([('id', '=', proposta.id)])
 
+                    flag = False
+
                     for uc_transicao in self.transicao_ucs:
                         #Verificar na view que não ha N->N
 
@@ -109,7 +111,7 @@ class Plano_Transicao(models.Model):
                                     for plano22 in pros.planos_novos:
                                         for uc_novas in uc_transicao.uc_nova:
                                             if plano22.existe_uc(uc_novas.codigo, info_uc.nota) == True:
-                                                break
+                                                continue
 
                                     pl_trans_uc = proposta_transicao.create([{
                                         'uc_antiga': uc_transicao.uc_antiga,
@@ -127,19 +129,26 @@ class Plano_Transicao(models.Model):
                         if len(uc_transicao.uc_antiga) > 1 and len(uc_transicao.uc_nova) == 1:
                             somatorio = 0.0
                             total = 0
+                            flag_line = False
                             for antiga_uc in uc_transicao.uc_antiga:
                                 for info_uc in plano.nota_uc:
                                     if info_uc.uc.codigo == antiga_uc.codigo:
+                                        if info_uc.nota < 10:
+                                            flag = True
+                                            flag_line = True
                                         somatorio += info_uc.nota * info_uc.creditos
                                         total += info_uc.creditos
 
                             media_pesada = somatorio / total
+                            if flag_line == True:
+                                media_pesada = 0
 
                             for plano22 in pros.planos_novos:
                                 if plano22.existe_uc(uc_transicao.uc_nova[0].codigo, media_pesada) == True:
                                     break
 
                             pl_trans_uc = proposta_transicao.create([{
+                                'atencao': flag_line,
                                 'uc_antiga': uc_transicao.uc_antiga,
                                 'uc_nova': uc_transicao.uc_nova,
                                 'nota_antiga': media_pesada,
@@ -155,8 +164,10 @@ class Plano_Transicao(models.Model):
                         if pplano.total_creditos_falta == 0:
                             pplano.active = False """
 
-                    creditacao = plano.creditos_creditados()
-                    if plano.total_creditos_falta + creditacao > plano.total_creditos_feitos - creditacao:
-                        proposal.opcao = '2'
-
+                    if flag == True:
+                        proposal.opcao = '4'
+                    else:
+                        creditacao = plano.creditos_creditados()
+                        if plano.total_creditos_falta + creditacao > plano.total_creditos_feitos - creditacao:
+                            proposal.opcao = '2'
                     break

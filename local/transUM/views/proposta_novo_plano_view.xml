@@ -7,9 +7,11 @@
 		<field name="arch" type="xml">
 			<form>
 				<header>
-					<button name="aprovar" type="object" string="Aprovar" class="oe_highlight" attrs="{'invisible':['|',('opcao', '==', '2'),('opcao','==','3')]}" />
-					<button name="rejeitar" type="object" string="Rejeitar" class="oe_highlight" attrs="{'invisible':['|',('opcao', '==', '2'),('opcao','==','3')]}" />
-					<button name="aprovar" type="object" string="Tomei conhecimento" class="oe_highlight" attrs="{'invisible':['|',('opcao', '==', '1'),('opcao','==','3')]}" />
+					<button name="aprovar" type="object" string="Aprovar" class="oe_highlight" attrs="{'invisible':[('opcao', '!=', '1')]}" />
+					<button name="rejeitar" type="object" string="Rejeitar" class="oe_highlight" attrs="{'invisible':[('opcao', '!=', '1')]}" />
+					<button name="aprovar" type="object" string="Tomei conhecimento" class="oe_highlight" attrs="{'invisible':[('opcao', '!=', '2')]}" />
+					<field name="opcao" widget="statusbar" class="oe_highlight" string="Necessita de Atenção" attrs="{'invisible':[('opcao','!=','4')]}"/>
+					
 				</header>
 				<sheet>
 					<group name="group_top">
@@ -24,6 +26,7 @@
 										<field name="curso_novo" />
 										<field name="uc_nova" widget="many2many_tags" />
 										<field name="nota_nova" />
+										<field name="atencao"/>
 									</tree>
 								</field>
 							</page>

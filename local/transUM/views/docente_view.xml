@@ -10,13 +10,14 @@
 				<sheet>
 					<group name="group_top">
 						<group>
-							<!-- <field name="active" /> -->
-							<field name="nr_mecanografico" />
-							<field name="email" />
-							<field name="nome" />
-						</group>
-						<group>
-							<field name="direcoes_curso" attrs="{'invisible':[('direcoes_curso','=',[])]}" readonly="1" />
+							<group>
+								<field name="nr_mecanografico" />
+								<field name="email" />
+								<field name="nome" />
+							</group>
+							<group>
+								<field name="direcoes_curso" attrs="{'invisible':[('direcoes_curso','=',[])]}" readonly="1" />
+							</group>
 						</group>
 					</group>
 				</sheet>

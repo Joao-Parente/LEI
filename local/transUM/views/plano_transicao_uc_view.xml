@@ -9,9 +9,7 @@
 				<header></header>
 				<sheet>
 					<group name="group_top">
-						<field name="curso_antigo" />
 						<field name="uc_antiga" widget='many2many' />
-						<field name="curso_novo" />
 						<field name="uc_nova" widget='many2many' />
 					</group>
 				</sheet>
@@ -24,9 +22,7 @@
 		<field name="model">transum.plano_transicao_uc</field>
 		<field name="arch" type="xml">
 			<tree>
-				<field name="curso_antigo" />
 				<field name="uc_antiga" widget="many2many_tags" />
-				<field name="curso_novo" />			
 				<field name="uc_nova" widget="many2many_tags" />
 			</tree>
 		</field>

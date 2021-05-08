@@ -11,21 +11,23 @@ class Direcao_Curso(models.Model):
     active = fields.Boolean('Ativo?', default=True)
 
     codigo = fields.Char('Código')
-    
+
     curso_id = fields.Many2one('transum.curso', 'Curso ID')
     curso_designacao = fields.Char('Designação', related='curso_id.designacao')
+    curso_departamento = fields.Char('Departamento', related='curso_id.departamento')
     curso_tipo = fields.Selection([('1', 'Licenciatura'), ('2', 'Mestrado Integrado'), ('3', 'Mestrado')], related='curso_id.tipo')
 
     docentes = fields.Many2many('transum.docente', string='Docentes')
 
     planos_estudo = fields.One2many('transum.plano_estudos', 'dc_associada', 'Planos de Estudos')
 
-    
+
     @api.constrains('codigo', 'curso_id', 'docentes')
     def _check_dc(self):
-        # Campos vazios 
+        # Campos vazios
         if not self.codigo or not self.curso_id:
             raise models.ValidationError('Uma Direção de Curso deve possuir um código e um curso associado !')
+
         if not self.docentes:
             raise models.ValidationError('Uma Direção de Curso deve possuir pelo menos um docente !')
 

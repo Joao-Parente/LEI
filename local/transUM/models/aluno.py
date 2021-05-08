@@ -12,11 +12,9 @@ class Aluno(models.Model):
     active = fields.Boolean('Ativo?', default=True)
 
     nr_mecanografico = fields.Char('Nº Mecanográfico')
-    # nome = fields.Char('Nome')
-    #email = fields.Char('Email')
-    estado = fields.Selection([('1','Não Transitado'),('2','Em Transição'),('3','Transitado')], default='1')
-    ano = fields.Selection([('1','1º ano'),('2','2º ano'),('3','3º ano'),('4','4º ano'),('5','5º ano'),('6','6º ano')], default='1')
-    estatuto = fields.Selection([('1','Estudante'),('2','Trabalhador Estudante'),('3','Estudante Atleta')], default='1')
+    estado = fields.Selection([('1', 'Não Transitado'), ('2', 'Em Transição'), ('3', 'Transitado')], default='1')
+    ano = fields.Selection([('1', '1º ano'), ('2', '2º ano'), ('3', '3º ano'), ('4', '4º ano'), ('5', '5º ano'), ('6', '6º ano')], default='1')
+    estatuto = fields.Selection([('1', 'Estudante'), ('2', 'Trabalhador Estudante'), ('3', 'Estudante Atleta')], default='1')
 
     curso_id = fields.Many2many('transum.curso', string='Curso')
 
@@ -25,27 +23,34 @@ class Aluno(models.Model):
 
     proposta_plano_aluno = fields.Many2one('transum.proposta_novo_plano', 'Proposta')
 
-    
-    @api.constrains('nr_mecanografico', 'email', 'nome')
-    def _check_aluno(self):   
+
+    @api.constrains('nr_mecanografico', 'name', 'login', 'password', 'curso_id')
+    def _check_aluno(self):
         # Campos vazios
-        #if not self.nr_mecanografico or not self.email or not self.nome:
-        if not self.nr_mecanografico :
-            raise models.ValidationError('Um Aluno deve possuir um nº mecanográfico, um email e um nome !')
-            
+        if not self.nr_mecanografico or not self.name :
+            raise models.ValidationError('Um Aluno deve possuir um nº mecanográfico, um email, um nome e uma password !')
+
         # ID unico
         if len(self.env['transum.aluno'].search([('nr_mecanografico', '=', self.nr_mecanografico)])) > 1:
-            raise models.ValidationError('O nº mecanográfico introduzido já está associado a outro Aluno !')
+            raise models.ValidationError('O número mecanográfico introduzido já está associado a outro Aluno !')
+
+        # Curso
+        if not self.curso_id:
+            raise models.ValidationError('Um Aluno deve possuir pelo menos um Curso !')
+
+        # Existir um plano de curso associado ao Curso
+        for curso in self.curso_id:
+            curso = self.env['transum.curso'].search([('id', '=', curso.id)])
+            if not len(curso.get_plano_curso()) > 0:
+                raise models.ValidationError('O Curso escolhido não possui um Plano de Curso associado !')
+
 
 
     @api.model
     def create(self, vals):
-
         new_record = super().create(vals)
 
-        grouprel=self.env['res.groups'].search([('name', '=', 'Aluno')])
-        grouprel.write({
-            'users': [(4, new_record.user_id.id)]
-        })
+        grouprel = self.env['res.groups'].search([('name', '=', 'Aluno')])
+        grouprel.write({'users': [(4, new_record.user_id.id)]})
 
         return new_record

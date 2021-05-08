@@ -9,7 +9,7 @@ class Proposta_Novo_Plano(models.Model):
     _description = 'Proposta De Novo Plano'
     active = fields.Boolean('Ativo?', default=True)
 
-    opcao = fields.Selection([('1', 'Sim'), ('2', 'Não'), ('3', 'Já aceitou'), ('4','Necessita de Atenção')], string='Tem Opção?', default='1')
+    opcao = fields.Selection([('1', 'Tem opção de escolha.'), ('2', 'Não possui opção de escolha.'), ('3', 'Aceitou a transição.'), ('4','Necessita de atenção.')], string='Observações', default='1')
 
     plano_antigo = fields.Many2one('transum.plano_estudos', 'Plano Antigo ID')
     ucs_plano_antigo = fields.One2many('transum.plano_estudos_uc', 'plano_estudos', string='Plano de Estudos UCs', related='plano_antigo.nota_uc')
@@ -22,7 +22,7 @@ class Proposta_Novo_Plano(models.Model):
 
     transicao_ucs_mostra = fields.One2many('transum.plano_transicao_uc_mostra', 'proposta', string='Correspondência')
 
-    designacao = fields.Char(compute='_compute_designacao')
+    designacao = fields.Char(compute='_compute_designacao', string='Proposta de Transição')
 
 
     def _compute_designacao(self):

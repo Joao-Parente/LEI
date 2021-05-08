@@ -36,6 +36,7 @@
 			</form>
 		</field>
 	</record>
+
 	<!-- Tree -->
 	<record id="curso_view_tree" model="ir.ui.view">
 		<field name="name">Curso List</field>
@@ -48,6 +49,7 @@
 			</tree>
 		</field>
 	</record>
+
 	<!-- Search -->
 	<record id="view_search_curso" model="ir.ui.view">
 		<field name="name">Filtros do Curso</field>

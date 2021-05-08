@@ -10,8 +10,7 @@
 					<button name="aprovar" type="object" string="Aprovar" class="oe_highlight" attrs="{'invisible':[('opcao', '!=', '1')]}" />
 					<button name="rejeitar" type="object" string="Rejeitar" class="oe_highlight" attrs="{'invisible':[('opcao', '!=', '1')]}" />
 					<button name="aprovar" type="object" string="Tomei conhecimento" class="oe_highlight" attrs="{'invisible':[('opcao', '!=', '2')]}" />
-					<field name="opcao" widget="statusbar" class="oe_highlight" string="Necessita de Atenção" attrs="{'invisible':[('opcao','!=','4')]}"/>
-					
+					<field name="opcao" class="oe_highlight" string="Necessita de Atenção" attrs="{'invisible':[('opcao','!=','4')]}" />
 				</header>
 				<sheet>
 					<group name="group_top">
@@ -88,6 +87,7 @@
 			<tree>
 				<field name="designacao" />
 				<field name="aluno" widget="many2many_tags" />
+				<field name="opcao" string="Tem opção ?" />
 			</tree>
 		</field>
 	</record>

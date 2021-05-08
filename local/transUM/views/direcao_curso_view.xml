@@ -13,7 +13,6 @@
 							<page string="Informação">
 								<group>
 									<group>
-										<!-- <field name="active" /> -->
 										<field name="codigo" />
 										<field name="curso_id" string="Curso" />
 									</group>
@@ -31,6 +30,7 @@
 			</form>
 		</field>
 	</record>
+
 	<!-- Tree -->
 	<record id="view_tree_direcao_curso" model="ir.ui.view">
 		<field name="name">Lista de Direcoes Curso</field>
@@ -42,6 +42,7 @@
 			</tree>
 		</field>
 	</record>
+	
 	<!-- Search -->
 	<record id="view_search_direcao_curso" model="ir.ui.view">
 		<field name="name">Filtros da Direcao Curso</field>

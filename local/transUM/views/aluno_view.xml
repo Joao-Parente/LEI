@@ -12,18 +12,14 @@
 							<page string="Perfil">
 								<group>
 									<group>
+										<field name="login" string="Email"> res.users.form.inherit </field>
+										<field name="password"> res.users.form.inherit </field>
+										<field name="name" string="Nome"> res.users.form.inherit </field>
 										<field name="nr_mecanografico" />
-										<!--field name="nome" /-->
-
-										<!--field name="email" /-->
-										<field name="name">res.users.form.inherit</field>
-										<field name="login">res.users.form.inherit</field>
-										<field name="password">res.users.form.inherit</field>
-
 										<field name="estatuto" />
 										<field name="ano" />
 										<field name="estado" readonly="1" />
-										<field name="proposta_plano_aluno" attrs="{'invisible':[('proposta_plano_aluno','=',False)]}" readonly="1" />
+										<field name="proposta_plano_aluno" readonly="1" attrs="{'invisible':[('proposta_plano_aluno','=',False)]}"  />
 									</group>
 									<group>
 										<field name="curso_id" string="Curso" />
@@ -46,28 +42,27 @@
 			</form>
 		</field>
 	</record>
+	
 	<!-- Tree -->
 	<record id="view_tree_aluno" model="ir.ui.view">
 		<field name="name">Lista de Alunos</field>
 		<field name="model">transum.aluno</field>
 		<field name="arch" type="xml">
-			<tree default_order="nr_mecanografico">
+			<tree default_order="nr_mecanografico,curso_id,ano">
 				<field name="nr_mecanografico" />
-				<!--field name="nome" /-->
-				
 				<field name="ano" />
 				<field name="curso_id" widget="many2many_tags" />
 			</tree>
 		</field>
 	</record>
+
 	<!-- Search -->
 	<record id="view_search_aluno" model="ir.ui.view">
 		<field name="name">Filtros do Aluno</field>
 		<field name="model">transum.aluno</field>
 		<field name="arch" type="xml">
 			<search>
-				<field name="nr_mecanografico" string="Nº Mecanográfico" filter_domain="[('nr_mecanografico','ilike',self)]" />
-				<!--field name="nome" string="Nome" filter_domain="[('nome','ilike',self)]" /-->
+				<field name="nr_mecanografico" string="Nª Mecanográfico" filter_domain="[('nr_mecanografico','ilike',self)]" />
 				<field name="ano" string="Ano" filter_domain="[('ano','ilike',self)]" />
 				<field name="curso_id" string="Curso" filter_domain="[('curso_id','ilike',self)]" />
 			</search>

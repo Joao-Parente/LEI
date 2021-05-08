@@ -17,7 +17,7 @@ class Plano_Estudos(models.Model):
     curso_tipo = fields.Selection([('1', 'Licenciatura'), ('2', 'Mestrado Integrado'), ('3', 'Mestrado')], related='dc_associada.curso_tipo')
 
     aluno_associado = fields.Many2one('transum.aluno', 'Aluno')
-    historico_aluno_associado = fields.Many2one('transum.aluno', 'Histórico do Aluno')
+    historico_aluno_associado = fields.Many2one('transum.aluno','Histórico do Aluno')
 
     proposta_antiga = fields.One2many('transum.proposta_novo_plano', 'plano_antigo', 'Plano de Estudos Antigo')
     proposta_nova = fields.Many2one('transum.proposta_novo_plano', 'Propostas Novos Planos Novas')
@@ -26,6 +26,7 @@ class Plano_Estudos(models.Model):
 
     total_creditos_feitos = fields.Integer(compute='_compute_calcula_creditos_feitos', string='Total de Créditos Feitos', default=0)
     total_creditos_falta = fields.Integer(compute='_compute_calcula_creditos_falta', string='Total de Créditos a realizar', default=0)
+
 
     def _compute_calcula_creditos_feitos(self):
         for record in self:
@@ -45,25 +46,23 @@ class Plano_Estudos(models.Model):
                     record.total_creditos_falta += pln_stds_c.uc.ects
 
 
-    @api.constrains('codigo', 'dc_associada', 'aluno_associado', 'nota_uc')
+    @api.constrains('codigo', 'dc_associada')
     def _check_plano_estudos(self):
         # Campos vazios & Associacoes
         if not self.codigo:
             raise models.ValidationError('Um Plano de Estudos deve possuir um código !')
         if not self.dc_associada:
             raise models.ValidationError('Um Plano de Estudos deve possuir uma Direção de Curso associada !')
-        """if not self.aluno_associado:
-            raise models.ValidationError('Um Plano de Estudos deve estar associado a um determinado aluno !')
-        if not self.nota_uc:
-            raise models.ValidationError('Um Plano de Estudos deve possuir pelos menos uma Unidade Curricular !') """
 
-    def existe_uc(self,codigo:str,nota:float) -> bool:
+
+    def existe_uc(self, codigo: str, nota: float) -> bool:
         for uc in self.nota_uc:
             if uc.codigo == codigo:
                 if nota >= 10:
                     uc.nota = nota
                 return True
-        return False 
+        return False
+
 
     def creditos_creditados(self) -> float:
         ret = 0.0

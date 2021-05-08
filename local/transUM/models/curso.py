@@ -1,6 +1,7 @@
 from odoo import models, fields, api
 from odoo.exceptions import ValidationError
 
+
 class Curso(models.Model):
 
     _name = 'transum.curso'
@@ -21,7 +22,7 @@ class Curso(models.Model):
 
     plano_transicao = fields.One2many('transum.plano_transicao', 'curso_id', 'Planos de Transição')
 
-    transicao_cursos_novos = fields.Many2one('transum.plano_transicao','Cursos Novos')
+    transicao_cursos_novos = fields.Many2one('transum.plano_transicao', 'Cursos Novos')
 
 
     @api.constrains('designacao', 'departamento')
@@ -31,17 +32,18 @@ class Curso(models.Model):
             raise models.ValidationError('Um Curso deve possuir uma designação e um departamento !')
 
 
-    def get_plano_curso(self):
+    def get_plano_curso(self) -> list:
         list_plano_curso = []
 
         for rec in self:
             if not rec.plano_curso:
                 return list_plano_curso
 
-            for pc in rec.plano_curso:            
+            for pc in rec.plano_curso:
                 list_plano_curso.append(pc.id)
 
         return list_plano_curso
+
 
     def existe_no_plano_curso(self, uc) -> bool:
         for record in self:
@@ -49,8 +51,8 @@ class Curso(models.Model):
 
             for pc in record.plano_curso:
                 pln_crs = self.env['transum.plano_curso'].search([('id', '=', pc.id)])
-                
+
                 for uc in pln_crs.ucs:
-                    if uc.codigo == uc_a_pesquisar.codigo :
-                        return True 
+                    if uc.codigo == uc_a_pesquisar.codigo:
+                        return True
         return False

@@ -7,7 +7,7 @@ class Plano_Transicao_UC_Mostra(models.Model):
     _description = 'Plano de Transicao UC Mostra'
     active = fields.Boolean('Ativo?', default=True)
 
-    atencao = fields.Boolean(default=False)
+    atencao = fields.Boolean(default=False, string='Rever')
 
     uc_antiga = fields.One2many('transum.uc', 'uc_antiga_transicao_mostra', string='UC Antiga')
     uc_nova = fields.One2many('transum.uc', 'uc_nova_transicao_mostra', string='UC Nova')

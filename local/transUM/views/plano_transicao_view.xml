@@ -11,15 +11,28 @@
 				</header>
 				<sheet>
 					<group name="group_top">
-						<field name="designacao" />
-						<field name="curso_id" />
-						<field name="cursos_novos" widget="many2many"/>
-						<field name="transicao_ucs" />
+						<notebook>
+							<page string="Informação">
+								<group>
+									<field name="designacao" />
+									<field name="curso_id" />
+								</group>
+								<group>
+									<field name="cursos_novos" widget="many2many"/>
+								</group>
+							</page>
+							<page string="Correspondências">
+								<group>
+									<field name="transicao_ucs" />
+								</group>
+							</page>
+						</notebook>
 					</group>
 				</sheet>
 			</form>
 		</field>
 	</record>
+	
 	<!-- Tree -->
 	<record id="view_tree_plano_transicao" model="ir.ui.view">
 		<field name="name">Lista de Plano de Transicao</field>

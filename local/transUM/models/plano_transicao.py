@@ -32,6 +32,8 @@ class Plano_Transicao(models.Model):
 
         for uc_transicao in self.transicao_ucs:
             plano_transicao_uc = self.env['transum.plano_transicao_uc'].search([('id', '=', uc_transicao.id)])
+            if not plano_transicao_uc.curso_antigo.id:
+                raise models.ValidationError('A Correspondência deve possuir Unidades Curriculares do Curso Antigo!')
             if not plano_transicao_uc.curso_antigo.id == self.curso_id.id:
                 raise models.ValidationError('A Correspondência deve possuir Unidades Curriculares do Curso Antigo!')
 

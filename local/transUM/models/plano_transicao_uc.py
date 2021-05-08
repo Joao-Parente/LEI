@@ -24,6 +24,8 @@ class Plano_Transicao_UC(models.Model):
                 for pln_crs in antiga_uc.plano_curso:
                     plano = self.env['transum.plano_curso'].search([('id', '=', pln_crs.id)])
                     record.curso_antigo = plano.curso_id.id
+                else:
+                    record.curso_antigo = None
 
 
     def _compute_curso_novo(self):
@@ -33,3 +35,5 @@ class Plano_Transicao_UC(models.Model):
                 for pln_crs in nova_uc.plano_curso:
                     plano = self.env['transum.plano_curso'].search([('id', '=', pln_crs.id)])
                     record.curso_novo = plano.curso_id.id
+                else:
+                    record.curso_novo = None

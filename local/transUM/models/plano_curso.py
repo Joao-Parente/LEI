@@ -49,6 +49,7 @@ class Plano_Curso(models.Model):
         plano_estudos = self.env['transum.plano_estudos']
         plano_estudos_uc = self.env['transum.plano_estudos_uc']
 
+        count_planos = 0
         for aluno in curso.alunos:
             aln = self.env['transum.aluno'].search([('id', '=', aluno.id)])
             
@@ -68,3 +69,15 @@ class Plano_Curso(models.Model):
                         'plano_estudos': pl_est_aluno.id
                     }])
                     plano_estudos_uc.write(pl_est_uc)
+                count_planos += 1
+
+        messagem = 'Foram criados ' + str(count_planos) + ' Planos de Estudos !'
+        message_id = self.env['transum.message.wizard'].create({'message': messagem})
+        return {
+            'name': 'Message',
+            'type': 'ir.actions.act_window',
+            'view_mode': 'form',
+            'res_model': 'transum.message.wizard',
+            'res_id': message_id.id,
+            'target': 'new'
+        }

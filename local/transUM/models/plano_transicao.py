@@ -32,10 +32,17 @@ class Plano_Transicao(models.Model):
 
         for uc_transicao in self.transicao_ucs:
             plano_transicao_uc = self.env['transum.plano_transicao_uc'].search([('id', '=', uc_transicao.id)])
-            if not plano_transicao_uc.curso_antigo.id:
+
+            if not plano_transicao_uc.curso_antigo == self.curso_id:
                 raise models.ValidationError('A Correspondência deve possuir Unidades Curriculares do Curso Antigo!')
-            if not plano_transicao_uc.curso_antigo.id == self.curso_id.id:
-                raise models.ValidationError('A Correspondência deve possuir Unidades Curriculares do Curso Antigo!')
+
+            existe_curso = False
+            for curso_novo in self.cursos_novos:
+                if plano_transicao_uc.curso_novo.id == curso_novo.id:
+                    existe_curso = True 
+                    break
+            if not existe_curso:
+                raise models.ValidationError('A Correspondência deve possuir Unidades Curriculares do Curso Novo!')
 
 
     def transitar(self):
@@ -46,6 +53,7 @@ class Plano_Transicao(models.Model):
         proposta_novo_plano = self.env['transum.proposta_novo_plano']
         proposta_transicao = self.env['transum.plano_transicao_uc_mostra']
 
+        count_alunos = 0
         for aluno in curso.alunos:
             if aluno.estado == '1':
                 for plano in aluno.planos_atuais:
@@ -170,3 +178,16 @@ class Plano_Transicao(models.Model):
                         if plano.total_creditos_falta + creditacao > plano.total_creditos_feitos - creditacao:
                             proposal.opcao = '2'
                     break
+            count_alunos += 1
+
+        messagem = 'Foram gerados ' + str(count_alunos) + ' Propostas !'
+        message_id = self.env['transum.message.wizard'].create({'message': messagem})
+        return {
+            'name': 'Message',
+            'type': 'ir.actions.act_window',
+            'view_mode': 'form',
+            'res_model': 'transum.message.wizard',
+            'res_id': message_id.id,
+            'target': 'new'
+        }
+                    

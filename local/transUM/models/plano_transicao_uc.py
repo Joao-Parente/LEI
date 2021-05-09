@@ -11,29 +11,26 @@ class Plano_Transicao_UC(models.Model):
     uc_antiga = fields.One2many('transum.uc', 'uc_antiga_transicao', string='UC Antiga')
     uc_nova = fields.One2many('transum.uc', 'uc_nova_transicao', string='UC Nova')
 
-    curso_antigo = fields.Many2one('transum.curso', 'Curso Antigo', compute='_compute_curso_antigo')
-    curso_novo = fields.Many2one('transum.curso', 'Curso Novo', compute='_compute_curso_novo')
+    curso_antigo = fields.Many2one('transum.curso', 'Curso Antigo')
+    curso_novo = fields.Many2one('transum.curso', 'Curso Novo')
 
     plano_transicao = fields.Many2one('transum.plano_transicao', 'Plano de Transicao Associado')
+            
 
+    @api.model
+    def create(self, vals):
+        new_record = super().create(vals)
 
-    def _compute_curso_antigo(self):
-        for record in self:
-            for antiga in record.uc_antiga:
-                antiga_uc = self.env['transum.uc'].search([('id', '=', antiga.id)])
-                for pln_crs in antiga_uc.plano_curso:
-                    plano = self.env['transum.plano_curso'].search([('id', '=', pln_crs.id)])
-                    record.curso_antigo = plano.curso_id.id
-                else:
-                    record.curso_antigo = None
+        for nova in new_record.uc_nova:
+            nova_uc = self.env['transum.uc'].search([('id', '=', nova.id)])
+            for nv_pln_crs in nova_uc.plano_curso:
+                nv_plano = self.env['transum.plano_curso'].search([('id', '=', nv_pln_crs.id)])
+                new_record.curso_novo = nv_plano.curso_id.id
+        
+        for antiga in new_record.uc_antiga:
+            antiga_uc = self.env['transum.uc'].search([('id', '=', antiga.id)])
+            for atg_pln_crs in antiga_uc.plano_curso:
+                atg_plano = self.env['transum.plano_curso'].search([('id', '=', atg_pln_crs.id)])
+                new_record.curso_antigo = atg_plano.curso_id.id
 
-
-    def _compute_curso_novo(self):
-        for record in self:
-            for nova in record.uc_nova:
-                nova_uc = self.env['transum.uc'].search([('id', '=', nova.id)])
-                for pln_crs in nova_uc.plano_curso:
-                    plano = self.env['transum.plano_curso'].search([('id', '=', pln_crs.id)])
-                    record.curso_novo = plano.curso_id.id
-                else:
-                    record.curso_novo = None
+        return new_record

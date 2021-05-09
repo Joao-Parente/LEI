@@ -12,7 +12,7 @@ class Aluno(models.Model):
     active = fields.Boolean('Ativo?', default=True)
 
     nr_mecanografico = fields.Char('Nº Mecanográfico')
-    estado = fields.Selection([('1', 'Não Transitado'), ('2', 'Em Transição'), ('3', 'Transitado')], default='1')
+    estado = fields.Selection([('1', 'Não Transitado'), ('2', 'Em Transição'), ('3', 'Aceitou a Transição'), ('4', 'Não aceitou a Transição')], default='1')
     ano = fields.Selection([('1', '1º ano'), ('2', '2º ano'), ('3', '3º ano'), ('4', '4º ano'), ('5', '5º ano'), ('6', '6º ano')], default='1')
     estatuto = fields.Selection([('1', 'Estudante'), ('2', 'Trabalhador Estudante'), ('3', 'Estudante Atleta')], default='1')
 
@@ -43,7 +43,6 @@ class Aluno(models.Model):
             curso = self.env['transum.curso'].search([('id', '=', curso.id)])
             if not len(curso.get_plano_curso()) > 0:
                 raise models.ValidationError('O Curso escolhido não possui um Plano de Curso associado !')
-
 
 
     @api.model

@@ -91,4 +91,16 @@
 			</tree>
 		</field>
 	</record>
+	<!-- Search -->
+	<record id="view_search_proposta_novo_plano" model="ir.ui.view">
+		<field name="name">Filtros da Proposta Novo Plano</field>
+		<field name="model">transum.proposta_novo_plano</field>
+		<field name="arch" type="xml">
+			<search>
+				<field name="designacao" string="Designação" filter_domain="[('designacao','ilike',self)]" />
+				<field name="aluno" widget="many2many_tags" string="Aluno" filter_domain="[('aluno','ilike',self)]" />
+				<field name="opcao" string="Opção" filter_domain="[('opcao','ilike',self)]" />
+			</search>
+		</field>
+	</record>
 </odoo>

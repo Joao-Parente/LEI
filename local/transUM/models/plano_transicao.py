@@ -177,9 +177,9 @@ class Plano_Transicao(models.Model):
                         creditacao = plano.creditos_creditados()
                         if plano.total_creditos_falta + creditacao > plano.total_creditos_feitos - creditacao:
                             proposal.opcao = '2'
+                    count_alunos += 1        
                     break
-            count_alunos += 1
-
+                
         messagem = 'Foram gerados ' + str(count_alunos) + ' Propostas !'
         message_id = self.env['transum.message.wizard'].create({'message': messagem})
         return {

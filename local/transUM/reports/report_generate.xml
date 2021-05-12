@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="action_proposta_id_card" model="ir.actions.report">
+        <field name="name">ClickHere</field>
+        <field name="model">transum.proposta_novo_plano</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">transUM.report_proposta_id_card</field>
+        <field name="report_file">transUM.report_proposta_id_card</field>
+        <field name="print_report_name">'%s' % (object.designacao)</field>
+        <field name="binding_model_id" ref="model_transum_proposta_novo_plano"/>
+    </record>
+</odoo>

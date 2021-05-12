@@ -1,4 +1,4 @@
-from odoo import models, fields
+from odoo import models, fields, api
 
 
 class Proposta_Novo_Plano(models.Model):
@@ -41,23 +41,25 @@ class Proposta_Novo_Plano(models.Model):
             
             list_cursos = []
             for plano_novo in self.planos_novos:
-                if plano_novo.total_creditos_falta != 0:
-                    plano_novo.aluno_associado = aluno.id
-
-                    dc = direcoes_curso.search([('id', '=', plano_novo.dc_associada.id)])        
-                    list_cursos.append(dc.curso_id.id)
-                else:
-                    plano_novo.historico_aluno_associado = aluno_id
+                plano_novo.aluno_associado = aluno.id
+                
+                dc = direcoes_curso.search([('id', '=', plano_novo.dc_associada.id)])        
+                list_cursos.append(dc.curso_id.id)
 
             pln_antg = planos_estudos.search([('id', '=', self.plano_antigo.id)])
             pln_antg.aluno_associado = None
             pln_antg.historico_aluno_associado = aluno.id          
 
-            aluno.curso_id = [(6, 0, list_cursos)] 
+            #aluno.curso_id = [(6, 0, list_cursos)] 
+            aluno.curso_id = list_cursos
             aluno.estado = '3'
             self.opcao = '3'
 
-
+    def aprovar_from_list(self):
+        for rec in self:
+            if rec.opcao != '1' and rec.opcao != '2':
+                raise models.ValidationError('Not working' + str(rec.designacao))
+            rec.aprovar()
 
     def rejeitar(self):
         for aluno_id in self.aluno:
@@ -65,4 +67,7 @@ class Proposta_Novo_Plano(models.Model):
                 
             aluno.estado = '4'
             self.opcao = '5'
+
+    def gerar(self):
+        print('---')
         

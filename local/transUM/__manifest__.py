@@ -18,7 +18,9 @@
             "views/proposta_novo_plano_view.xml",
             "views/uc_view.xml",
             "views/transum_menu.xml",
-            "views/transum_message.xml"      
+            "views/transum_message.xml",
+            "reports/report_template.xml",
+            "reports/report_generate.xml"
     ],
     'application': True,
 }

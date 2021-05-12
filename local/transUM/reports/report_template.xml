@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <template id="report_proposta_id_card">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="doc">
+                <!-- <t t-call="web.external_layout"> -->
+                <div class="page">
+                    <h1> Plano de Creditações e Transição </h1>
+                    <h3 style='text-align:center'>
+                        <t t-foreach="doc.plano_transicao" t-as="plano_transicao">
+                            <t t-foreach="plano_transicao.curso_id" t-as="curso_antigo">
+                                <t t-esc="curso_antigo.designacao" />
+                            </t>
+                            para
+                            <t t-foreach="plano_transicao.cursos_novos" t-as="curso_novo">
+                                <t t-esc="curso_novo.designacao" />
+                            </t>
+                        </t>
+                    </h3>
+
+                    <!-- <table style="width:100%; border-collapse: collapse; text-align: center; border: 1px solid #ddd">
+                            <tr>
+                                <th>Ucs Antigas</th>
+                                <th>Notas</th>
+                                <th>Ucs Novas></th>
+                                <th>Notas novas</th>
+                            </tr>
+                        <table>
+
+                             <t
+h> Código da Uc </th> <th> Ano</th> <th> Semestre </th> <th> ____ </th>  <th> Código da Uc </th> <th> Ano</th> <th> Semestre </th> <th> ____</th>th>
+                                <t t-foreach="doc.transicao_ucs_mostra" t-as="correspondencia">
+
+                            <tr>
+                               
+                                <td>
+                                        <table>
+            
+                                              
+                                               <t t-foreach="correspondencia.uc_antiga" t-as="uc_ant">                              
+                                                    <tr>
+                                                        
+                                                        <td><t t-esc="uc_ant.codigo"/></td>
+                                                        <td><t t-esc="uc_ant.ano"/></td>
+                                                        <td><t t-esc="uc_ant.semestre"/></td>
+
+                                                    </tr>
+                                                </t>                                                  
+                                        </table>
+
+                                </td>
+                                
+                      
+                                <td>
+                                
+                                </td>   
+                                <td>
+                                        <table>
+            
+                                               <t t-foreach="correspondencia.uc_nova" t-as="uc_nova">                              
+                                                    <tr>
+                                                        
+                                                        <td><t t-esc="uc_nova.codigo"/></td>
+                                                        <td><t t-esc="uc_nova.ano"/></td>
+                                                        <td><t t-esc="uc_nova.semestre"/></td>
+
+                                                    </tr>
+                                                </t>                                                    
+                                        </table>
+                                </td>
+                                    <table>
+                                               <t t-foreach="correspondencia.uc_nova" t-as="uc_nova2">                              
+                                                    <tr>
+                                                        
+                                                        <td><t t-esc="correspondencia.nota_nova"/></td>
+
+                                                    </tr>
+                                                </t>                                                    
+                                        </table>
+                                <td>                                
+                                </td>
+                            </tr>
+                        </t>  
+                        </table>
+                        </table>        
+                    </div> </t> -->
+
+                    <style type="text/css">
+.tg  {border-collapse:collapse;border-spacing:0;}
+.tg td{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;
+  overflow:hidden;padding:10px 5px;word-break:normal;}
+.tg th{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;
+  font-weight:normal;overflow:hidden;padding:10px 5px;word-break:normal;}
+.tg .tg-8ot9{border-color:inherit;font-size:15px;text-align:center;vertical-align:top}
+.tg .tg-8jvv{border-color:inherit;font-size:15px;text-align:left;vertical-align:top}
+.tg .tg-jfoo{border-color:inherit;font-size:20px;font-weight:bold;text-align:center;vertical-align:top}
+.tg .tg-cbs6{font-size:15px;text-align:left;vertical-align:top}
+.tg .tg-vask{font-size:13px;text-align:left;vertical-align:top}
+</style>
+                    <table class="tg">
+                        <thead>
+                            <tr>
+                                <th class="tg-jfoo" colspan="6">Plano Cessante</th>
+                                <th class="tg-jfoo" colspan="6">Plano Transição para a conclusão</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="tg-8ot9">Ano</td>
+                                <td class="tg-cbs6">Sem</td>
+                                <td class="tg-8ot9">ECTS</td>
+                                <td class="tg-8ot9">Designação da UC</td>
+                                <td class="tg-8ot9">Nota</td>
+                                <td class="tg-cbs6">Curso</td>
+                                <td class="tg-8ot9">Ano</td>
+                                <td class="tg-cbs6">Sem</td>
+                                <td class="tg-8ot9">ECTS</td>
+                                <td class="tg-8ot9">Designação da UC</td>
+                                <td class="tg-8ot9">Nota</td>
+                                <td class="tg-8jvv">Curso</td>
+                            </tr>
+                            <tr>
+                                <td class="tg-vask">1</td>
+                                <td class="tg-vask">1</td>
+                                <td class="tg-vask">5</td>
+                                <td class="tg-vask">UC Antiga</td>
+                                <td class="tg-vask">10</td>
+                                <td class="tg-vask">MiEI</td>
+                                <td class="tg-vask">1</td>
+                                <td class="tg-vask">1</td>
+                                <td class="tg-vask">5</td>
+                                <td class="tg-vask">UC Nova</td>
+                                <td class="tg-vask">10</td>
+                                <td class="tg-vask">LEI</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </t>
+        </t>
+    </template>
+</odoo>

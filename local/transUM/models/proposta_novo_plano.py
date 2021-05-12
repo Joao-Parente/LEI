@@ -68,6 +68,4 @@ class Proposta_Novo_Plano(models.Model):
             aluno.estado = '4'
             self.opcao = '5'
 
-    def gerar(self):
-        print('---')
         

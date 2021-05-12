@@ -3,101 +3,74 @@
     <template id="report_proposta_id_card">
         <t t-call="web.html_container">
             <t t-foreach="docs" t-as="doc">
-                <!-- <t t-call="web.external_layout"> -->
                 <div class="page">
-                    <h1> Plano de Creditações e Transição </h1>
+                    <style type="text/css">
+                        .font{ font-size:30px; font-family:Arial }
+                        @page{ size: A4; }
+                        .tg  {border-collapse:collapse;border-spacing:0;}
+                        .tg td{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:13px;overflow:hidden;padding:10px 5px;word-break:normal;}
+                        .tg th{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:13px;font-weight:normal;overflow:hidden;padding:10px 5px;word-break:normal;}
+                        .tg .tg-8ot9{border-color:inherit;font-size:15px;text-align:center;vertical-align:top}
+                        .tg .tg-8jvv{border-color:inherit;font-size:15px;text-align:left;vertical-align:top}
+                        .tg .tg-jfoo{border-color:inherit;font-size:20px;font-weight:bold;text-align:center;vertical-align:top}
+                        .tg .tg-cbs6{font-size:15px;text-align:left;vertical-align:top}
+                        .tg .tg-vask{font-size:13px;text-align:left;vertical-align:top}
+                        .comma-list { display: inline; list-style: none; padding: 0px }
+                        .comma-list li { display: inline }
+                        .comma-list li::after { content: "/ "; }
+                        .comma-list li:last-child::after { content: ""; }
+                        .footer { position: fixed; left: 0; bottom: 0; width: 100%; text-align: center; }
+                    </style>
+
+                    <h1 style='text-align:center'> Proposta de Creditações e Transição </h1>
+
                     <h3 style='text-align:center'>
                         <t t-foreach="doc.plano_transicao" t-as="plano_transicao">
                             <t t-foreach="plano_transicao.curso_id" t-as="curso_antigo">
                                 <t t-esc="curso_antigo.designacao" />
                             </t>
-                            para
-                            <t t-foreach="plano_transicao.cursos_novos" t-as="curso_novo">
-                                <t t-esc="curso_novo.designacao" />
-                            </t>
+                            <i> para </i>
+                            <ul class="comma-list">
+                                <t t-foreach="plano_transicao.cursos_novos" t-as="curso_novo">
+                                    <li> 
+                                        <t t-esc="curso_novo.designacao"/>  
+                                    </li>
+                                </t>
+                            </ul>
                         </t>
                     </h3>
 
-                    <!-- <table style="width:100%; border-collapse: collapse; text-align: center; border: 1px solid #ddd">
-                            <tr>
-                                <th>Ucs Antigas</th>
-                                <th>Notas</th>
-                                <th>Ucs Novas></th>
-                                <th>Notas novas</th>
-                            </tr>
-                        <table>
 
-                             <t
-h> Código da Uc </th> <th> Ano</th> <th> Semestre </th> <th> ____ </th>  <th> Código da Uc </th> <th> Ano</th> <th> Semestre </th> <th> ____</th>th>
-                                <t t-foreach="doc.transicao_ucs_mostra" t-as="correspondencia">
 
-                            <tr>
-                               
-                                <td>
-                                        <table>
-            
-                                              
-                                               <t t-foreach="correspondencia.uc_antiga" t-as="uc_ant">                              
-                                                    <tr>
-                                                        
-                                                        <td><t t-esc="uc_ant.codigo"/></td>
-                                                        <td><t t-esc="uc_ant.ano"/></td>
-                                                        <td><t t-esc="uc_ant.semestre"/></td>
+                    <p> Apresenta-se a seguinte Proposta de Creditações e Transição ao aluno  
+                        <t t-foreach="doc.aluno" t-as="aluno">
+                            <b><t t-esc="aluno.name"/>,</b>
+                            com o seguinte número mecanográfico
+                            <t t-esc="aluno.nr_mecanografico"/> 
+                            pertencente atualmente ao  
+                            <t t-esc="aluno.ano"/>
+                            º ano do curso:
+                            <ul>
+                                <t t-foreach="aluno.curso_id" t-as="curso">
+                                    <li> 
+                                        <b> <t t-esc="curso.designacao"/> </b>
+                                        do tipo 
+                                        <t t-esc="{False: False, '1': 'Licenciatura', '2': 'Mestrado Integrado', '3': 'Mestrado'}[curso.tipo]"/>
+                                        onde já realizou
+                                            <b> <t t-esc="doc.plano_antigo.total_creditos_feitos"/> </b>
+                                        ECTS e necessita de realizar ainda
+                                            <b> <t t-esc="doc.plano_antigo.total_creditos_falta"/> </b>
+                                        ECTS.
+                                    </li>
+                                </t>
+                            </ul>
+                        </t>
+                    </p>
 
-                                                    </tr>
-                                                </t>                                                  
-                                        </table>
 
-                                </td>
-                                
-                      
-                                <td>
-                                
-                                </td>   
-                                <td>
-                                        <table>
-            
-                                               <t t-foreach="correspondencia.uc_nova" t-as="uc_nova">                              
-                                                    <tr>
-                                                        
-                                                        <td><t t-esc="uc_nova.codigo"/></td>
-                                                        <td><t t-esc="uc_nova.ano"/></td>
-                                                        <td><t t-esc="uc_nova.semestre"/></td>
 
-                                                    </tr>
-                                                </t>                                                    
-                                        </table>
-                                </td>
-                                    <table>
-                                               <t t-foreach="correspondencia.uc_nova" t-as="uc_nova2">                              
-                                                    <tr>
-                                                        
-                                                        <td><t t-esc="correspondencia.nota_nova"/></td>
-
-                                                    </tr>
-                                                </t>                                                    
-                                        </table>
-                                <td>                                
-                                </td>
-                            </tr>
-                        </t>  
-                        </table>
-                        </table>        
-                    </div> </t> -->
-
-                    <style type="text/css">
-.tg  {border-collapse:collapse;border-spacing:0;}
-.tg td{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;
-  overflow:hidden;padding:10px 5px;word-break:normal;}
-.tg th{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;
-  font-weight:normal;overflow:hidden;padding:10px 5px;word-break:normal;}
-.tg .tg-8ot9{border-color:inherit;font-size:15px;text-align:center;vertical-align:top}
-.tg .tg-8jvv{border-color:inherit;font-size:15px;text-align:left;vertical-align:top}
-.tg .tg-jfoo{border-color:inherit;font-size:20px;font-weight:bold;text-align:center;vertical-align:top}
-.tg .tg-cbs6{font-size:15px;text-align:left;vertical-align:top}
-.tg .tg-vask{font-size:13px;text-align:left;vertical-align:top}
-</style>
-                    <table class="tg">
+                    <hr/>
+                    <table class="tg" style="width:100%; text-align:center;">
                         <thead>
                             <tr>
                                 <th class="tg-jfoo" colspan="6">Plano Cessante</th>
@@ -119,22 +92,120 @@ h> Código da Uc </th> <th> Ano</th> <th> Semestre </th> <th> ____ </th>  <th> C
                                 <td class="tg-8ot9">Nota</td>
                                 <td class="tg-8jvv">Curso</td>
                             </tr>
-                            <tr>
-                                <td class="tg-vask">1</td>
-                                <td class="tg-vask">1</td>
-                                <td class="tg-vask">5</td>
-                                <td class="tg-vask">UC Antiga</td>
-                                <td class="tg-vask">10</td>
-                                <td class="tg-vask">MiEI</td>
-                                <td class="tg-vask">1</td>
-                                <td class="tg-vask">1</td>
-                                <td class="tg-vask">5</td>
-                                <td class="tg-vask">UC Nova</td>
-                                <td class="tg-vask">10</td>
-                                <td class="tg-vask">LEI</td>
-                            </tr>
+                            <t t-foreach="doc.transicao_ucs_mostra" t-as="correspondencia">
+                               <!-- N para 1 -->
+                                <t t-if="len(correspondencia.uc_antiga)>1 and len(correspondencia.uc_nova)==1">
+                                    <t t-foreach="correspondencia.uc_antiga" t-as="antiga_uc">
+                                        <tr>
+                                            <td class="tg-vask"> <t t-esc="antiga_uc.ano"/> </td>
+                                            <td class="tg-vask"> <t t-esc="antiga_uc.semestre"/> </td>
+                                            <td class="tg-vask"> <t t-esc="antiga_uc.ects"/> </td>
+                                            <td class="tg-vask"> <t t-esc="antiga_uc.designacao"/> </td>
+                                            <td class="tg-vask"> <t t-esc="correspondencia.nota_antiga"/> </td>
+                                            <td class="tg-vask"> 
+                                                <t t-foreach="correspondencia.curso_antigo" t-as="antigo_curso">
+                                                    <t t-esc="antigo_curso.designacao"/>
+                                                </t>
+                                            </td>
+                                            <t t-foreach="correspondencia.uc_nova" t-as="nova_uc">
+                                                <td class="tg-vask"> <t t-esc="nova_uc.ano"/> </td>
+                                                <td class="tg-vask"> <t t-esc="nova_uc.semestre"/> </td>
+                                                <td class="tg-vask"> <t t-esc="nova_uc.ects"/> </td>
+                                                <td class="tg-vask"> <t t-esc="nova_uc.designacao"/> </td>
+                                                <td class="tg-vask"> <t t-esc="correspondencia.nota_nova"/> </td>
+                                                <td class="tg-vask"> 
+                                                    <t t-foreach="correspondencia.curso_novo" t-as="novo_curso">
+                                                        <t t-esc="novo_curso.designacao"/>
+                                                    </t>
+                                                </td>
+                                            </t>
+                                        </tr>
+                                    </t>
+                                </t>
+                                <!-- 1 para N -->
+                                <t t-if="len(correspondencia.uc_antiga)==1 and len(correspondencia.uc_nova)>1">
+                                    <t t-foreach="correspondencia.uc_nova" t-as="nova_uc">
+                                        <tr>
+                                            <t t-foreach="correspondencia.uc_antiga" t-as="antiga_uc">
+                                                <td class="tg-vask"> <t t-esc="antiga_uc.ano"/> </td>
+                                                <td class="tg-vask"> <t t-esc="antiga_uc.semestre"/> </td>
+                                                <td class="tg-vask"> <t t-esc="antiga_uc.ects"/> </td>
+                                                <td class="tg-vask"> <t t-esc="antiga_uc.designacao"/> </td>
+                                                <td class="tg-vask"> <t t-esc="correspondencia.nota_antiga"/> </td>
+                                                <td class="tg-vask"> 
+                                                    <t t-foreach="correspondencia.curso_antigo" t-as="antigo_curso">
+                                                        <t t-esc="antigo_curso.designacao"/>
+                                                    </t>
+                                                </td>
+                                            </t>
+                                            <td class="tg-vask"> <t t-esc="nova_uc.ano"/> </td>
+                                            <td class="tg-vask"> <t t-esc="nova_uc.semestre"/> </td>
+                                            <td class="tg-vask"> <t t-esc="nova_uc.ects"/> </td>
+                                            <td class="tg-vask"> <t t-esc="nova_uc.designacao"/> </td>
+                                            <td class="tg-vask"> <t t-esc="correspondencia.nota_nova"/> </td>
+                                            <td class="tg-vask"> 
+                                                <t t-foreach="correspondencia.curso_novo" t-as="novo_curso">
+                                                    <t t-esc="novo_curso.designacao"/>
+                                                </t>
+                                            </td>                                            
+                                        </tr>
+                                    </t>
+                                </t>
+                                <!-- 1 para 1 -->
+                                <t t-if="len(correspondencia.uc_antiga)==1 and len(correspondencia.uc_nova)==1">
+                                    <tr>
+                                        <t t-foreach="correspondencia.uc_antiga" t-as="antiga_uc">
+                                            <td class="tg-vask"> <t t-esc="antiga_uc.ano"/> </td>
+                                            <td class="tg-vask"> <t t-esc="antiga_uc.semestre"/> </td>
+                                            <td class="tg-vask"> <t t-esc="antiga_uc.ects"/> </td>
+                                            <td class="tg-vask"> <t t-esc="antiga_uc.designacao"/> </td>
+                                            <td class="tg-vask"> <t t-esc="correspondencia.nota_antiga"/> </td>
+                                            <td class="tg-vask"> 
+                                                <t t-foreach="correspondencia.curso_antigo" t-as="antigo_curso">
+                                                    <t t-esc="antigo_curso.designacao"/>
+                                                </t>
+                                            </td>
+                                        </t>
+
+                                        <t t-foreach="correspondencia.uc_nova" t-as="nova_uc">
+                                            <td class="tg-vask"> <t t-esc="nova_uc.ano"/> </td>
+                                            <td class="tg-vask"> <t t-esc="nova_uc.semestre"/> </td>
+                                            <td class="tg-vask"> <t t-esc="nova_uc.ects"/> </td>
+                                            <td class="tg-vask"> <t t-esc="nova_uc.designacao"/> </td>
+                                            <td class="tg-vask"> <t t-esc="correspondencia.nota_nova"/> </td>
+                                            <td class="tg-vask"> 
+                                                <t t-foreach="correspondencia.curso_novo" t-as="novo_curso">
+                                                    <t t-esc="novo_curso.designacao"/>
+                                                </t>
+                                            </td>
+                                        </t>
+                                    </tr>
+                                </t>
+                            </t>
                         </tbody>
                     </table>
+                    <hr/>
+
+
+
+                    <p> Considerando a tabela acima apresentada o aluno referido previamente passará a frequentar os planos de estudos dos seguintes cursos:
+                        <ul>
+                            <t t-foreach="doc.planos_novos" t-as="novos_planos">                            
+                                <li> 
+                                    <b> <t t-esc="novos_planos.curso_designacao"/> </b>
+                                    do tipo 
+                                    <t t-esc="{False: False, '1': 'Licenciatura', '2': 'Mestrado Integrado', '3': 'Mestrado'}[novos_planos.curso_tipo]"/>
+                                    onde foi creditado
+                                        <b> <t t-esc="novos_planos.total_creditos_feitos"/> </b>
+                                    ECTS e necessita de realizar ainda
+                                        <b> <t t-esc="novos_planos.total_creditos_falta"/> </b>
+                                    ECTS.
+                                </li>
+                            </t>
+                        </ul>
+                    </p>
+                    
+                    <p class="footer"> Universidade do Minho - 2020 / 2021 </p> 
                 </div>
             </t>
         </t>

@@ -25,22 +25,22 @@
 										<field name="curso_novo" />
 										<field name="uc_nova" widget="many2many_tags" />
 										<field name="nota_nova" />
-										<field name="atencao"/>
+										<field name="atencao" />
 									</tree>
 								</field>
 							</page>
 							<page string="Planos de Estudos Novos">
-								<field name="planos_novos" string="" readonly="1">
+								<field name="planos_novos" string="">
 									<tree default_order="codigo,total_creditos_feitos,total_creditos_falta">
 										<field name="codigo" />
-										<field name="curso_designacao"/>
-										<field name="curso_tipo"/>
-										<field name="total_creditos_feitos" readonly="1" />
-										<field name="total_creditos_falta" readonly="1" />
+										<field name="curso_designacao" />
+										<field name="curso_tipo" />
+										<field name="total_creditos_feitos" />
+										<field name="total_creditos_falta" />
 									</tree>
 								</field>
 							</page>
-							<page string="Plano de Estudos Antigo">
+							<page string="Plano de Estudos Antigo" readonly="1">
 								<field name="ucs_plano_antigo" string="" style="pointer-events:none;">
 									<tree default_order="ano,semestre,codigo">
 										<field name="ano" />
@@ -52,24 +52,28 @@
 									</tree>
 								</field>
 							</page>
-							<page string="Plano de Transição">
-								<field name="ucs_plano_transicao" string="" style="pointer-events:none;">
-									<tree>
-										<field name="curso_antigo" />
-										<field name="uc_antiga" widget="many2many_tags" />
-										<field name="curso_novo" />			
-										<field name="uc_nova" widget="many2many_tags" />
-									</tree>
-								</field>
+							<page string="Plano de Transição" readonly="1">
+								<group>
+									<field name="str_antigo_curso" string='Curso Antigo'/>
+									<field name="novos_cursos" widget="many2many" style="pointer-events:none;" />
+									<field name="ucs_plano_transicao" string="Transição" style="pointer-events:none;">
+										<tree>
+											<field name="curso_antigo" />
+											<field name="uc_antiga" widget="many2many_tags" />
+											<field name="curso_novo" />
+											<field name="uc_nova" widget="many2many_tags" />
+										</tree>
+									</field>
+								</group>
 							</page>
-							<page string="Aluno Associado">
+							<page string="Aluno Associado" readonly="1">
 								<field name="aluno" string="" style="pointer-events:none;">
 									<tree default_order="nr_mecanografico,name,ano,curso_id,estado">
 										<field name="nr_mecanografico" />
 										<field name="name" />
 										<field name="ano" />
 										<field name="curso_id" widget="many2many_tags" />
-										<field name="estado" readonly="1" />
+										<field name="estado" />
 									</tree>
 								</field>
 							</page>
@@ -92,21 +96,14 @@
 		</field>
 	</record>
 	<!-- ActionMan -->
-	<!-- <record id="aprovar_em_bulk" model="ir.actions.server" >
-		<field name="name">Aprovar</field>
-		<field name="model_id" ref="transum.proposta_novo_plano"/>
-		<field name="model">transum.proposta_novo_plano</field>
-		<field name="code"/>
-	</record> -->
+	<!-- <record id="aprovar_em_bulk" model="ir.actions.server"><field name="name">Aprovar</field><field name="model_id" ref="transum.proposta_novo_plano"/><field name="model">transum.proposta_novo_plano</field><field name="code"/></record> -->
 	<record id="aprovar_action" model="ir.actions.server">
 		<field name="name">Aprovar</field>
 		<field name="type">ir.actions.server</field>
 		<field name="model_id" ref="model_transum_proposta_novo_plano"/>
 		<field name="binding_model_id" ref="model_transum_proposta_novo_plano"/>
 		<field name="state">code</field>
-		<field name="code">
-			records.aprovar_from_list()
-		</field>
+		<field name="code">			records.aprovar_from_list()		</field>
 	</record>
 	<!-- Search -->
 	<record id="view_search_proposta_novo_plano" model="ir.ui.view">

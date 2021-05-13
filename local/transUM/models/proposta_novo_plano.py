@@ -11,13 +11,19 @@ class Proposta_Novo_Plano(models.Model):
 
     opcao = fields.Selection([('1', 'Tem opção de escolha.'), ('2', 'Não possui opção de escolha.'), ('3', 'Aceitou a transição.'), ('4','Necessita de atenção.'), ('5', 'Rejeitou a transição.')], string='Observações', default='1')
 
-    plano_antigo = fields.Many2one('transum.plano_estudos', 'Plano Antigo ID')
+    plano_antigo = fields.Many2one('transum.plano_estudos', 'Plano Antigo ID')    
     ucs_plano_antigo = fields.One2many('transum.plano_estudos_uc', 'plano_estudos', string='Plano de Estudos UCs', related='plano_antigo.nota_uc')
+
     planos_novos = fields.One2many('transum.plano_estudos', 'proposta_nova', 'Planos Novos')
 
     aluno = fields.One2many('transum.aluno', 'proposta_plano_aluno', 'Aluno Associado')
 
     plano_transicao = fields.Many2one('transum.plano_transicao', 'Plano de Transição')
+    antigo_curso = fields.Many2one('transum.curso', 'Curso', related='plano_transicao.curso_id')
+    antigo_curso_designacao = fields.Char('Designação', related='antigo_curso.designacao')
+    antigo_curso_tipo = fields.Selection([('1', 'Licenciatura'), ('2', 'Mestrado Integrado'), ('3', 'Mestrado')], default='1', related='antigo_curso.tipo')
+    str_antigo_curso = fields.Char(compute='_compute_str_antigo_curso')
+    novos_cursos = fields.One2many('transum.curso', 'transicao_cursos_novos', 'Cursos Novos', related='plano_transicao.cursos_novos')
     ucs_plano_transicao = fields.One2many('transum.plano_transicao_uc', 'plano_transicao', string='Plano de Transição UCs', related='plano_transicao.transicao_ucs')
 
     transicao_ucs_mostra = fields.One2many('transum.plano_transicao_uc_mostra', 'proposta', string='Correspondência')
@@ -28,6 +34,16 @@ class Proposta_Novo_Plano(models.Model):
     def _compute_designacao(self):
         for record in self:
             record.designacao = 'Proposta de Transição ' + str(record.id)
+    
+
+    def _compute_str_antigo_curso(self):
+        for pnp in self:
+            if pnp.antigo_curso_tipo == '1':
+                pnp.str_antigo_curso = pnp.antigo_curso_designacao + ' :: Licenciatura \n'
+            elif pnp.antigo_curso_tipo == '2':
+                pnp.str_antigo_curso = pnp.antigo_curso_designacao + ' :: Mestrado Integrado \n'
+            elif pnp.antigo_curso_tipo == '3':
+                pnp.str_antigo_curso = pnp.antigo_curso_designacao + ' :: Mestrado \n'
 
 
     def aprovar(self):

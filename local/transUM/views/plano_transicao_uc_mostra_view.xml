@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+	<!-- Form -->
+	<record id="view_form_plano_transicao_uc_mostra" model="ir.ui.view">
+		<field name="name">Plano de Transicao UC Mostra Form</field>
+		<field name="model">transum.plano_transicao_uc_mostra</field>
+		<field name="arch" type="xml">
+			<form>
+				<header/>
+				<sheet>
+					<group name="group_top">
+						<field name="str_antigo_curso" string='Curso Antigo :: Tipo' />
+                        <field name="uc_antiga" />
+                        <field name="nota_antiga" />
+                        <field name="str_novo_curso" string='Curso Novo :: Tipo'/>
+                        <field name="uc_nova" />
+                        <field name="nota_nova" />
+					</group>
+				</sheet>
+			</form>
+		</field>
+	</record>
+	<!-- Tree -->
+	<record id="view_tree_plano_transicao_uc_mostra" model="ir.ui.view">
+		<field name="name">Lista de Plano de Transicao UC Mostra</field>
+		<field name="model">transum.plano_transicao_uc_mostra</field>
+		<field name="arch" type="xml">
+			<tree>
+				<field name="curso_antigo" />
+				<field name="uc_antiga" widget="many2many_tags" />
+				<field name="nota_antiga" />
+				<field name="curso_novo" />
+				<field name="uc_nova" widget="many2many_tags" />
+				<field name="nota_nova" />
+				<field name="atencao" />
+			</tree>
+		</field>
+	</record>
+</odoo>

@@ -51,15 +51,15 @@
                             <t t-esc="aluno.ano"/>
                             º ano do curso:
                             <ul>
-                                <t t-foreach="aluno.curso_id" t-as="curso">
+                                <t t-foreach="doc.plano_antigo" t-as="plano_antigo">
                                     <li> 
-                                        <b> <t t-esc="curso.designacao"/> </b>
+                                        <b> <t t-esc="plano_antigo.curso_designacao"/> </b>
                                         do tipo 
-                                        <t t-esc="{False: False, '1': 'Licenciatura', '2': 'Mestrado Integrado', '3': 'Mestrado'}[curso.tipo]"/>
+                                        <t t-esc="{False: False, '1': 'Licenciatura', '2': 'Mestrado Integrado', '3': 'Mestrado'}[plano_antigo.curso_tipo]"/>
                                         onde já realizou
-                                            <b> <t t-esc="doc.plano_antigo.total_creditos_feitos"/> </b>
+                                            <b> <t t-esc="plano_antigo.total_creditos_feitos"/> </b>
                                         ECTS e necessita de realizar ainda
-                                            <b> <t t-esc="doc.plano_antigo.total_creditos_falta"/> </b>
+                                            <b> <t t-esc="plano_antigo.total_creditos_falta"/> </b>
                                         ECTS.
                                     </li>
                                 </t>

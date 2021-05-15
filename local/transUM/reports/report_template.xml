@@ -95,7 +95,7 @@
                             <t t-foreach="doc.transicao_ucs_mostra" t-as="correspondencia">
                                <!-- N para 1 -->
                                 <t t-if="len(correspondencia.uc_antiga)>1 and len(correspondencia.uc_nova)==1">
-                                    <t t-foreach="correspondencia.uc_antiga" t-as="antiga_uc">
+                                    <!-- <t t-foreach="correspondencia.uc_antiga" t-as="antiga_uc">
                                         <tr>
                                             <td class="tg-vask"> <t t-esc="antiga_uc.ano"/> </td>
                                             <td class="tg-vask"> <t t-esc="antiga_uc.semestre"/> </td>
@@ -120,10 +120,41 @@
                                                 </td>
                                             </t>
                                         </tr>
+                                    </t> -->
+                                    <t t-set="flag" t-value="False"/>
+                                    <t t-foreach="correspondencia.uc_antiga" t-as="antiga_uc" >
+                                        <tr>
+                                            <td class="tg-vask"> <t t-esc="antiga_uc.ano"/> </td>
+                                            <td class="tg-vask"> <t t-esc="antiga_uc.semestre"/> </td>
+                                            <td class="tg-vask"> <t t-esc="antiga_uc.ects"/> </td>
+                                            <td class="tg-vask"> <t t-esc="antiga_uc.designacao"/> </td>
+                                            <td class="tg-vask"> <t t-esc="correspondencia.nota_antiga"/> </td>
+                                            <td class="tg-vask"> 
+                                                <t t-foreach="correspondencia.curso_antigo" t-as="antigo_curso">
+                                                    <t t-esc="antigo_curso.designacao"/>
+                                                </t>
+                                            </td>
+                                            
+                                            <t t-if="flag == False">
+                                            <t t-foreach="correspondencia.uc_nova" t-as="nova_uc">
+                                                <td class="tg-vask" rowspan="2" style="vertical-align : middle;"> <t t-esc="nova_uc.ano"/> </td>
+                                                <td class="tg-vask" rowspan="2" style="vertical-align : middle;"> <t t-esc="nova_uc.semestre"/> </td>
+                                                <td class="tg-vask" rowspan="2" style="vertical-align : middle;"> <t t-esc="nova_uc.ects"/> </td>
+                                                <td class="tg-vask" rowspan="2" style="vertical-align : middle;"> <t t-esc="nova_uc.designacao"/> </td>
+                                                <td class="tg-vask" rowspan="2" style="vertical-align : middle;"> <t t-esc="correspondencia.nota_nova"/> </td>
+                                                <td class="tg-vask" rowspan="2" style="vertical-align : middle;"> 
+                                                    <t t-foreach="correspondencia.curso_novo" t-as="novo_curso">
+                                                        <t t-esc="novo_curso.designacao"/>
+                                                    </t>
+                                                </td>
+                                                <t t-set="flag" t-value="True"/>
+                                            </t>
+                                            </t>
+                                        </tr>
                                     </t>
                                 </t>
                                 <!-- 1 para N -->
-                                <t t-if="len(correspondencia.uc_antiga)==1 and len(correspondencia.uc_nova)>1">
+                                <!-- <t t-if="len(correspondencia.uc_antiga)==1 and len(correspondencia.uc_nova)>1">
                                     <t t-foreach="correspondencia.uc_nova" t-as="nova_uc">
                                         <tr>
                                             <t t-foreach="correspondencia.uc_antiga" t-as="antiga_uc">
@@ -150,7 +181,42 @@
                                             </td>                                            
                                         </tr>
                                     </t>
+                                </t> -->
+                                
+                                <t t-if="len(correspondencia.uc_antiga)==1 and len(correspondencia.uc_nova)>1">
+                                    <t t-set="flag2" t-value="False"/>
+                                    <t t-foreach="correspondencia.uc_nova" t-as="nova_uc">
+                                        <tr>
+                                            <t t-if="flag2 == False">
+                                            <t t-foreach="correspondencia.uc_antiga" t-as="antiga_uc">
+                                                <td class="tg-vask" rowspan="2" style="vertical-align : middle;"> <t t-esc="antiga_uc.ano"/> </td>
+                                                <td class="tg-vask" rowspan="2" style="vertical-align : middle;"> <t t-esc="antiga_uc.semestre"/> </td>
+                                                <td class="tg-vask" rowspan="2" style="vertical-align : middle;"> <t t-esc="antiga_uc.ects"/> </td>
+                                                <td class="tg-vask" rowspan="2" style="vertical-align : middle;"> <t t-esc="antiga_uc.designacao"/> </td>
+                                                <td class="tg-vask" rowspan="2" style="vertical-align : middle;"> <t t-esc="correspondencia.nota_antiga"/> </td>
+                                                <td class="tg-vask" rowspan="2" style="vertical-align : middle;"> 
+                                                    <t t-foreach="correspondencia.curso_antigo" t-as="antigo_curso">
+                                                        <t t-esc="antigo_curso.designacao"/>
+                                                    </t>
+                                                </td>
+                                                <t t-set="flag2" t-value="True"/>
+                                            </t>
+                                            </t>
+                                            <td class="tg-vask"> <t t-esc="nova_uc.ano"/> </td>
+                                            <td class="tg-vask"> <t t-esc="nova_uc.semestre"/> </td>
+                                            <td class="tg-vask"> <t t-esc="nova_uc.ects"/> </td>
+                                            <td class="tg-vask"> <t t-esc="nova_uc.designacao"/> </td>
+                                            <td class="tg-vask"> <t t-esc="correspondencia.nota_nova"/> </td>
+                                            <td class="tg-vask"> 
+                                                <t t-foreach="correspondencia.curso_novo" t-as="novo_curso">
+                                                    <t t-esc="novo_curso.designacao"/>
+                                                </t>
+                                            </td> 
+                                                                                       
+                                        </tr>
+                                    </t>
                                 </t>
+
                                 <!-- 1 para 1 -->
                                 <t t-if="len(correspondencia.uc_antiga)==1 and len(correspondencia.uc_nova)==1">
                                     <tr>

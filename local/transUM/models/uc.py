@@ -26,8 +26,11 @@ class UC(models.Model):
     uc_antiga_transicao = fields.Many2one('transum.plano_transicao_uc', string='UC Antiga')
     uc_nova_transicao = fields.Many2one('transum.plano_transicao_uc', string='UC Nova')
 
-    uc_antiga_transicao_mostra = fields.Many2one('transum.plano_transicao_uc_mostra', string='UC Antiga')
-    uc_nova_transicao_mostra = fields.Many2one('transum.plano_transicao_uc_mostra', string='UC Nova')
+    """ uc_antiga_transicao_mostra = fields.Many2one('transum.plano_transicao_uc_mostra', string='UC Antiga')
+    uc_nova_transicao_mostra = fields.Many2one('transum.plano_transicao_uc_mostra', string='UC Nova') """
+
+    """ uc_antiga_transicao_mostra = fields.Many2many('transum.plano_transicao_uc_mostra','plano_transicao_uc_mostra_antiga', string='UC Antiga')
+    uc_nova_transicao_mostra = fields.Many2many('transum.plano_transicao_uc_mostra','plano_transicao_uc_mostra_nova', string='UC Nova') """
 
     plano_curso = fields.Many2many('transum.plano_curso', string='Planos de Curso')
 

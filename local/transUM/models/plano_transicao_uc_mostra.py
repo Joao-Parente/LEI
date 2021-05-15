@@ -9,8 +9,11 @@ class Plano_Transicao_UC_Mostra(models.Model):
 
     atencao = fields.Boolean(default=False, string='Rever')
 
-    uc_antiga = fields.One2many('transum.uc', 'uc_antiga_transicao_mostra', string='UC Antiga')
-    uc_nova = fields.One2many('transum.uc', 'uc_nova_transicao_mostra', string='UC Nova')
+    """ uc_antiga = fields.One2many('transum.uc', 'uc_antiga_transicao_mostra', string='UC Antiga')
+    uc_nova = fields.One2many('transum.uc', 'uc_nova_transicao_mostra', string='UC Nova') """
+
+    uc_antiga = fields.Many2many('transum.uc','plano_transicao_uc_mostra_antiga','plano_transicao_uc_mostra_id','uc_id', string='UC Antiga')
+    uc_nova = fields.Many2many('transum.uc','plano_transicao_uc_mostra_nova','plano_transicao_uc_mostra_id','uc_id', string='UC Nova')
 
     nota_antiga = fields.Float('Nota Antiga')
     nota_nova = fields.Float('Nota Nova')

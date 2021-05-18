@@ -1,0 +1,108 @@
+{
+    "designacao": "Mestrado em Engenharia Informática",
+    "departamento": "Departamento de Informática",
+    "tipo": "3",
+    "plano_curso_designacao": "Plano Curso MEI",
+    "plano_curso": [
+        {
+            "curso": "MEI",
+            "codigoUC": "H701N1",
+            "nomeUC": "Aplicações e Serviços de Computação em Nuvem",
+            "ano": "1",
+            "semestre": "1",
+            "creditos": 5.0
+        },{
+            "curso": "MEI",
+            "codigoUC": "H701N2",
+            "nomeUC": "Computação Paralela",
+            "ano": "1",
+            "semestre": "1",
+            "creditos": 5.0
+        }, {
+            "curso": "MEI",
+            "codigoUC": "H701N3",
+            "nomeUC": "Dados e Aprendizagem Automática",
+            "ano": "1",
+            "semestre": "1",
+            "creditos": 5.0
+        }, {
+            "curso": "MEI",
+            "codigoUC": "H701N4",
+            "nomeUC": "Engenharia de Serviços em Rede",
+            "ano": "1",
+            "semestre": "1",
+            "creditos": 5.0
+        }, {
+            "curso": "MEI",
+            "codigoUC": "H701N5",
+            "nomeUC": "Métodos Formais em Engenharia de Software",
+            "ano": "1",
+            "semestre": "1",
+            "creditos": 5.0
+        }, {
+            "curso": "MEI",
+            "codigoUC": "H701N6",
+            "nomeUC": "Requisitos e Arquiteturas de Software",
+            "ano": "1",
+            "semestre": "1",
+            "creditos": 5.0
+        },{
+            "curso": "MEI",
+            "codigoUC": "H702N1",
+            "nomeUC": "Opção I",
+            "ano": "1",
+            "semestre": "2",
+            "creditos": 5.0
+        },{
+            "curso": "MEI",
+            "codigoUC": "H702N2",
+            "nomeUC": "Opção II",
+            "ano": "1",
+            "semestre": "2",
+            "creditos": 5.0
+        },{
+            "curso": "MEI",
+            "codigoUC": "H702N3",
+            "nomeUC": "Opção III",
+            "ano": "1",
+            "semestre": "2",
+            "creditos": 5.0
+        },{
+            "curso": "MEI",
+            "codigoUC": "H702N4",
+            "nomeUC": "Opção IV",
+            "ano": "1",
+            "semestre": "2",
+            "creditos": 5.0
+        },{
+            "curso": "MEI",
+            "codigoUC": "H702N5",
+            "nomeUC": "Opção V",
+            "ano": "1",
+            "semestre": "2",
+            "creditos": 5.0
+        },{
+            "curso": "MEI",
+            "codigoUC": "H702N6",
+            "nomeUC": "Opção VI",
+            "ano": "1",
+            "semestre": "2",
+            "creditos": 5.0
+        },{
+            "curso": "MEI",
+            "codigoUC": "H703A1",
+            "nomeUC": "Dissertação",
+            "ano": "2",
+            "semestre": "A",
+            "creditos": 45.0
+        },
+        {
+            "curso": "MEI",
+            "codigoUC": "H703N1",
+            "nomeUC": "Projeto de Informática",
+            "ano": "2",
+            "semestre": "1",
+            "creditos": 15.0
+        }
+    ]
+}

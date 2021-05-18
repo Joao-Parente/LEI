@@ -1,0 +1,403 @@
+{
+    "designacao": "Mestrado Integrado em Engenharia Informática para Licenciatura em Engenharia Informática/Mestrado em Engenharia Informática",
+    "curso_antigo": "Mestrado Integrado em Engenharia Informática",
+    "curso_novos": [
+        "Licenciatura em Engenharia Informática",
+        "Mestrado em Engenharia Informática"
+    ],
+    "correspondencias": [
+        {
+            "uc_antiga": [
+                "H501N1"
+            ],
+            "uc_nova": [
+                "H601N1"
+            ]
+        },
+        {
+            "uc_antiga": [
+                "H501N2"
+            ],
+            "uc_nova": [
+                "H601N2"
+            ]
+        },
+        {
+            "uc_antiga": [
+                "H501N3"
+            ],
+            "uc_nova": [
+                "H601N5"
+            ]
+        },
+        {
+            "uc_antiga": [
+                "H501N4"
+            ],
+            "uc_nova": [
+                "H601N4"
+            ]
+        },
+        {
+            "uc_antiga": [
+                "H501N5"
+            ],
+            "uc_nova": [
+                "H606N5"
+            ]
+        },
+        {
+            "uc_antiga": [
+                "H501N6"
+            ],
+            "uc_nova": [
+                "H601N3"
+            ]
+        },
+        {
+            "uc_antiga": [
+                "H502N1"
+            ],
+            "uc_nova": [
+                "H602N6"
+            ]
+        },
+        {
+            "uc_antiga": [
+                "H502N2"
+            ],
+            "uc_nova": [
+                "H602N1"
+            ]
+        },
+        {
+            "uc_antiga": [
+                "H502N3"
+            ],
+            "uc_nova": [
+                "H603N4"
+            ]
+        },
+        {
+            "uc_antiga": [
+                "H502N4"
+            ],
+            "uc_nova": [
+                "H602N4"
+            ]
+        },
+        {
+            "uc_antiga": [
+                "H502N5"
+            ],
+            "uc_nova": [
+                "H602N5"
+            ]
+        },
+        {
+            "uc_antiga": [
+                "H502N6"
+            ],
+            "uc_nova": [
+                "H602N3"
+            ]
+        },
+        {
+            "uc_antiga": [
+                "H503N1"
+            ],
+            "uc_nova": [
+                "H606N3"
+            ]
+        },
+        {
+            "uc_antiga": [
+                "H503N2"
+            ],
+            "uc_nova": [
+                "H603N3"
+            ]
+        },
+        {
+            "uc_antiga": [
+                "H503N3"
+            ],
+            "uc_nova": [
+                "H606N6"
+            ]
+        },
+        {
+            "uc_antiga": [
+                "H503N4"
+            ],
+            "uc_nova": [
+                "H603N2"
+            ]
+        },
+        {
+            "uc_antiga": [
+                "H503N5"
+            ],
+            "uc_nova": [
+                "H603N5"
+            ]
+        },
+        {
+            "uc_antiga": [
+                "H503N6"
+            ],
+            "uc_nova": [
+                "H603N1"
+            ]
+        },
+        {
+            "uc_antiga": [
+                "H504N1"
+            ],
+            "uc_nova": [
+                "H604N6"
+            ]
+        },
+        {
+            "uc_antiga": [
+                "H504N2"
+            ],
+            "uc_nova": [
+                "H604N4"
+            ]
+        },
+        {
+            "uc_antiga": [
+                "H504N3"
+            ],
+            "uc_nova": [
+                "H602N2"
+            ]
+        },
+        {
+            "uc_antiga": [
+                "H504N5"
+            ],
+            "uc_nova": [
+                "H605N1"
+            ]
+        },
+        {
+            "uc_antiga": [
+                "H504N6"
+            ],
+            "uc_nova": [
+                "H603N6"
+            ]
+        },
+        {
+            "uc_antiga": [
+                "H504N4"
+            ],
+            "uc_nova": [
+                "H601N6"
+            ]
+        },
+        {
+            "uc_antiga": [
+                "H505N1"
+            ],
+            "uc_nova": [
+                "H604N1"
+            ]
+        },
+        {
+            "uc_antiga": [
+                "H505N2"
+            ],
+            "uc_nova": [
+                "H605N3"
+            ]
+        },
+        {
+            "uc_antiga": [
+                "H505N3"
+            ],
+            "uc_nova": [
+                "H604N2"
+            ]
+        },
+        {
+            "uc_antiga": [
+                "H505N4"
+            ],
+            "uc_nova": [
+                "H605N6"
+            ]
+        },
+        {
+            "uc_antiga": [
+                "H505N5"
+            ],
+            "uc_nova": [
+                "H604N5"
+            ]
+        },
+        {
+            "uc_antiga": [
+                "H505N6"
+            ],
+            "uc_nova": [
+                "H604N3"
+            ]
+        },
+        {
+            "uc_antiga": [
+                "H506N1"
+            ],
+            "uc_nova": [
+                "H605N4"
+            ]
+        },
+        {
+            "uc_antiga": [
+                "H506N2"
+            ],
+            "uc_nova": [
+                "H606N2"
+            ]
+        },
+        {
+            "uc_antiga": [
+                "H506N3"
+            ],
+            "uc_nova": [
+                "H606N1"
+            ]
+        },
+        {
+            "uc_antiga": [
+                "H506N4"
+            ],
+            "uc_nova": [
+                "H605N2"
+            ]
+        },
+        {
+            "uc_antiga": [
+                "H506N5"
+            ],
+            "uc_nova": [
+                "H606N4"
+            ]
+        },
+        {
+            "uc_antiga": [
+                "H506N6"
+            ],
+            "uc_nova": [
+                "H605N5"
+            ]
+        },
+        {
+            "uc_antiga": [
+                "H507N1"
+            ],
+            "uc_nova": [
+                "H701N3"
+            ]
+        },
+        {
+            "uc_antiga": [
+                "H507N3"
+            ],
+            "uc_nova": [
+                "H701N4"
+            ]
+        },
+        {
+            "uc_antiga": [
+                "H507N2"
+            ],
+            "uc_nova": [
+                "H701N5"
+            ]
+        },
+        {
+            "uc_antiga": [
+                "H507N4"
+            ],
+            "uc_nova": [
+                "H701N2"
+            ]
+        },
+        {
+            "uc_antiga": [
+                "H507N5"
+            ],
+            "uc_nova": [
+                "H701N1"
+            ]
+        },
+        {
+            "uc_antiga": [
+                "H507N6"
+            ],
+            "uc_nova": [
+                "H701N6"
+            ]
+        },
+        {
+            "uc_antiga": [
+                "H508N1"
+            ],
+            "uc_nova": [
+                "H702N1"
+            ]
+        },
+        {
+            "uc_antiga": [
+                "H508N3"
+            ],
+            "uc_nova": [
+                "H702N2"
+            ]
+        },
+        {
+            "uc_antiga": [
+                "H508N2"
+            ],
+            "uc_nova": [
+                "H702N3"
+            ]
+        },
+        {
+            "uc_antiga": [
+                "H508N4"
+            ],
+            "uc_nova": [
+                "H702N4"
+            ]
+        },
+        {
+            "uc_antiga": [
+                "H508N5"
+            ],
+            "uc_nova": [
+                "H702N5",
+                "H702N6"
+            ]
+        },
+        {
+            "uc_antiga": [
+                "H509N1"
+            ],
+            "uc_nova": [
+                "H703N1"
+            ]
+        },
+        {
+            "uc_antiga": [
+                "H509A1"
+            ],
+            "uc_nova": [
+                "H703A1"
+            ]
+        }
+    ]
+}

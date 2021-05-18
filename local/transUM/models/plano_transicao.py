@@ -23,8 +23,8 @@ class Plano_Transicao(models.Model):
         # Campos vazios
         if not self.designacao or not self.curso_id:
             raise models.ValidationError('Um Plano de Transição deve possuir uma designação e um Curso !')
-        if not self.transicao_ucs:
-            raise models.ValidationError('Um Plano de Transição deve possuir pelo menos uma correspondência !')
+        """ if not self.transicao_ucs:
+            raise models.ValidationError('Um Plano de Transição deve possuir pelo menos uma correspondência !') """
 
         # Plano de Transicao por Curso
         if len(self.env['transum.plano_transicao'].search([('curso_id', '=', self.curso_id.id)])) > 1:

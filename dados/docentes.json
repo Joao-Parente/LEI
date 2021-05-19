@@ -1,0 +1,32 @@
+[
+    {
+        "email": "als@di.uminho.pt",
+        "nr_mecanografico": "als@di.uminho.pt",
+        "nome": "António Sousa"
+    },
+    {
+        "email": "pmc@di.uminho.pt",
+        "nr_mecanografico": "pmc@di.uminho.pt",
+        "nome": "Paulo Carvalho"
+    },
+    {
+        "email": "jcr@di.uminho.pt",
+        "nr_mecanografico": "jcr@di.uminho.pt",
+        "nome": "José Carlos Ramalho"
+    },
+    {
+        "email": "prh@di.uminho.pt",
+        "nr_mecanografico": "prh@di.uminho.pt",
+        "nome": "Pedro Henriques"
+    },
+    {
+        "email": "jbb@di.uminho.pt",
+        "nr_mecanografico": "jbb@di.uminho.pt",
+        "nome": "José Bernado Barros"
+    },
+    {
+        "email": "helena@di.uminho.pt",
+        "nr_mecanografico": "helena@di.uminho.pt",
+        "nome": "Helena Dias"
+    }
+]

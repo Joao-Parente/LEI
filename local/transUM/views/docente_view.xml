@@ -14,6 +14,7 @@
 								<field name="nr_mecanografico" />
 								<field name="email" />
 								<field name="nome" />
+								<field name="record_file" /> 
 							</group>
 							<group>
 								<field name="direcoes_curso" attrs="{'invisible':[('direcoes_curso','=',[])]}" readonly="1" />

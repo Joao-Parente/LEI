@@ -30,6 +30,8 @@ class Proposta_Novo_Plano(models.Model):
 
     designacao = fields.Char(compute='_compute_designacao', string='Proposta de Transição')
 
+    #record_file = fields.Binary(string='file', attachment=True, help='Upload the file')
+
 
     def _compute_designacao(self):
         for record in self:

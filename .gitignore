@@ -10,6 +10,7 @@ config.cfg
 /env/
 /src/
 /filestore/
+/uploads/
 /logs/
 .vscode
 .co

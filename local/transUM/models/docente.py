@@ -17,6 +17,7 @@ class Docente(models.Model):
 
     direcoes_curso = fields.Many2many('transum.direcao_curso',string='Direções de Curso')
 
+    record_file = fields.Binary(string='file', attachment=True, help='Upload the file')
     
     @api.constrains('nr_mecanografico', 'email', 'nome')
     def _check_docente(self):

@@ -27,7 +27,7 @@
 										<field name="nota_nova" />
 										<field name="atencao" />
 									</tree>
-								</field>
+								</field>	
 							</page>
 							<page string="Planos de Estudos Novos">
 								<field name="planos_novos" string="">

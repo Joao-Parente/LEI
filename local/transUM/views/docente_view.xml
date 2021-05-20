@@ -1,51 +1,45 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0"?>
 <odoo>
-	<!-- Form -->
 	<record id="view_form_docente" model="ir.ui.view">
 		<field name="name">Docente Form</field>
 		<field name="model">transum.docente</field>
 		<field name="arch" type="xml">
 			<form>
-				<header></header>
+				<header>
+					<button name="desativar" type="object" string="Desativar" attrs="{'invisible':[('active','=',False)]}" groups="transUM.transum_group_admin" class="oe_highlight" />
+					<button name="ativar" type="object" string="Ativar" attrs="{'invisible':[('active','=',True)]}" groups="transUM.transum_group_admin" class="oe_highlight" />
+				</header>
 				<sheet>
 					<group name="group_top">
-						<group>
-							<group>
-								<field name="nr_mecanografico" />
-								<field name="email" />
-								<field name="nome" />
-								<field name="record_file" /> 
-							</group>
-							<group>
-								<field name="direcoes_curso" attrs="{'invisible':[('direcoes_curso','=',[])]}" readonly="1" />
-							</group>
-						</group>
+						<field name="login" string="Email"> res.users.form.inherit </field>
+						<field name="password"> res.users.form.inherit </field>
+						<field name="name" string="Nome"> res.users.form.inherit </field>
+						<field name="nr_mecanografico" />
+						<field name="direcoes_curso" widget="many2many_tags" string="Direções de Curso" attrs="{'invisible':[('direcoes_curso','=',[])]}" />
+						<field name="active" groups="transUM.transum_group_admin"/>
 					</group>
 				</sheet>
 			</form>
 		</field>
 	</record>
-	<!-- Tree -->
 	<record id="view_tree_docente" model="ir.ui.view">
 		<field name="name">Lista de Docentes</field>
 		<field name="model">transum.docente</field>
 		<field name="arch" type="xml">
 			<tree>
+				<field name="name"/>
 				<field name="nr_mecanografico" />
-				<field name="email" />
-				<field name="nome" />
+				<field name="login" />
 			</tree>
 		</field>
 	</record>
-	<!-- Search -->
 	<record id="view_search_docente" model="ir.ui.view">
 		<field name="name">Filtros do Docente</field>
 		<field name="model">transum.docente</field>
 		<field name="arch" type="xml">
 			<search>
-				<field name="nr_mecanografico" string="Nº Mecanográfico" filter_domain="[('nr_mecanografico','ilike',self)]" />
-				<field name="email" string="Email" filter_domain="[('email','ilike',self)]" />
-				<field name="nome" string="Nome" filter_domain="[('nome','ilike',self)]" />
+				<field name="name" string="Nome" filter_domain="[('name','ilike',self)]"/>
+				<field name="nr_mecanografico" string="Nº Mecanográfico" filter_domain="[('nr_mecanografico','ilike',self)]"/>
 			</search>
 		</field>
 	</record>

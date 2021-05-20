@@ -1,31 +1,33 @@
 <?xml version="1.0"?>
 <odoo>
-	<!-- Form -->
 	<record id="view_form_administrador" model="ir.ui.view">
 		<field name="name">Administrador Form</field>
 		<field name="model">transum.administrador</field>
 		<field name="arch" type="xml">
 			<form>
-				<header></header>
+				<header>
+					<button name="desativar" type="object" string="Desativar" attrs="{'invisible':[('active','=',False)]}" groups="transUM.transum_group_admin" class="oe_highlight" />
+					<button name="ativar" type="object" string="Ativar" attrs="{'invisible':[('active','=',True)]}" groups="transUM.transum_group_admin" class="oe_highlight" />
+				</header>
 				<sheet>
 					<group name="group_top">
-						<!-- <field name="active" /> -->
-						<field name="name" />
-						<field name="email" />
+						<field name="login" string="Email"> res.users.form.inherit </field>
+						<field name="password"> res.users.form.inherit </field>
+						<field name="name" string="Nome"> res.users.form.inherit </field>
+						<field name="active" groups="transUM.transum_group_admin"/>
 					</group>
 				</sheet>
 			</form>
 		</field>
 	</record>
-	<!-- Tree -->
 	<record id="view_tree_administrador" model="ir.ui.view">
 		<field name="name">Administradores</field>
 		<field name="model">transum.administrador</field>
 		<field name="arch" type="xml">
 			<tree>
 				<field name="name" />
-				<field name="email" />
-				<!-- <field name="active" /> -->
+				<field name="login" />
+				<field name="active" groups="transUM.transum_group_admin"/>
 			</tree>
 		</field>
 	</record>

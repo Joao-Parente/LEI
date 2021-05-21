@@ -9,21 +9,17 @@
 				<header></header>
 				<sheet>
 					<group name="group_top">
-						<group>
-							<!-- <field name="active" /> -->
-							<field name="codigo" />
-							<field name="designacao" />
-							<field name="ects" />
-							<field name="ano" />
-							<field name="semestre" />
-							<!-- <field name="obrigatoria" />
-							<field name="tem_opcao" />
-							<field name="uc_opcao" attrs="{'invisible':[('obrigatoria','=',True)]}" />
-							<field name="uc_principal" attrs="{'invisible':[('tem_opcao','=',False)]}" /> -->
-						</group>
-						<group>
-							<field name="plano_curso" attrs="{'invisible':[('plano_curso','=',[])]}" readonly="1" />
-						</group>
+						<!-- <field name="active" /> -->
+						<field name="codigo" />
+						<field name="designacao" />
+						<field name="semestre" widget="radio"/>
+						<field name="ano" />
+						<field name="ects" />
+						<!-- <field name="obrigatoria" />
+						<field name="tem_opcao" />
+						<field name="uc_opcao" attrs="{'invisible':[('obrigatoria','=',True)]}" />
+						<field name="uc_principal" attrs="{'invisible':[('tem_opcao','=',False)]}" /> -->
+						<field name="plano_curso" attrs="{'invisible':[('plano_curso','=',[])]}" readonly="1" />
 					</group>
 				</sheet>
 			</form>
@@ -34,11 +30,11 @@
 		<field name="name">Lista de UCs</field>
 		<field name="model">transum.uc</field>
 		<field name="arch" type="xml">
-			<tree>
+			<tree delete="true" default_order="ano,semestre,codigo">
 				<field name="codigo" />
-				<field name="designacao" />
-				<field name="ano" />
+				<field name="designacao" />				
 				<field name="semestre" />
+				<field name="ano" />
 			</tree>
 		</field>
 	</record>

@@ -56,3 +56,11 @@ class Curso(models.Model):
                     if uc.codigo == uc_a_pesquisar.codigo:
                         return True
         return False
+
+    def ativar(self):
+        for rec in self:
+            rec.active = True
+
+    def desativar(self):
+        for rec in self:
+            rec.active = False

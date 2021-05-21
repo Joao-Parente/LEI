@@ -6,26 +6,27 @@
 		<field name="model">transum.curso</field>
 		<field name="arch" type="xml">
 			<form>
+				<header>
+					<button name="desativar" type="object" string="Desativar" attrs="{'invisible':[('active','=',False)]}" groups="transUM.transum_group_admin" class="oe_highlight" />
+					<button name="ativar" type="object" string="Ativar" attrs="{'invisible':[('active','=',True)]}" groups="transUM.transum_group_admin" class="oe_highlight" />
+				</header>
 				<sheet>
 					<group name="group_top">
 						<notebook>
 							<page string="Informação">
 								<group>
-									<group>
-										<field name="designacao" />
-										<field name="departamento" />
-										<field name="tipo" />
-									</group>
-									<group>
-										<field name="direcao_curso" attrs="{'invisible':[('direcao_curso','=',[])]}" readonly="1" />
-									</group>
+									<field name="active" groups="transUM.transum_group_admin"/>
+									<field name="designacao" />
+									<field name="departamento" />
+									<field name="tipo" widget="radio" />
+									<field name="direcao_curso" attrs="{'invisible':[('direcao_curso','=',[])]}" readonly="1" />
 								</group>
 							</page>
 							<page string="Alunos" attrs="{'invisible':[('alunos','=',[])]}" readonly="1">
 								<field name="alunos" attrs="{'invisible':[('alunos','=',[])]}" readonly="1" />
 							</page>
 							<page string="Planos do Curso" attrs="{'invisible':[('plano_curso','=',[])]}" readonly="1">
-								<field name="plano_curso" attrs="{'invisible':[('plano_curso','=',[])]}" readonly="1" />								
+								<field name="plano_curso" attrs="{'invisible':[('plano_curso','=',[])]}" readonly="1" />
 							</page>
 							<page string="Planos de Transição" attrs="{'invisible':[('plano_transicao','=',[])]}" readonly="1">
 								<field name="plano_transicao" attrs="{'invisible':[('plano_transicao','=',[])]}" readonly="1" />
@@ -36,7 +37,6 @@
 			</form>
 		</field>
 	</record>
-
 	<!-- Tree -->
 	<record id="curso_view_tree" model="ir.ui.view">
 		<field name="name">Curso List</field>
@@ -49,7 +49,6 @@
 			</tree>
 		</field>
 	</record>
-
 	<!-- Search -->
 	<record id="view_search_curso" model="ir.ui.view">
 		<field name="name">Filtros do Curso</field>

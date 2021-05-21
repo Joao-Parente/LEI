@@ -7,13 +7,16 @@
 		<field name="arch" type="xml">
 			<form>
 				<header>
-					<button name="gerar" type="object" string="Gerar Planos de Estudos" class="oe_highlight" attrs="{'invisible':[('ucs','=',[])]}" />
+					<button name="desativar" type="object" string="Desativar" attrs="{'invisible':[('active','=',False)]}" groups="transUM.transum_group_direcao_curso" class="oe_highlight" />
+					<button name="ativar" type="object" string="Ativar" attrs="{'invisible':[('active','=',True)]}" groups="transUM.transum_group_direcao_curso" class="oe_highlight" />
+					<button name="gerar" type="object" string="Gerar Planos de Estudos" class="oe_highlight" attrs="{'invisible':[('ucs','=',[])]}" groups="transUM.transum_group_direcao_curso"/>
 				</header>
 				<sheet>
 					<group name="group_top">
 						<notebook>
 							<page string="Informação">
 								<group>
+									<field name="active" readonly="1"/>
 									<field name="codigo" />
 									<field name="curso_id" />
 									<field name="total_creditos" readonly="1" />

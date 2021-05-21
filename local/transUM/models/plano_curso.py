@@ -81,3 +81,12 @@ class Plano_Curso(models.Model):
             'res_id': message_id.id,
             'target': 'new'
         }
+
+
+    def ativar(self):
+        for rec in self:
+            rec.active = True
+
+    def desativar(self):
+        for rec in self:
+            rec.active = False

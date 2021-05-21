@@ -34,7 +34,7 @@
 			<field name="name">Um aluno vê apenas os seus planos de estudos</field>
 			<field name="model_id" ref="model_transum_plano_estudos"/>
 			<field name="groups" eval="[(4,ref('transum_group_aluno'))]"/>
-			<field name="domain_force"> [('aluno_associado.user_id', '=', user.id)] </field>
+			<field name="domain_force"> ['|', ('aluno_associado.user_id', '=', user.id), ('historico_aluno_associado.user_id', '=', user.id)] </field>
 		</record>
 		<record model="ir.rule" id="aluno_proposta_novo_plano_rule">
 			<field name="name">Um aluno vê apenas a sua proposta de novos planos</field>
@@ -42,21 +42,21 @@
 			<field name="groups" eval="[(4,ref('transum_group_aluno'))]"/>
 			<field name="domain_force"> [('aluno.user_id', '=', user.id)] </field>
 		</record>
-		<record model="ir.rule" id="aluno_perfil_rule">
+		<record model="ir.rule" id="aluno_aluno_rule">
 			<field name="name">Um aluno vê apenas o seu perfil</field>
 			<field name="model_id" ref="model_transum_aluno"/>
 			<field name="groups" eval="[(4,ref('transum_group_aluno'))]"/>
 			<field name="domain_force"> [('user_id', '=', user.id)] </field>
 		</record>
 		<!-- Record Rules de D.C. -->
-		<record model="ir.rule" id="dc_alunos_curso_rule">
+		<record model="ir.rule" id="dc_aluno_rule">
 			<field name="name">Um diretor de curso vê apenas os alunos do seu curso</field>
 			<field name="model_id" ref="model_transum_aluno"/>
 			<field name="groups" eval="[(4,ref('transum_group_direcao_curso'))]"/>
 			<field name="domain_force"> [('curso_id.direcao_curso.docentes.user_id', '=', user.id)] </field>
 		</record>
 		<record model="ir.rule" id="dc_curso_rule">
-			<field name="name">Um diretor de curso só pode criar alunos ou planos de curso dos seus cursos</field>
+			<field name="name">Um diretor de curso vê apenas os seus cursos</field>
 			<field name="model_id" ref="model_transum_curso"/>
 			<field name="groups" eval="[(4,ref('transum_group_direcao_curso'))]"/>
 			<field name="domain_force"> [('direcao_curso.docentes.user_id', '=', user.id)] </field>
@@ -67,38 +67,62 @@
 			<field name="groups" eval="[(4,ref('transum_group_direcao_curso'))]"/>
 			<field name="domain_force"> [('docentes.user_id', '=', user.id)] </field>
 		</record>
-		<record model="ir.rule" id="dc_planos_curso_rule">
+		<record model="ir.rule" id="dc_docente_rule">
+			<field name="name">Um diretor de curso vê apenas os docentes da sua direção de curso</field>
+			<field name="model_id" ref="model_transum_docente"/>
+			<field name="groups" eval="[(4,ref('transum_group_direcao_curso'))]"/>
+			<field name="domain_force"> [('direcoes_curso.docentes.user_id', '=', user.id)] </field>
+		</record>
+		<record model="ir.rule" id="dc_plano_curso_rule">
 			<field name="name">Um diretor de curso vê apenas os planos de curso do seu curso</field>
 			<field name="model_id" ref="model_transum_plano_curso"/>
 			<field name="groups" eval="[(4,ref('transum_group_direcao_curso'))]"/>
 			<field name="domain_force"> [('curso_id.direcao_curso.docentes.user_id', '=', user.id)] </field>
 		</record>
-		<record model="ir.rule" id="dc_planos_estudo_atuais_rule">
-			<field name="name">Um diretor de curso vê apenas os planos de estudos atuais dos alunos do seu curso</field>
-			<field name="model_id" ref="model_transum_plano_estudos"/>
+		<record model="ir.rule" id="dc_plano_estudos_uc_rule">
+			<field name="name">Um diretor de curso vê apenas os planos de estudos UCS atuais dos alunos do seu curso</field>
+			<field name="model_id" ref="model_transum_plano_estudos_uc"/>
 			<field name="groups" eval="[(4,ref('transum_group_direcao_curso'))]"/>
-			<field name="domain_force"> [('aluno_associado.curso_id.direcao_curso.docentes.user_id', '=', user.id)] </field>
+			<field name="domain_force"> ['|', ('plano_estudos.aluno_associado.curso_id.direcao_curso.docentes.user_id', '=', user.id), ('plano_estudos.historico_aluno_associado.curso_id.direcao_curso.docentes.user_id', '=', user.id)] </field>
 		</record>
-		<record model="ir.rule" id="dc_planos_estudo_historico_rule">
-			<field name="name">Um diretor de curso vê apenas os planos de estudos passados dos alunos do seu curso</field>
+		<record model="ir.rule" id="dc_plano_estudos_rule">
+			<field name="name">Um diretor de curso vê apenas os planos de estudos dos alunos do seu curso</field>
 			<field name="model_id" ref="model_transum_plano_estudos"/>
 			<field name="groups" eval="[(4,ref('transum_group_direcao_curso'))]"/>
-			<field name="domain_force"> [('historico_aluno_associado.curso_id.direcao_curso.docentes.user_id', '=', user.id)] </field>
-		</record>	
+			<field name="domain_force"> ['|', ('aluno_associado.curso_id.direcao_curso.docentes.user_id', '=', user.id), ('historico_aluno_associado.curso_id.direcao_curso.docentes.user_id', '=', user.id)] </field>
+		</record>
+		<record model="ir.rule" id="dc_plano_transicao_uc_mostra_rule">
+			<field name="name">Um diretor de curso vê apenas as correspondências dos alunos dos seus cursos</field>
+			<field name="model_id" ref="model_transum_plano_transicao_uc_mostra"/>
+			<field name="groups" eval="[(4,ref('transum_group_direcao_curso'))]"/>
+			<field name="domain_force"> ['|', ('curso_antigo.direcao_curso.docentes.user_id', '=', user.id), ('curso_novo.direcao_curso.docentes.user_id', '=', user.id)] </field>
+		</record>
+		<record model="ir.rule" id="dc_plano_transicao_uc_rule">
+			<field name="name">Um diretor de curso vê apenas os planos transicao UC dos alunos dos seus cursos</field>
+			<field name="model_id" ref="model_transum_plano_transicao_uc"/>
+			<field name="groups" eval="[(4,ref('transum_group_direcao_curso'))]"/>
+			<field name="domain_force"> ['|', ('curso_antigo.direcao_curso.docentes.user_id', '=', user.id), ('curso_novo.direcao_curso.docentes.user_id', '=', user.id)] </field>
+		</record>
 		<record model="ir.rule" id="dc_plano_transicao_rule">
 			<field name="name">Um diretor de curso vê apenas os planos de transicao do seu curso</field>
 			<field name="model_id" ref="model_transum_plano_transicao"/>
 			<field name="groups" eval="[(4,ref('transum_group_direcao_curso'))]"/>
-			<field name="domain_force"> [('curso_id.direcao_curso.docentes.user_id', '=', user.id)] </field>
+			<field name="domain_force"> ['|', ('curso_id.direcao_curso.docentes.user_id', '=', user.id), ('cursos_novos.direcao_curso.docentes.user_id', '=', user.id)] </field>
 		</record>
 		<record model="ir.rule" id="dc_proposta_novo_plano_rule">
 			<field name="name">Um diretor de curso vê apenas as propostas dos seus cursos</field>
 			<field name="model_id" ref="model_transum_proposta_novo_plano"/>
 			<field name="groups" eval="[(4,ref('transum_group_direcao_curso'))]"/>
-			<field name="domain_force"> [('plano_transicao.curso_id.direcao_curso.docentes.user_id', '=', user.id)] </field>
+			<field name="domain_force"> [('aluno.curso_id.direcao_curso.docentes.user_id', '=', user.id)] </field>
+		</record>
+		<record model="ir.rule" id="dc_uc_rule">
+			<field name="name">Um diretor de curso vê apenas as suas UCS</field>
+			<field name="model_id" ref="model_transum_uc"/>
+			<field name="groups" eval="[(4,ref('transum_group_direcao_curso'))]"/>
+			<field name="domain_force"> [('plano_curso.curso_id.direcao_curso.docentes.user_id', '=', user.id)] </field>
 		</record>
 		<!-- Record Rules de Docentes -->
-		<record model="ir.rule" id="docente_alunos_curso_rule">
+		<record model="ir.rule" id="docente_aluno_rule">
 			<field name="name">Um docente vê apenas os alunos do seu curso</field>
 			<field name="model_id" ref="model_transum_aluno"/>
 			<field name="groups" eval="[(4,ref('transum_group_docente'))]"/>

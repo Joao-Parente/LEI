@@ -7,7 +7,7 @@
 		<field name="arch" type="xml">
 			<form>
 				<header>
-					<button name="transitar" type="object" string="Transição" class="oe_highlight" attrs="{'invisible':[('transicao_ucs','=',[])]}" />
+					<button name="transitar" type="object" string="Transição" class="oe_highlight" attrs="{'invisible':[('transicao_ucs','=',[])]}" groups="transUM.transum_group_direcao_curso"/>
 				</header>
 				<sheet>
 					<group name="group_top">

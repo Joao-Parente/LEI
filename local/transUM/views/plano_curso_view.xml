@@ -7,8 +7,8 @@
 		<field name="arch" type="xml">
 			<form>
 				<header>
-					<button name="desativar" type="object" string="Desativar" attrs="{'invisible':[('active','=',False)]}" groups="transUM.transum_group_direcao_curso" class="oe_highlight" />
-					<button name="ativar" type="object" string="Ativar" attrs="{'invisible':[('active','=',True)]}" groups="transUM.transum_group_direcao_curso" class="oe_highlight" />
+					<button name="desativar" type="object" string="Desativar" attrs="{'invisible':[('active','=',False)]}" groups="transUM.transum_group_admin" class="oe_highlight" />
+					<button name="ativar" type="object" string="Ativar" attrs="{'invisible':[('active','=',True)]}" groups="transUM.transum_group_admin" class="oe_highlight" />
 					<button name="gerar" type="object" string="Gerar Planos de Estudos" class="oe_highlight" attrs="{'invisible':[('ucs','=',[])]}" groups="transUM.transum_group_direcao_curso"/>
 				</header>
 				<sheet>

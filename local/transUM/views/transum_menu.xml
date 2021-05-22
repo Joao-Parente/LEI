@@ -3,33 +3,33 @@
     <menuitem id="menu_transum" name="TransUM" />
 
     <act_window id="action_administrador" name="Administradores" res_model="transum.administrador" view_mode="tree,form" />
-    <menuitem id="menu_administrador" name="Administradores" parent="menu_transum" action="action_administrador" groups="transUM.transum_group_admin"/>
+    <menuitem id="menu_administrador" name="Administradores" parent="menu_transum" action="action_administrador" groups="transum_group_admin"/>
 
     <act_window id="action_aluno" name="Alunos" res_model="transum.aluno" view_mode="tree,form" />
-    <menuitem id="menu_aluno" name="Alunos" parent="menu_transum" action="action_aluno" />
+    <menuitem id="menu_aluno" name="Alunos" parent="menu_transum" action="action_aluno" groups="transum_group_admin,transum_group_direcao_curso,transum_group_aluno"/>
 
     <act_window id="action_curso" name="Cursos" res_model="transum.curso" view_mode="tree,form" />
-    <menuitem id="menu_curso" name="Cursos" parent="menu_transum" action="action_curso" groups="transUM.transum_group_admin"/>
+    <menuitem id="menu_curso" name="Cursos" parent="menu_transum" action="action_curso" groups="transum_group_admin,transum_group_direcao_curso"/>
 
     <act_window id="action_direcoes_curso" name="Direções de Curso" res_model="transum.direcao_curso" view_mode="tree,form" />
-    <menuitem id="menu_direcoes_curso" name="Direções de Curso" parent="menu_transum" action="action_direcoes_curso" groups="transUM.transum_group_admin,transUM.transum_group_direcao_curso"/>
+    <menuitem id="menu_direcoes_curso" name="Direções de Curso" parent="menu_transum" action="action_direcoes_curso" groups="transum_group_admin,transum_group_direcao_curso"/>
 
     <act_window id="action_docentes" name="Docentes" res_model="transum.docente" view_mode="tree,form" />
-    <menuitem id="menu_docentes" name="Docentes" parent="menu_transum" action="action_docentes" groups="transUM.transum_group_admin"/>
+    <menuitem id="menu_docentes" name="Docentes" parent="menu_transum" action="action_docentes" groups="transum_group_admin,transum_group_direcao_curso"/>
 
     <act_window id="action_plano_curso" name="Planos de Curso" res_model="transum.plano_curso" view_mode="tree,form" />
-    <menuitem id="menu_plano_curso" name="Planos de Curso" parent="menu_transum" action="action_plano_curso" groups="transUM.transum_group_direcao_curso" />
+    <menuitem id="menu_plano_curso" name="Planos de Curso" parent="menu_transum" action="action_plano_curso" groups="transum_group_admin,transum_group_direcao_curso" />
 
     <act_window id="action_plano_estudos" name="Planos de Estudos" res_model="transum.plano_estudos" view_mode="tree,form" />
-    <menuitem id="menu_plano_estudos" name="Planos de Estudos" parent="menu_transum" action="action_plano_estudos" groups="transUM.transum_group_direcao_curso" />
+    <menuitem id="menu_plano_estudos" name="Planos de Estudos" parent="menu_transum" action="action_plano_estudos" groups="transum_group_admin,transum_group_direcao_curso" />
 
     <act_window id="action_plano_transicao" name="Planos de Transição" res_model="transum.plano_transicao" view_mode="tree,form" />
-    <menuitem id="menu_plano_transicao" name="Planos de Transição" parent="menu_transum" action="action_plano_transicao" groups="transUM.transum_group_direcao_curso"/>
+    <menuitem id="menu_plano_transicao" name="Planos de Transição" parent="menu_transum" action="action_plano_transicao" groups="transum_group_admin,transum_group_direcao_curso,transum_group_docente,transum_group_aluno" />
 
     <act_window id="action_propostas" name="Propostas de Transição" res_model="transum.proposta_novo_plano" view_mode="tree,form" />
-    <menuitem id="menu_propostas" name="Propostas de Transição" parent="menu_transum" action="action_propostas" groups="transUM.transum_group_direcao_curso"/>
+    <menuitem id="menu_propostas" name="Propostas de Transição" parent="menu_transum" action="action_propostas" groups="transum_group_admin,transum_group_direcao_curso,transum_group_aluno" />
 
     <act_window id="action_ucs" name="Unidades Curriculares" res_model="transum.uc" view_mode="tree,form" />
-    <menuitem id="menu_ucs" name="Unidades Curriculares" parent="menu_transum" action="action_ucs" groups="transUM.transum_group_direcao_curso"/>
+    <menuitem id="menu_ucs" name="Unidades Curriculares" parent="menu_transum" action="action_ucs" groups="transum_group_admin,transum_group_direcao_curso" />
 
 </odoo>

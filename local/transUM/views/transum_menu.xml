@@ -5,8 +5,16 @@
     <act_window id="action_administrador" name="Administradores" res_model="transum.administrador" view_mode="tree,form" />
     <menuitem id="menu_administrador" name="Administradores" parent="menu_transum" action="action_administrador" groups="transum_group_admin"/>
 
+    <record id="action_aluno_perfil" model="ir.actions.act_window">
+		  <field name="name">Perfil</field>
+		  <field name="res_model">transum.aluno</field>
+		  <field name="view_mode">tree,form</field>
+		  <field name="view_ids" eval="[(5, 0, 0), (0, 0, {'view_mode': 'tree', 'view_id': ref('transUM.view_tree_aluno')}), (0, 0, {'view_mode': 'form', 'view_id': ref('transUM.view_form_perfil')})]"/>
+	  </record>
+    <menuitem id="menu_aluno_perfil" name="Perfil" parent="menu_transum" action="action_aluno_perfil" groups="transum_group_aluno"/>
+    
     <act_window id="action_aluno" name="Alunos" res_model="transum.aluno" view_mode="tree,form" />
-    <menuitem id="menu_aluno" name="Alunos" parent="menu_transum" action="action_aluno" groups="transum_group_admin,transum_group_direcao_curso,transum_group_aluno"/>
+    <menuitem id="menu_aluno" name="Alunos" parent="menu_transum" action="action_aluno" groups="transum_group_admin,transum_group_direcao_curso"/>
 
     <act_window id="action_curso" name="Cursos" res_model="transum.curso" view_mode="tree,form" />
     <menuitem id="menu_curso" name="Cursos" parent="menu_transum" action="action_curso" groups="transum_group_admin,transum_group_direcao_curso"/>
@@ -24,10 +32,18 @@
     <menuitem id="menu_plano_estudos" name="Planos de Estudos" parent="menu_transum" action="action_plano_estudos" groups="transum_group_admin,transum_group_direcao_curso" />
 
     <act_window id="action_plano_transicao" name="Planos de Transição" res_model="transum.plano_transicao" view_mode="tree,form" />
-    <menuitem id="menu_plano_transicao" name="Planos de Transição" parent="menu_transum" action="action_plano_transicao" groups="transum_group_admin,transum_group_direcao_curso,transum_group_docente,transum_group_aluno" />
+    <menuitem id="menu_plano_transicao" name="Planos de Transição" parent="menu_transum" action="action_plano_transicao" groups="transum_group_admin,transum_group_direcao_curso,transum_group_docente" />
+
+    <record id="action_aluno_proposta" model="ir.actions.act_window">
+		<field name="name">Proposta</field>
+		<field name="res_model">transum.proposta_novo_plano</field>
+		<field name="view_mode">tree,form</field>
+		<field name="view_ids" eval="[(5, 0, 0), (0, 0, {'view_mode': 'tree', 'view_id': ref('transUM.view_tree_proposta_novo_plano')}), (0, 0, {'view_mode': 'form', 'view_id': ref('transUM.view_form_proposta_aluno')})]"/>
+	</record>
+    <menuitem id="menu_aluno_proposta" name="Proposta de Transição" parent="menu_transum" action="action_aluno_proposta" groups="transum_group_aluno"/>
 
     <act_window id="action_propostas" name="Propostas de Transição" res_model="transum.proposta_novo_plano" view_mode="tree,form" />
-    <menuitem id="menu_propostas" name="Propostas de Transição" parent="menu_transum" action="action_propostas" groups="transum_group_admin,transum_group_direcao_curso,transum_group_aluno" />
+    <menuitem id="menu_propostas" name="Propostas de Transição" parent="menu_transum" action="action_propostas" groups="transum_group_admin,transum_group_direcao_curso" />
 
     <act_window id="action_ucs" name="Unidades Curriculares" res_model="transum.uc" view_mode="tree,form" />
     <menuitem id="menu_ucs" name="Unidades Curriculares" parent="menu_transum" action="action_ucs" groups="transum_group_admin,transum_group_direcao_curso" />

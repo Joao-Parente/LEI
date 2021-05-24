@@ -27,7 +27,89 @@
 										<field name="nota_nova" />
 										<field name="atencao" />
 									</tree>
-								</field>	
+								</field>
+							</page>
+							<page string="Planos de Estudos Novos">
+								<field name="planos_novos" string="">
+									<tree default_order="codigo,total_creditos_feitos,total_creditos_falta">
+										<field name="codigo" />
+										<field name="curso_designacao" />
+										<field name="curso_tipo" />
+										<field name="total_creditos_feitos" />
+										<field name="total_creditos_falta" />
+									</tree>
+								</field>
+							</page>
+							<page string="Plano de Estudos Antigo" readonly="1">
+								<field name="ucs_plano_antigo" string="" style="pointer-events:none;">
+									<tree default_order="ano,semestre,codigo">
+										<field name="ano" />
+										<field name="semestre" />
+										<field name="codigo" />
+										<field name="designacao" />
+										<field name="creditacao" />
+										<field name="nota" />
+									</tree>
+								</field>
+							</page>
+							<page string="Plano de Transição" readonly="1">
+								<group>
+									<field name="str_antigo_curso" string='Curso Antigo'/>
+									<field name="novos_cursos" widget="many2many" style="pointer-events:none;" />
+									<field name="ucs_plano_transicao" string="Transição" style="pointer-events:none;">
+										<tree>
+											<field name="curso_antigo" />
+											<field name="uc_antiga" widget="many2many_tags" />
+											<field name="curso_novo" />
+											<field name="uc_nova" widget="many2many_tags" />
+										</tree>
+									</field>
+								</group>
+							</page>
+							<page string="Aluno Associado" readonly="1">
+								<field name="aluno" string="" style="pointer-events:none;">
+									<tree default_order="nr_mecanografico,name,ano,curso_id,estado">
+										<field name="nr_mecanografico" />
+										<field name="name" />
+										<field name="ano" />
+										<field name="curso_id" widget="many2many_tags" />
+										<field name="estado" />
+									</tree>
+								</field>
+							</page>
+						</notebook>
+					</group>
+				</sheet>
+			</form>
+		</field>
+	</record>
+	<record id="view_form_proposta_aluno" model="ir.ui.view">
+		<field name="name">Proposta Novo Plano Form</field>
+		<field name="model">transum.proposta_novo_plano</field>
+		<field name="arch" type="xml">
+			<form edit="false">
+				<header>
+					<button name="aprovar" type="object" string="Aprovar" class="oe_highlight" attrs="{'invisible':[('opcao', '!=', '1')]}" />
+					<button name="rejeitar" type="object" string="Rejeitar" class="oe_highlight" attrs="{'invisible':[('opcao', '!=', '1')]}" />
+					<button name="aprovar" type="object" string="Tomei conhecimento" class="oe_highlight" attrs="{'invisible':[('opcao', '!=', '2')]}" />
+					<field name="opcao" class="oe_highlight" string="Necessita de Atenção" attrs="{'invisible':[('opcao','!=','4')]}" />
+				</header>
+				<sheet>
+					<group name="group_top">
+						<notebook>
+							<field name="opcao" invisible="1" />
+							<page string="Correspondências">
+								<field name="transicao_ucs_mostra" string="">
+									<tree>
+										<field name="curso_antigo" />
+										<field name="uc_antiga" widget="many2many_tags" />
+										<field name="nota_antiga" />
+										<field name="curso_novo" />
+										<field name="uc_nova" widget="many2many_tags" />
+										<field name="nota_nova" />
+										<field name="atencao" />
+									</tree>
+								</field>
 							</page>
 							<page string="Planos de Estudos Novos">
 								<field name="planos_novos" string="">

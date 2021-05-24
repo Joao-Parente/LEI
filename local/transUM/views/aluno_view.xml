@@ -42,7 +42,47 @@
 			</form>
 		</field>
 	</record>
-	
+	<record id="view_form_perfil" model="ir.ui.view">
+		<field name="name">Aluno Form</field>
+		<field name="model">transum.aluno</field>
+		<field name="arch" type="xml">
+			<form edit="false">
+				<sheet>
+					<group name="group_top">
+						<notebook>
+							<page string="Perfil">
+								<group>
+									<group>
+										<field name="login" string="Email"> res.users.form.inherit </field>
+										<field name="password"> res.users.form.inherit </field>
+										<field name="name" string="Nome"> res.users.form.inherit </field>
+										<field name="nr_mecanografico" />
+										<field name="estatuto" />
+										<field name="ano" />
+										<field name="estado" readonly="1" />
+										<field name="proposta_plano_aluno" readonly="1" attrs="{'invisible':[('proposta_plano_aluno','=',False)]}"  />
+									</group>
+									<group>
+										<field name="curso_id" string="Curso" />
+									</group>
+								</group>
+							</page>
+							<page string="Planos de Estudos">
+								<group>
+									<group>									
+										<field name="planos_atuais" readonly="1" />
+									</group>
+									<group>
+										<field name="plano_historico" attrs="{'invisible':[('plano_historico','=',[])]}" readonly="1" />
+									</group>
+								</group>
+							</page>
+						</notebook>
+					</group>
+				</sheet>
+			</form>
+		</field>
+	</record>
 	<!-- Tree -->
 	<record id="view_tree_aluno" model="ir.ui.view">
 		<field name="name">Lista de Alunos</field>

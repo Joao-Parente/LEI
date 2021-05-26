@@ -2,7 +2,7 @@ import json
 import xmlrpc.client
 
 url = "http://localhost:8069"
-db = 'odoov4'
+db = 'odoov6'
 username = 'admin'
 password = 'admin'
 
@@ -35,12 +35,12 @@ with open('../dados/curso.json', mode='r', encoding='utf8') as ficheiro:
     cursos = [id_curso]
     print('===  Curso Inserido com Sucesso!     ===')
     # INSERT DC
-    id_dc = models.execute_kw(db, uid, password, 'transum.direcao_curso', 'create', [{
+    """ id_dc = models.execute_kw(db, uid, password, 'transum.direcao_curso', 'create', [{
         'curso_id': id_curso,
         'codigo': 'DC de ' + dados['designacao'],
         'docentes': list_docentes
-    }])
-    print('===  DC Inserido com Sucesso!     ===')
+    }]) """
+    print('===  DC Inserido com Sucesso!     ===') 
     # INSERT UC's
     list_ucs = []
     count_ucs = 0
@@ -75,12 +75,12 @@ with open('../dados/curso - l.json', mode='r', encoding='utf8') as ficheiro:
     cursos = [id_curso]
     print('===  Curso Inserido com Sucesso!     ===')
     # INSERT DC
-    id_dc = models.execute_kw(db, uid, password, 'transum.direcao_curso', 'create', [{
+    """ id_dc = models.execute_kw(db, uid, password, 'transum.direcao_curso', 'create', [{
         'curso_id': id_curso,
         'codigo': 'DC de ' + dados['designacao'],
         'docentes': list_docentes
     }])
-    print('===  DC Inserido com Sucesso!     ===')
+    print('===  DC Inserido com Sucesso!     ===') """
     # INSERT UC's
     list_ucs = []
     count_ucs = 0
@@ -114,13 +114,13 @@ with open('../dados/curso - m.json', mode='r', encoding='utf8') as ficheiro:
     }])
     cursos = [id_curso]
     print('===  Curso Inserido com Sucesso!     ===')
-     # INSERT DC
+    """  # INSERT DC
     id_dc = models.execute_kw(db, uid, password, 'transum.direcao_curso', 'create', [{
         'curso_id': id_curso,
         'codigo': 'DC de ' + dados['designacao'],
         'docentes': list_docentes
     }])
-    print('===  DC Inserido com Sucesso!     ===') 
+    print('===  DC Inserido com Sucesso!     ===') """ 
     # INSERT UC's
     list_ucs = []
     count_ucs = 0

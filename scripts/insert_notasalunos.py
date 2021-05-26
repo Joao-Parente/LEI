@@ -2,7 +2,7 @@ import json
 import xmlrpc.client
 
 url = "http://localhost:8069"
-db = 'odoov4'
+db = 'odoov6'
 username = 'admin'
 password = 'admin'
 

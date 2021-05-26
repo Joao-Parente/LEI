@@ -17,12 +17,12 @@
 						<notebook>
 							<field name="opcao" invisible="1" />
 							<page string="Correspondências">
-								<field name="transicao_ucs_mostra" string="">
+								<field name="transicao_ucs_mostra" string="" style="width:93%%">
 									<tree>
-										<field name="curso_antigo" />
-										<field name="uc_antiga" widget="many2many_tags" />
+										<field name="curso_antigo" style="width:40"/>
+										<field name="uc_antiga" widget="many2many_tags"/>
 										<field name="nota_antiga" />
-										<field name="curso_novo" />
+										<field name="curso_novo" style="width:40"/>
 										<field name="uc_nova" widget="many2many_tags" />
 										<field name="nota_nova" />
 										<field name="atencao" />
@@ -55,8 +55,8 @@
 							<page string="Plano de Transição" readonly="1">
 								<group>
 									<field name="str_antigo_curso" string='Curso Antigo'/>
-									<field name="novos_cursos" widget="many2many" style="pointer-events:none;" />
-									<field name="ucs_plano_transicao" string="Transição" style="pointer-events:none;">
+									<field name="novos_cursos" widget="many2many" style="width:95%%"/>
+									<field name="ucs_plano_transicao" string="Transição" style="width:95%%">
 										<tree>
 											<field name="curso_antigo" />
 											<field name="uc_antiga" widget="many2many_tags" />
@@ -99,7 +99,7 @@
 						<notebook>
 							<field name="opcao" invisible="1" readonly="1"/>
 							<page string="Correspondências">
-								<field name="transicao_ucs_mostra" string="" readonly="1">
+								<field name="transicao_ucs_mostra" string="" readonly="1" style="width:93%%">
 									<tree>
 										<field name="curso_antigo" />
 										<field name="uc_antiga" widget="many2many_tags" />
@@ -137,8 +137,8 @@
 							<page string="Plano de Transição" readonly="1">
 								<group>
 									<field name="str_antigo_curso" string='Curso Antigo'/>
-									<field name="novos_cursos" widget="many2many" style="pointer-events:none;" />
-									<field name="ucs_plano_transicao" string="Transição" style="pointer-events:none;">
+									<field name="novos_cursos" widget="many2many" style="width:95%%" />
+									<field name="ucs_plano_transicao" string="Transição" style="width:95%%">
 										<tree>
 											<field name="curso_antigo" />
 											<field name="uc_antiga" widget="many2many_tags" />

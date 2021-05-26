@@ -87,7 +87,7 @@
 		<field name="name">Proposta Novo Plano Form</field>
 		<field name="model">transum.proposta_novo_plano</field>
 		<field name="arch" type="xml">
-			<form edit="false">
+			<form>
 				<header>
 					<button name="aprovar" type="object" string="Aprovar" class="oe_highlight" attrs="{'invisible':[('opcao', '!=', '1')]}" />
 					<button name="rejeitar" type="object" string="Rejeitar" class="oe_highlight" attrs="{'invisible':[('opcao', '!=', '1')]}" />
@@ -97,9 +97,9 @@
 				<sheet>
 					<group name="group_top">
 						<notebook>
-							<field name="opcao" invisible="1" />
+							<field name="opcao" invisible="1" readonly="1"/>
 							<page string="Correspondências">
-								<field name="transicao_ucs_mostra" string="">
+								<field name="transicao_ucs_mostra" string="" readonly="1">
 									<tree>
 										<field name="curso_antigo" />
 										<field name="uc_antiga" widget="many2many_tags" />
@@ -112,7 +112,7 @@
 								</field>
 							</page>
 							<page string="Planos de Estudos Novos">
-								<field name="planos_novos" string="">
+								<field name="planos_novos" string="" readonly="1">
 									<tree default_order="codigo,total_creditos_feitos,total_creditos_falta">
 										<field name="codigo" />
 										<field name="curso_designacao" />
@@ -158,6 +158,9 @@
 										<field name="estado" />
 									</tree>
 								</field>
+							</page>
+							<page string="Upload">
+								<field name="record_file" widget="file"/>
 							</page>
 						</notebook>
 					</group>

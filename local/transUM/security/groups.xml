@@ -77,7 +77,7 @@
 			<field name="name">Um diretor de curso vê os planos de estudo dos alunos do seu curso</field>
 			<field name="model_id" ref="model_transum_plano_estudos"/>
 			<field name="groups" eval="[(4,ref('transum_group_direcao_curso'))]"/>
-			<field name="domain_force"> [('dc_associada.docentes.user_id', '=', user.id)] </field>
+			<field name="domain_force"> [('dc_associada.docentes.user_id', '=', user.id), ('aluno_associado', '!=', False)] </field>
 		</record>
 		<record model="ir.rule" id="dc_plano_transicao_rule">
 			<field name="name">Um diretor de curso vê apenas os planos de transicao do seu curso</field>

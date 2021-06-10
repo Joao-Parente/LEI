@@ -17,7 +17,6 @@
 										<field name="name" string="Nome"> res.users.form.inherit </field>
 										<field name="nr_mecanografico" />
 										<field name="estatuto" />
-										<field name="ano" />
 										<field name="estado" readonly="1" />
 										<field name="proposta_plano_aluno" readonly="1" attrs="{'invisible':[('proposta_plano_aluno','=',False)]}"  />
 									</group>
@@ -58,7 +57,6 @@
 										<field name="name" string="Nome"> res.users.form.inherit </field>
 										<field name="nr_mecanografico" />
 										<field name="estatuto" />
-										<field name="ano" />
 										<field name="estado" readonly="1" />
 										<field name="proposta_plano_aluno" readonly="1" attrs="{'invisible':[('proposta_plano_aluno','=',False)]}"  />
 									</group>
@@ -88,9 +86,8 @@
 		<field name="name">Lista de Alunos</field>
 		<field name="model">transum.aluno</field>
 		<field name="arch" type="xml">
-			<tree default_order="nr_mecanografico,curso_id,ano">
-				<field name="nr_mecanografico" />
-				<field name="ano" />
+			<tree default_order="nr_mecanografico,curso_id">
+				<field name="nr_mecanografico" />				
 				<field name="curso_id" widget="many2many_tags" />
 			</tree>
 		</field>
@@ -103,7 +100,6 @@
 		<field name="arch" type="xml">
 			<search>
 				<field name="nr_mecanografico" string="Nª Mecanográfico" filter_domain="[('nr_mecanografico','ilike',self)]" />
-				<field name="ano" string="Ano" filter_domain="[('ano','ilike',self)]" />
 				<field name="curso_id" string="Curso" filter_domain="[('curso_id','ilike',self)]" />
 			</search>
 		</field>

@@ -13,7 +13,6 @@ class Aluno(models.Model):
 
     nr_mecanografico = fields.Char('Nº Mecanográfico')
     estado = fields.Selection([('1', 'Não Transitado'), ('2', 'Em Transição'), ('3', 'Aceitou a Transição'), ('4', 'Não aceitou a Transição')], default='1')
-    ano = fields.Selection([('1', '1º ano'), ('2', '2º ano'), ('3', '3º ano'), ('4', '4º ano'), ('5', '5º ano'), ('6', '6º ano')], default='1')
     estatuto = fields.Selection([('1', 'Estudante'), ('2', 'Trabalhador Estudante'), ('3', 'Estudante Atleta')], default='1')
 
     curso_id = fields.Many2many('transum.curso', string='Curso')

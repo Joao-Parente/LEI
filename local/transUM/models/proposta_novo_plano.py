@@ -9,7 +9,7 @@ class Proposta_Novo_Plano(models.Model):
     _description = 'Proposta De Novo Plano'
     active = fields.Boolean('Ativo?', default=True)
 
-    opcao = fields.Selection([('1', 'Tem opção de escolha.'), ('2', 'Não possui opção de escolha.'), ('3', 'Aceitou a transição.'), ('4','Necessita de atenção.'), ('5', 'Rejeitou a transição.')], string='Observações', default='1')
+    opcao = fields.Selection([('1', 'Tem opção de escolha.'), ('2', 'Não possui opção de escolha.'), ('3', 'Aceitou a transição.'), ('4','Necessita de atenção.'), ('5', 'Rejeitou a transição.'), ('6', 'Aguardar pela assinatura.'), ('7', 'Aprovar assinatura.')], string='Observações', default='6')
 
     plano_antigo = fields.Many2one('transum.plano_estudos', 'Plano Antigo ID')    
     ucs_plano_antigo = fields.One2many('transum.plano_estudos_uc', 'plano_estudos', string='Plano de Estudos UCs', related='plano_antigo.nota_uc')
@@ -31,13 +31,12 @@ class Proposta_Novo_Plano(models.Model):
     designacao = fields.Char(compute='_compute_designacao', string='Proposta de Transição')
 
     record_file = fields.Binary(string='file', attachment=True, help='Upload the file')
-
+    upload = fields.Boolean(string='Submeter?', default=False)
 
     def _compute_designacao(self):
         for record in self:
             record.designacao = 'Proposta de Transição ' + str(record.id)
     
-
     def _compute_str_antigo_curso(self):
         for pnp in self:
             if pnp.antigo_curso_tipo == '1':
@@ -46,7 +45,6 @@ class Proposta_Novo_Plano(models.Model):
                 pnp.str_antigo_curso = pnp.antigo_curso_designacao + ' :: Mestrado Integrado \n'
             elif pnp.antigo_curso_tipo == '3':
                 pnp.str_antigo_curso = pnp.antigo_curso_designacao + ' :: Mestrado \n'
-
 
     def aprovar(self):
         alunos = self.env['transum.aluno']

@@ -46,9 +46,7 @@
                             <b><t t-esc="aluno.name"/>,</b>
                             com o seguinte número mecanográfico
                             <t t-esc="aluno.nr_mecanografico"/> 
-                            pertencente atualmente ao  
-                            <t t-esc="aluno.ano"/>
-                            º ano do curso:
+                            pertencente atualmente ao curso:
                             <ul>
                                 <t t-foreach="doc.plano_antigo" t-as="plano_antigo">
                                     <li> 

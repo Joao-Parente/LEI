@@ -176,7 +176,7 @@ class Plano_Transicao(models.Model):
                     else:
                         creditacao = plano.creditos_creditados()
                         if plano.total_creditos_falta + creditacao > plano.total_creditos_feitos - creditacao:
-                            proposal.opcao = '2'
+                            proposal.opcao = '6'
                     count_alunos += 1        
                     break
                 

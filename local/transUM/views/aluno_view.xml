@@ -17,8 +17,8 @@
 										<field name="name" string="Nome"> res.users.form.inherit </field>
 										<field name="nr_mecanografico" />
 										<field name="estatuto" />
-										<field name="estado" readonly="1" />
-										<field name="proposta_plano_aluno" readonly="1" attrs="{'invisible':[('proposta_plano_aluno','=',False)]}"  />
+										<field name="estado" />
+										<field name="proposta_plano_aluno" attrs="{'invisible':[('proposta_plano_aluno','=',False)]}"  />
 									</group>
 									<group>
 										<field name="curso_id" string="Curso" />

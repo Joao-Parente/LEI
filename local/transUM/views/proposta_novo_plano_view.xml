@@ -10,7 +10,7 @@
 					<button name="aprovar" type="object" string="Aprovar" class="oe_highlight" attrs="{'invisible':[('opcao', '!=', '1')]}" />
 					<button name="rejeitar" type="object" string="Rejeitar" class="oe_highlight" attrs="{'invisible':[('opcao', '!=', '1')]}" />
 					<button name="aprovar" type="object" string="Tomei conhecimento" class="oe_highlight" attrs="{'invisible':[('opcao', '!=', '2')]}" />
-					<field name="opcao" class="oe_highlight" string="Observações" />
+					<field name="opcao" class="oe_highlight" />
 				</header>
 				<sheet>
 					<group name="group_top">
@@ -96,8 +96,11 @@
 					<button name="aprovar" type="object" string="Aprovar" class="oe_highlight" attrs="{'invisible':[('opcao', '!=', '1')]}" />
 					<button name="rejeitar" type="object" string="Rejeitar" class="oe_highlight" attrs="{'invisible':[('opcao', '!=', '1')]}" />
 					<button name="aprovar" type="object" string="Tomei conhecimento" class="oe_highlight" attrs="{'invisible':[('opcao', '!=', '2')]}" />
-					<field name="opcao" class="oe_highlight" string="Aguardar Upload" attrs="{'invisible':[('opcao','!=','6')]}" readonly="1"/>
-					<field name="opcao" class="oe_highlight" string="Aguardar aprovação da assinatura" attrs="{'invisible':[('opcao','!=','7')]}" readonly="1"/>
+					<field name="opcao" class="oe_highlight" string="Aceitou a transição." attrs="{'invisible':[('opcao','!=','3')]}" readonly="1"/>
+					<field name="opcao" class="oe_highlight" string="Necessita de atenção." attrs="{'invisible':[('opcao','!=','4')]}" readonly="1"/>
+					<field name="opcao" class="oe_highlight" string="Rejeitou a transição." attrs="{'invisible':[('opcao','!=','5')]}" readonly="1"/>
+					<field name="opcao" class="oe_highlight" string="Aguardar pela assinatura." attrs="{'invisible':[('opcao','!=','6')]}" readonly="1"/>
+					<field name="opcao" class="oe_highlight" string="Aprovar assinatura." attrs="{'invisible':[('opcao','!=','7')]}" readonly="1"/>
 				</header>
 				<sheet>
 					<group name="group_top">
@@ -164,9 +167,9 @@
 								</field>
 							</page>
 							<page string="Upload">
-								<field name="upload" attrs="{'invisible':[('upload', '!=', False)]}" />
-								<label for="record_file" string="Submeter o ficheiro."/>
-								<field name="record_file" widget="file" />
+								<field name="upload" string="Submeter" readonly='1'/>
+								<label for="record_file" string="Submeter o ficheiro." />
+								<field name="record_file" widget="file" attrs="{'readonly': [('upload', '=', True)]}"/>
 							</page>
 						</notebook>
 					</group>
@@ -186,10 +189,9 @@
 			</tree>
 		</field>
 	</record>
-	<!-- ActionMan -->
-	<!-- <record id="aprovar_em_bulk" model="ir.actions.server"><field name="name">Aprovar</field><field name="model_id" ref="transum.proposta_novo_plano"/><field name="model">transum.proposta_novo_plano</field><field name="code"/></record> -->
+	<!-- Action -->
 	<record id="aprovar_action" model="ir.actions.server">
-		<field name="name">Aprovar</field>
+		<field name="name">Transitar</field>
 		<field name="type">ir.actions.server</field>
 		<field name="model_id" ref="model_transum_proposta_novo_plano"/>
 		<field name="binding_model_id" ref="model_transum_proposta_novo_plano"/>

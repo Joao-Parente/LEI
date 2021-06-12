@@ -33,6 +33,14 @@ class Proposta_Novo_Plano(models.Model):
     record_file = fields.Binary(string='file', attachment=True, help='Upload the file')
     upload = fields.Boolean(string='Submeter?', default=False)
 
+    def write(self, vals):
+        if 'record_file' in vals:
+            if not self.upload:
+                self.upload = True
+                self.opcao = '7'
+
+        return super().write(vals)
+
     def _compute_designacao(self):
         for record in self:
             record.designacao = 'Proposta de Transição ' + str(record.id)
@@ -71,17 +79,15 @@ class Proposta_Novo_Plano(models.Model):
             aluno.estado = '3'
             self.opcao = '3'
 
+    def rejeitar(self):
+        for aluno_id in self.aluno:
+            aluno = self.env['transum.aluno'].search([('id', '=', aluno_id.id)])                
+            aluno.estado = '4'
+            self.opcao = '5'
+
+
     def aprovar_from_list(self):
         for rec in self:
             if rec.opcao != '1' and rec.opcao != '2':
                 raise models.ValidationError('Not working' + str(rec.designacao))
             rec.aprovar()
-
-    def rejeitar(self):
-        for aluno_id in self.aluno:
-            aluno = self.env['transum.aluno'].search([('id', '=', aluno_id.id)])
-                
-            aluno.estado = '4'
-            self.opcao = '5'
-
-        

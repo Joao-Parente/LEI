@@ -12,7 +12,7 @@ version = common.version()
 uid = common.authenticate(db, username, password, {})
 
 
-with open('../dados/transicao.json', mode='r', encoding='utf8') as ficheiro:
+with open('./dados/transicao.json', mode='r', encoding='utf8') as ficheiro:
     dados = json.load(ficheiro)
 
     id_curso_antigo = models.execute_kw(db, uid, password, 'transum.curso', 'search_read', [[['designacao', '=', dados["curso_antigo"]]]], {'fields': ['id']})

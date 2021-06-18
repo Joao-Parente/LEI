@@ -11,7 +11,7 @@ models = xmlrpc.client.ServerProxy('{}/xmlrpc/2/object'.format(url))
 version = common.version()
 uid = common.authenticate(db, username, password, {})
 
-with open('../dados/docentes.json', mode='r', encoding='utf8') as ficheiro:
+with open('./dados/docentes.json', mode='r', encoding='utf8') as ficheiro:
     dados = json.load(ficheiro)
     list_docentes = []
     for docente in dados:
@@ -24,7 +24,7 @@ with open('../dados/docentes.json', mode='r', encoding='utf8') as ficheiro:
         list_docentes.append(id_docente)
 
 
-with open('../dados/curso.json', mode='r', encoding='utf8') as ficheiro:
+with open('./dados/curso.json', mode='r', encoding='utf8') as ficheiro:
     dados = json.load(ficheiro) 
     # INSERT CURSO 
     id_curso = models.execute_kw(db, uid, password, 'transum.curso', 'create', [{
@@ -64,7 +64,7 @@ with open('../dados/curso.json', mode='r', encoding='utf8') as ficheiro:
     print('=== Plano_Curso Inserido c/ Sucesso! ===')
 
 
-with open('../dados/curso - l.json', mode='r', encoding='utf8') as ficheiro:
+with open('./dados/curso - l.json', mode='r', encoding='utf8') as ficheiro:
     dados = json.load(ficheiro)
     # INSERT CURSO 
     id_curso = models.execute_kw(db, uid, password, 'transum.curso', 'create', [{
@@ -104,7 +104,7 @@ with open('../dados/curso - l.json', mode='r', encoding='utf8') as ficheiro:
     print('=== Plano_Curso Inserido c/ Sucesso! ===')
 
 
-with open('../dados/curso - m.json', mode='r', encoding='utf8') as ficheiro:
+with open('./dados/curso - m.json', mode='r', encoding='utf8') as ficheiro:
     dados = json.load(ficheiro)
     # INSERT CURSO 
     id_curso = models.execute_kw(db, uid, password, 'transum.curso', 'create', [{

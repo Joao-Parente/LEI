@@ -12,7 +12,7 @@ version = common.version()
 uid = common.authenticate(db, username, password, {})
 
 
-with open('../dados/alunos.json', mode='r', encoding='utf8') as ficheiro:
+with open('./dados/alunos.json', mode='r', encoding='utf8') as ficheiro:
     dados = json.load(ficheiro)
 
     # INSERT ALUNOS
